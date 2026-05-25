@@ -1,0 +1,66 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Documents API
+  description: Self-contained Naftiko capability covering Sage HR document categories and uploads.
+  tags:
+  - Sage HR
+  - Documents
+  - Files
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-documents
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR documents resource group.
+    resources:
+    - name: categories
+      path: /documents/categories
+      operations:
+      - name: list-categories
+        method: GET
+        description: List document categories.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents
+      path: /documents
+      operations:
+      - name: create-document
+        method: POST
+        description: Upload a new document (multipart form-data).
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: sage-hr-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Documents.
+    tools:
+    - name: sage-hr-list-document-categories
+      description: List Sage HR document categories.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-documents.list-categories

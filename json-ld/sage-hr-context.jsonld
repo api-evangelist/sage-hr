@@ -1,0 +1,124 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "sagehr": "https://apidoc.sage.hr/#/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Employee": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": {
+          "@id": "sagehr:Employee/id",
+          "@type": "xsd:integer"
+        },
+        "first_name": {
+          "@id": "schema:givenName",
+          "@type": "xsd:string"
+        },
+        "last_name": {
+          "@id": "schema:familyName",
+          "@type": "xsd:string"
+        },
+        "email": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "personal_email": {
+          "@id": "sagehr:Employee/personalEmail",
+          "@type": "xsd:string"
+        },
+        "phone_number": {
+          "@id": "schema:telephone",
+          "@type": "xsd:string"
+        },
+        "date_of_birth": {
+          "@id": "schema:birthDate",
+          "@type": "xsd:date"
+        },
+        "employment_start_date": {
+          "@id": "sagehr:Employee/employmentStartDate",
+          "@type": "xsd:date"
+        },
+        "gender": {
+          "@id": "schema:gender",
+          "@type": "xsd:string"
+        },
+        "team": {
+          "@id": "sagehr:Employee/team",
+          "@type": "xsd:string"
+        },
+        "position": {
+          "@id": "schema:jobTitle",
+          "@type": "xsd:string"
+        },
+        "reports_to_employee_id": {
+          "@id": "sagehr:Employee/reportsTo",
+          "@type": "xsd:integer"
+        },
+        "employment_status": {
+          "@id": "sagehr:Employee/employmentStatus",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Team": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": { "@id": "sagehr:Team/id", "@type": "xsd:integer" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" }
+      }
+    },
+
+    "Position": {
+      "@id": "sagehr:Position",
+      "@context": {
+        "id": { "@id": "sagehr:Position/id", "@type": "xsd:integer" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" }
+      }
+    },
+
+    "TimeOffRequest": {
+      "@id": "sagehr:TimeOffRequest",
+      "@context": {
+        "id": { "@id": "sagehr:TimeOffRequest/id", "@type": "xsd:integer" },
+        "employee_id": { "@id": "sagehr:TimeOffRequest/employeeId", "@type": "xsd:integer" },
+        "policy_id": { "@id": "sagehr:TimeOffRequest/policyId", "@type": "xsd:integer" },
+        "start_date": { "@id": "schema:startDate", "@type": "xsd:date" },
+        "end_date": { "@id": "schema:endDate", "@type": "xsd:date" },
+        "status": { "@id": "sagehr:TimeOffRequest/status", "@type": "xsd:string" }
+      }
+    },
+
+    "TimeOffPolicy": {
+      "@id": "sagehr:TimeOffPolicy",
+      "@context": {
+        "id": { "@id": "sagehr:TimeOffPolicy/id", "@type": "xsd:integer" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "is_paid": { "@id": "sagehr:TimeOffPolicy/isPaid", "@type": "xsd:boolean" }
+      }
+    },
+
+    "RecruitmentPosition": {
+      "@id": "schema:JobPosting",
+      "@context": {
+        "id": { "@id": "sagehr:RecruitmentPosition/id", "@type": "xsd:integer" },
+        "title": { "@id": "schema:title", "@type": "xsd:string" },
+        "department": { "@id": "schema:hiringOrganization", "@type": "xsd:string" }
+      }
+    },
+
+    "Applicant": {
+      "@id": "sagehr:Applicant",
+      "@context": {
+        "id": { "@id": "sagehr:Applicant/id", "@type": "xsd:integer" },
+        "first_name": { "@id": "schema:givenName", "@type": "xsd:string" },
+        "last_name": { "@id": "schema:familyName", "@type": "xsd:string" },
+        "email": { "@id": "schema:email", "@type": "xsd:string" }
+      }
+    }
+  }
+}

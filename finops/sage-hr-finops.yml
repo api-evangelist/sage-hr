@@ -1,0 +1,109 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Sage HR
+providerId: sage-hr
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - HR
+description: FOCUS-aligned FinOps definition for Sage HR. Sage HR bills a Core HR + Leave subscription on a
+  per-employee-per-month basis, plus optional per-employee or per-position add-on modules (Performance, Recruitment,
+  Shift Scheduling, Timesheets, Expenses). The Sage HR API itself is included at no additional metering — there is
+  no usage-based charge for API calls.
+sources:
+  - https://sage.hr/pricing/
+  - https://apidoc.sage.hr/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Sage Group plc
+serviceCategory: Business Applications - HR
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency:
+    - Monthly
+    - Annual
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: employee-month
+  secondaryUnits:
+    - position-month
+focusColumns:
+  ServiceName: Sage HR
+  ServiceCategory: Business Applications
+  ProviderName: Sage HR
+  PublisherName: Sage Group plc
+  InvoiceIssuerName: Sage Group plc
+  PricingCategory: Subscription-Based
+  PricingUnit: employee-month
+  BillingCurrency: USD
+meters:
+  - name: active_employees
+    unit: employee
+    aggregation: max
+    description: Snapshot count of active employees in the Sage HR tenant; drives Core HR + Leave billing.
+    dimensions:
+      - module
+      - tenant
+  - name: addon_seats_performance
+    unit: employee
+    aggregation: max
+    description: Active employees enrolled in the Performance Management add-on.
+    dimensions:
+      - tenant
+  - name: addon_seats_shift_scheduling
+    unit: employee
+    aggregation: max
+    description: Active employees enrolled in the Shift Scheduling add-on.
+    dimensions:
+      - tenant
+  - name: addon_seats_timesheets
+    unit: employee
+    aggregation: max
+    description: Active employees enrolled in the Timesheets add-on.
+    dimensions:
+      - tenant
+  - name: addon_seats_expenses
+    unit: employee
+    aggregation: max
+    description: Active employees enrolled in the Expenses add-on.
+    dimensions:
+      - tenant
+  - name: recruitment_positions
+    unit: position
+    aggregation: max
+    description: Open recruitment positions billed under the Recruitment add-on.
+    dimensions:
+      - tenant
+allocation:
+  recommended:
+    - by: module
+      reason: Cleanly separates Core HR, Leave, Performance, Recruitment, Timesheets, and other add-ons for
+        showback/chargeback.
+    - by: tenant
+      reason: Customer tenants are billed independently.
+  notes:
+    - There is no token-based or call-based API metering; cost allocation is driven by seat counts and add-on
+      attachments rather than API usage volume.
+governance:
+  invoicePeriod: Monthly or annual depending on contract
+  paymentTerms: Net 30 (typical)
+  notes:
+    - Customers can normally downgrade or remove add-ons at the end of the term; mid-term removal is subject to the
+      contract.
+notes:
+  - Public pricing on sage.hr is geo-localized and changes regularly; reconcile against current quotes before
+    deriving showback rates.

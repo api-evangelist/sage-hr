@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Performance API
+  description: Self-contained Naftiko capability covering Sage HR quarterly performance reporting — overall, company,
+    team, and individual goals.
+  tags:
+  - Sage HR
+  - Performance
+  - Goals
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-performance
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR performance resource group.
+    resources:
+    - name: quarterly-overall
+      path: /performance/goals/quarterly-progress/overall
+      operations:
+      - name: overall-progress
+        method: GET
+        description: Overall quarterly progress overview.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: quarterly-company
+      path: /performance/goals/quarterly-progress/company-goals
+      operations:
+      - name: company-goals
+        method: GET
+        description: Quarterly progress for company-wide goals.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: quarterly-team
+      path: /performance/goals/quarterly-progress/team-goals
+      operations:
+      - name: team-goals
+        method: GET
+        description: Quarterly progress for team goals.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: quarterly-individual
+      path: /performance/goals/quarterly-progress/individual-goals
+      operations:
+      - name: individual-goals
+        method: GET
+        description: Quarterly progress for individual goals.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: sage-hr-performance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Performance.
+    tools:
+    - name: sage-hr-quarterly-progress
+      description: Overall quarterly progress overview.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-performance.overall-progress

@@ -1,0 +1,152 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Sage HR
+providerId: sage-hr
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - HR
+  - HRIS
+  - SMB
+description: Modular per-employee-per-month plan model published by Sage HR. The customer pays a base "Core HR +
+  Leave Management" subscription and adds optional modules (Performance, Recruitment, Shift Scheduling, Timesheets,
+  Expenses) at additional per-employee rates. Public pricing fluctuates and is gated behind sage.com; treat published
+  numbers as indicative and reconcile against sage.hr/pricing at procurement time.
+sources:
+  - https://sage.hr/pricing/
+  - https://www.sage.com/en-gb/sage-business-cloud/hr/
+plans:
+  - id: sage-hr-core
+    name: Core HR + Leave Management
+    type: per-seat
+    description: Base Sage HR plan including the employee directory and leave management module.
+    entries:
+      - label: Employee
+        name: employee
+        type: subscription
+        metric: employee
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.50'
+        userMultiplied: true
+    elements:
+      - name: Core HR records and employee directory
+      - name: Org chart, positions, and teams
+      - name: Document storage and categories
+      - name: Leave management and time-off policies
+      - name: Mobile apps for self-service
+      - name: API access (X-Auth-Token)
+  - id: sage-hr-performance-addon
+    name: Performance Management (Add-on)
+    type: per-seat-addon
+    description: Add-on for goal setting, 1:1s, 360 feedback, and performance reviews. Layered on top of Core HR.
+    entries:
+      - label: Employee
+        name: employee
+        type: subscription
+        metric: employee
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: true
+    elements:
+      - name: Goals (company, team, individual)
+      - name: 1:1s and feedback
+      - name: 360 reviews
+      - name: Quarterly progress reporting via API
+  - id: sage-hr-recruitment-addon
+    name: Recruitment (Add-on)
+    type: per-position-addon
+    description: Applicant tracking add-on priced per open position, not per employee. Layered on top of Core HR.
+    entries:
+      - label: Position
+        name: position
+        type: subscription
+        metric: position
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '200.00'
+        userMultiplied: true
+    elements:
+      - name: Career site and job postings
+      - name: Applicant pipeline and actions
+      - name: Referral tracking
+  - id: sage-hr-shift-scheduling-addon
+    name: Shift Scheduling (Add-on)
+    type: per-seat-addon
+    description: Add-on for shift planning and schedule publication. Layered on top of Core HR.
+    entries:
+      - label: Employee
+        name: employee
+        type: subscription
+        metric: employee
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: true
+    elements:
+      - name: Shift planning
+      - name: Schedule publication
+      - name: Shift swap requests
+  - id: sage-hr-timesheets-addon
+    name: Timesheets (Add-on)
+    type: per-seat-addon
+    description: Add-on for time tracking and clock-in/out. Layered on top of Core HR.
+    entries:
+      - label: Employee
+        name: employee
+        type: subscription
+        metric: employee
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: true
+    elements:
+      - name: Clock-in / clock-out (web and mobile)
+      - name: Timesheet approvals
+      - name: Time-tracking reports
+  - id: sage-hr-expenses-addon
+    name: Expenses (Add-on)
+    type: per-seat-addon
+    description: Add-on for employee expense submission and approval. Layered on top of Core HR.
+    entries:
+      - label: Employee
+        name: employee
+        type: subscription
+        metric: employee
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: true
+    elements:
+      - name: Expense submission with receipts
+      - name: Multi-stage approvals
+      - name: Reimbursement export
+billing:
+  currency: USD
+  billingFrequency:
+    - monthly
+    - annual
+  freeTrial:
+    available: true
+    durationDays: 14
+    description: 14-day free trial available without credit card.
+notes:
+  - All listed prices are indicative — Sage HR pricing varies by geography and is subject to change. Reconcile against
+    sage.hr/pricing at the time of procurement.
+  - Modules are additive; the API itself is included with every Sage HR subscription tier.
+  - The Recruitment add-on is priced per open position rather than per employee, which is unusual for HRIS pricing.

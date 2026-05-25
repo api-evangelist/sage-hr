@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Organization API
+  description: Self-contained Naftiko capability covering Sage HR positions, teams, and termination reasons.
+  tags:
+  - Sage HR
+  - Organization
+  - Positions
+  - Teams
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-org
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR organization-structure resource group.
+    resources:
+    - name: positions
+      path: /positions
+      operations:
+      - name: list-positions
+        method: GET
+        description: List company positions.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: teams
+      path: /teams
+      operations:
+      - name: list-teams
+        method: GET
+        description: List teams in the company.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: termination-reasons
+      path: /termination-reasons
+      operations:
+      - name: list-termination-reasons
+        method: GET
+        description: List company termination reasons.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: sage-hr-org-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Organization.
+    tools:
+    - name: sage-hr-list-positions
+      description: List company positions.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-org.list-positions
+    - name: sage-hr-list-teams
+      description: List company teams.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-org.list-teams

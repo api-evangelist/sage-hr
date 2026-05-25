@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sage-hr/main/json-schema/sage-hr-employee-schema.json",
+  "title": "Sage HR Employee",
+  "description": "An employee record as returned by the Sage HR /employees and /employees/{id} endpoints. Derived from the published Sage HR API reference at apidoc.sage.hr and the konfig-sdks/sage-java-sdk OpenAPI artifact.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique Sage HR employee identifier."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Primary work email address for the employee."
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Employee's first name."
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Employee's last name."
+    },
+    "picture_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the employee's profile picture."
+    },
+    "employment_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the employee started employment."
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "description": "Employee's date of birth."
+    },
+    "gender": {
+      "type": "string",
+      "description": "Employee's gender."
+    },
+    "marital_status": {
+      "type": "string",
+      "description": "Employee's marital status."
+    },
+    "personal_identification_number": {
+      "type": "string",
+      "description": "National ID / personal identification number (privacy-sensitive)."
+    },
+    "personal_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Personal (non-work) email address."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "Primary phone number."
+    },
+    "home_phone": {
+      "type": "string",
+      "description": "Home phone number."
+    },
+    "address": {
+      "type": "string",
+      "description": "Employee street address."
+    },
+    "city": {
+      "type": "string",
+      "description": "Employee city."
+    },
+    "country": {
+      "type": "string",
+      "description": "Employee country."
+    },
+    "postcode": {
+      "type": "string",
+      "description": "Employee postal code."
+    },
+    "team": {
+      "type": "string",
+      "description": "Current team name."
+    },
+    "team_id": {
+      "type": "integer",
+      "description": "Current team ID."
+    },
+    "position": {
+      "type": "string",
+      "description": "Current position title."
+    },
+    "position_id": {
+      "type": "integer",
+      "description": "Current position ID."
+    },
+    "reports_to_employee_id": {
+      "type": "integer",
+      "description": "Sage HR employee ID of the direct manager."
+    },
+    "employment_status": {
+      "type": "string",
+      "description": "Current employment status (e.g., Full-Time, Part-Time, Contractor)."
+    },
+    "employment_status_history": {
+      "type": "array",
+      "description": "Historical employment status changes.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "employment_status": { "type": "string" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": ["string", "null"], "format": "date" }
+        }
+      }
+    },
+    "team_history": {
+      "type": "array",
+      "description": "Historical team assignments.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "team": { "type": "string" },
+          "team_id": { "type": "integer" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": ["string", "null"], "format": "date" }
+        }
+      }
+    },
+    "position_history": {
+      "type": "array",
+      "description": "Historical position assignments.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": { "type": "string" },
+          "position_id": { "type": "integer" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": ["string", "null"], "format": "date" }
+        }
+      }
+    }
+  },
+  "required": ["id", "email", "first_name", "last_name"],
+  "additionalProperties": true
+}

@@ -1,0 +1,183 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Employee API
+  description: Self-contained Naftiko capability covering Sage HR employee directory operations — list, get,
+    create, update, terminate, custom fields, and compensations.
+  tags:
+  - Sage HR
+  - HR
+  - Employees
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-employees
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR employee resource group.
+    resources:
+    - name: employees
+      path: /employees
+      operations:
+      - name: list-active-employees
+        method: GET
+        description: List active employees.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-employee
+        method: POST
+        description: Create a new employee.
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employee-by-id
+      path: /employees/{id}
+      operations:
+      - name: get-employee
+        method: GET
+        description: Get an employee by ID.
+        outputRawFormat: json
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: update-employee
+        method: PUT
+        description: Update an employee by ID.
+        outputRawFormat: json
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employee-custom-fields
+      path: /employees/{id}/custom-fields
+      operations:
+      - name: get-custom-fields
+        method: GET
+        description: Get custom fields for an employee.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employee-terminations
+      path: /employees/{id}/terminations
+      operations:
+      - name: terminate-employee
+        method: POST
+        description: Terminate an employee.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: terminated-employees
+      path: /terminated-employees
+      operations:
+      - name: list-terminated-employees
+        method: GET
+        description: List terminated employees.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employee-compensations
+      path: /employees/{id}/compensations
+      operations:
+      - name: get-compensations
+        method: GET
+        description: Get compensation history for an employee.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sage-hr-employees-rest
+    port: 8080
+    description: REST adapter for Sage HR Employee API.
+    resources:
+    - path: /v1/employees
+      name: employees
+      operations:
+      - method: GET
+        name: list-active-employees
+        call: sage-hr-employees.list-active-employees
+      - method: POST
+        name: create-employee
+        call: sage-hr-employees.create-employee
+        with:
+          body: rest.body
+  - type: mcp
+    namespace: sage-hr-employees-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Employee API.
+    tools:
+    - name: sage-hr-list-employees
+      description: List active employees in Sage HR.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-employees.list-active-employees
+    - name: sage-hr-get-employee
+      description: Get an employee by ID.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-employees.get-employee
+      with:
+        id: tools.id

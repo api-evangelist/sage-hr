@@ -1,0 +1,47 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Sage HR
+providerId: sage-hr
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - HR
+  - Rate Limiting
+description: Sage HR does not publish a formal rate-limit table. The Sage HR API uses tenant-scoped API keys
+  (`X-Auth-Token`) against the customer's own subdomain (`https://{subdomain}.sage.hr/api`). Cloudflare-fronted edge
+  protection applies tenant-level throttling that surfaces as 429 / 403 responses under abusive load. Treat the
+  numbers below as conservative defaults until reconciled against current Sage HR support guidance.
+sources:
+  - https://apidoc.sage.hr/
+  - https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+headers:
+  retryAfter: retry-after
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  edgeBlocked: 403
+algorithm: tenant-scoped sliding window (Cloudflare-enforced; exact algorithm not documented)
+scope:
+  - level: tenant
+    description: All API calls share the customer's tenant API key; abuse on one credential affects all clients of
+      that tenant.
+limits:
+  - tier: Default tenant
+    scope: tenant
+    rpm: 60
+    notes: Conservative default — Sage HR has not published an official tenant rpm. Long-running imports should
+      throttle to <= 1 req/sec.
+  - tier: Default tenant
+    scope: tenant
+    rph: 3000
+    notes: Conservative hourly cap inferred from Cloudflare edge behavior on the platform. Not officially published.
+recommendations:
+  - Honor Retry-After when 429 is returned.
+  - Back off exponentially on 5xx; treat 503 from Cloudflare as a transient edge condition.
+  - Do not parallelize beyond a small concurrency (<= 4) per tenant key; Sage HR pages 50-100 items per response and
+    cursor/page pagination is preferred over high-concurrency fan-out.
+notes:
+  - Rate limits below are not formally published by Sage HR; reconcile with the provider's support team before
+    productionizing high-volume integrations.

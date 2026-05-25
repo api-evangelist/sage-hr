@@ -1,0 +1,58 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Timesheets API
+  description: Self-contained Naftiko capability covering Sage HR clock-in / clock-out via /timesheets/clock-in.
+  tags:
+  - Sage HR
+  - Timesheets
+  - Time Tracking
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-timesheets
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR timesheets resource group.
+    resources:
+    - name: clock-in
+      path: /timesheets/clock-in
+      operations:
+      - name: clock-in-out
+        method: POST
+        description: Submit a clock-in or clock-out event.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: sage-hr-timesheets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Timesheets.
+    tools:
+    - name: sage-hr-clock-in-out
+      description: Submit a clock-in or clock-out punch event.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sage-hr-timesheets.clock-in-out
+      with:
+        body: tools.body

@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage HR Leave Management API
+  description: Self-contained Naftiko capability covering Sage HR time-off policies, KIT days, allowances, balances,
+    and leave requests.
+  tags:
+  - Sage HR
+  - Leave
+  - Time Off
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SAGE_HR_API_KEY: SAGE_HR_API_KEY
+    SAGE_HR_SUBDOMAIN: SAGE_HR_SUBDOMAIN
+capability:
+  consumes:
+  - type: http
+    namespace: sage-hr-leave
+    baseUri: https://{{env.SAGE_HR_SUBDOMAIN}}.sage.hr/api
+    description: Sage HR leave-management resource group.
+    resources:
+    - name: policies
+      path: /leave-management/policies
+      operations:
+      - name: list-policies
+        method: GET
+        description: List time-off policies.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policy-by-id
+      path: /leave-management/policies/{id}
+      operations:
+      - name: get-policy
+        method: GET
+        description: Get a time-off policy by ID.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kit-days
+      path: /leave-management/kit-days
+      operations:
+      - name: list-kit-days
+        method: GET
+        description: List KIT (Keeping In Touch) day configurations.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-kit-day
+        method: POST
+        description: Create a KIT day record.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: individual-allowances
+      path: /leave-management/reports/individual-allowances
+      operations:
+      - name: get-individual-allowances
+        method: GET
+        description: Report on individual time-off allowances.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employee-balances
+      path: /employees/{id}/leave-management/balances
+      operations:
+      - name: get-time-off-balances
+        method: GET
+        description: Get an employee's time-off balances.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: requests
+      path: /leave-management/requests
+      operations:
+      - name: list-requests
+        method: GET
+        description: List time-off requests.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: new-request
+        method: POST
+        description: Create a new time-off request.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: out-of-office-today
+      path: /leave-management/out-of-office-today
+      operations:
+      - name: list-out-today
+        method: GET
+        description: List employees out of office today.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Auth-Token
+      value: '{{env.SAGE_HR_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: sage-hr-leave-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage HR Leave Management.
+    tools:
+    - name: sage-hr-list-time-off-requests
+      description: List Sage HR time-off requests.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-leave.list-requests
+    - name: sage-hr-create-time-off-request
+      description: Create a new Sage HR time-off request.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sage-hr-leave.new-request
+      with:
+        body: tools.body
+    - name: sage-hr-out-of-office-today
+      description: List employees out of office today.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sage-hr-leave.list-out-today
