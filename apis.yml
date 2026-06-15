@@ -1,228 +1,219 @@
 aid: sage-hr
 url: https://raw.githubusercontent.com/api-evangelist/sage-hr/refs/heads/main/apis.yml
 apis:
-- aid: sage-hr:sage-hr-employee-api
-  name: Sage HR Employee API
-  tags:
-  - HR
-  - HRIS
-  - Employees
-  - People
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - url: json-schema/sage-hr-employee-schema.json
-    type: JSONSchema
-  - url: json-ld/sage-hr-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/employees.yaml
-  description: Manage the employee directory in Sage HR — list active and terminated employees, fetch an employee by
-    ID, create new employees, update employee records and custom fields, retrieve compensation history, and process
-    terminations. Backed by the /employees and /terminated-employees resource trees.
-- aid: sage-hr:sage-hr-leave-management-api
-  name: Sage HR Leave Management API
-  tags:
-  - HR
-  - Leave
-  - Time Off
-  - PTO
-  - Policies
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/leave-management.yaml
-  description: Manage employee leave in Sage HR — list and inspect time-off policies, manage KIT (Keeping In Touch)
-    days, query individual allowances and per-employee balances, list and create time-off requests, and retrieve the
-    list of employees out of office today.
-- aid: sage-hr:sage-hr-recruitment-api
-  name: Sage HR Recruitment API
-  tags:
-  - HR
-  - Recruitment
-  - ATS
-  - Applicants
-  - Hiring
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/recruitment.yaml
-  description: Sage HR's applicant tracking surface — list open recruitment positions, fetch position details,
-    list and create applicants (including referrals), pull applicant detail records, and list pipeline actions
-    against an applicant.
-- aid: sage-hr:sage-hr-performance-api
-  name: Sage HR Performance API
-  tags:
-  - HR
-  - Performance
-  - Goals
-  - OKRs
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/performance.yaml
-  description: Quarterly performance and goal reporting — overall quarterly progress overview plus drill-down endpoints
-    for company-wide goals, team goals, and individual employee goals.
-- aid: sage-hr:sage-hr-timesheets-api
-  name: Sage HR Timesheets API
-  tags:
-  - HR
-  - Timesheets
-  - Time Tracking
-  - Clock In
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/timesheets.yaml
-  description: Programmatic clock-in / clock-out for Sage HR Timesheets via /timesheets/clock-in. Lets integrations
-    capture punch events for time-tracked employees.
-- aid: sage-hr:sage-hr-onboarding-offboarding-api
-  name: Sage HR Onboarding and Offboarding API
-  tags:
-  - HR
-  - Onboarding
-  - Offboarding
-  - Tasks
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/onboarding-offboarding.yaml
-  description: List task categories and create onboarding and offboarding tasks for an employee lifecycle workflow.
-    Backs /onboarding/categories, /onboarding/tasks, /offboarding/categories, and /offboarding/tasks.
-- aid: sage-hr:sage-hr-documents-api
-  name: Sage HR Documents API
-  tags:
-  - HR
-  - Documents
-  - Files
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/documents.yaml
-  description: List document categories and upload new employee or company documents to Sage HR. Multipart form-data
-    upload via /documents.
-- aid: sage-hr:sage-hr-organization-api
-  name: Sage HR Organization API
-  tags:
-  - HR
-  - Positions
-  - Teams
-  - Organization
-  - Terminations
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/organization.yaml
-  description: Inspect the org structure — list company positions, list teams, and list available termination
-    reasons. Read-only endpoints used to drive directory and dropdown surfaces in client apps.
-- aid: sage-hr:sage-hr-integrations-vikarina-api
-  name: Sage HR Vikarina Integrations API
-  tags:
-  - HR
-  - Integrations
-  - Vikarina
-  - Payroll
-  humanURL: https://apidoc.sage.hr/
-  properties:
-  - url: https://apidoc.sage.hr/
-    type: Documentation
-  - url: openapi/sage-hr-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/integrations-vikarina.yaml
-  description: Sage HR → Vikarina payroll bridge. Transfer job positions, organizational structure, new-starter lists,
-    contract information, appointments, salaries, bank accounts, terminations, unused vacation days, leave types,
-    timesheets, and bonuses from Sage HR into Vikarina.
+  - aid: sage-hr:sage-hr-employee-api
+    name: Sage HR Employee API
+    tags:
+      - HR
+      - HRIS
+      - Employees
+      - People
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+      - url: json-schema/sage-hr-employee-schema.json
+        type: JSONSchema
+      - url: json-ld/sage-hr-context.jsonld
+        type: JSONLD
+    description: >-
+      Manage the employee directory in Sage HR — list active and terminated employees, fetch an employee by ID, create
+      new employees, update employee records and custom fields, retrieve compensation history, and process terminations.
+      Backed by the /employees and /terminated-employees resource trees.
+  - aid: sage-hr:sage-hr-leave-management-api
+    name: Sage HR Leave Management API
+    tags:
+      - HR
+      - Leave
+      - Time Off
+      - PTO
+      - Policies
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Manage employee leave in Sage HR — list and inspect time-off policies, manage KIT (Keeping In Touch) days, query
+      individual allowances and per-employee balances, list and create time-off requests, and retrieve the list of
+      employees out of office today.
+  - aid: sage-hr:sage-hr-recruitment-api
+    name: Sage HR Recruitment API
+    tags:
+      - HR
+      - Recruitment
+      - ATS
+      - Applicants
+      - Hiring
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Sage HR's applicant tracking surface — list open recruitment positions, fetch position details, list and create
+      applicants (including referrals), pull applicant detail records, and list pipeline actions against an applicant.
+  - aid: sage-hr:sage-hr-performance-api
+    name: Sage HR Performance API
+    tags:
+      - HR
+      - Performance
+      - Goals
+      - OKRs
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Quarterly performance and goal reporting — overall quarterly progress overview plus drill-down endpoints for
+      company-wide goals, team goals, and individual employee goals.
+  - aid: sage-hr:sage-hr-timesheets-api
+    name: Sage HR Timesheets API
+    tags:
+      - HR
+      - Timesheets
+      - Time Tracking
+      - Clock In
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Programmatic clock-in / clock-out for Sage HR Timesheets via /timesheets/clock-in. Lets integrations capture punch
+      events for time-tracked employees.
+  - aid: sage-hr:sage-hr-onboarding-offboarding-api
+    name: Sage HR Onboarding and Offboarding API
+    tags:
+      - HR
+      - Onboarding
+      - Offboarding
+      - Tasks
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      List task categories and create onboarding and offboarding tasks for an employee lifecycle workflow. Backs
+      /onboarding/categories, /onboarding/tasks, /offboarding/categories, and /offboarding/tasks.
+  - aid: sage-hr:sage-hr-documents-api
+    name: Sage HR Documents API
+    tags:
+      - HR
+      - Documents
+      - Files
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      List document categories and upload new employee or company documents to Sage HR. Multipart form-data upload via
+      /documents.
+  - aid: sage-hr:sage-hr-organization-api
+    name: Sage HR Organization API
+    tags:
+      - HR
+      - Positions
+      - Teams
+      - Organization
+      - Terminations
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Inspect the org structure — list company positions, list teams, and list available termination reasons. Read-only
+      endpoints used to drive directory and dropdown surfaces in client apps.
+  - aid: sage-hr:sage-hr-integrations-vikarina-api
+    name: Sage HR Vikarina Integrations API
+    tags:
+      - HR
+      - Integrations
+      - Vikarina
+      - Payroll
+    humanURL: https://apidoc.sage.hr/
+    properties:
+      - url: https://apidoc.sage.hr/
+        type: Documentation
+      - url: openapi/sage-hr-openapi.yml
+        type: OpenAPI
+    description: >-
+      Sage HR → Vikarina payroll bridge. Transfer job positions, organizational structure, new-starter lists, contract
+      information, appointments, salaries, bank accounts, terminations, unused vacation days, leave types, timesheets,
+      and bonuses from Sage HR into Vikarina.
 name: Sage HR
 tags:
-- HR
-- HRIS
-- People
-- SMB
-- Leave Management
-- Recruitment
-- Performance
-- Timesheets
-- Onboarding
+  - HR
+  - HRIS
+  - People
+  - SMB
+  - Leave Management
+  - Recruitment
+  - Performance
+  - Timesheets
+  - Onboarding
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://sage.hr/
-  name: Sage HR Home
-  type: Portal
-- url: https://www.sage.com/en-gb/sage-business-cloud/hr/
-  name: Sage HR on Sage.com
-  type: Portal
-- url: https://apidoc.sage.hr/
-  name: Sage HR API Reference
-  type: Documentation
-- url: https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
-  name: How does Sage HR API work?
-  type: Documentation
-- url: https://support.sage.hr/
-  name: Sage HR Support
-  type: Support
-- url: https://sage.hr/pricing/
-  name: Sage HR Pricing
-  type: Pricing
-- url: https://sage.hr/integrations/
-  name: Sage HR Integrations
-  type: Integrations
-- url: https://www.linkedin.com/company/sage-hr/
-  name: Sage HR on LinkedIn
-  type: LinkedIn
-- url: https://twitter.com/sagehr
-  name: Sage HR on X
-  type: Twitter
-- url: https://github.com/Sage
-  name: Sage on GitHub
-  type: GitHub
-- url: plans/sage-hr-plans-pricing.yml
-  name: Plans
-  type: Plans
-- url: rate-limits/sage-hr-rate-limits.yml
-  name: Rate Limits
-  type: RateLimits
-- url: finops/sage-hr-finops.yml
-  name: FinOps
-  type: FinOps
-description: Sage HR (formerly CakeHR) is a cloud HRIS for small and mid-sized businesses, owned by Sage Group plc.
-  It bundles core HR records, leave management, performance, recruitment (ATS), timesheets, shift scheduling,
-  expenses, and onboarding/offboarding into a modular per-employee SaaS. The Sage HR REST API at apidoc.sage.hr
-  exposes 53 operations across employees, leave, recruitment, performance, timesheets, documents, onboarding,
-  offboarding, organization, and a Vikarina payroll integration bridge. Authentication is a tenant-scoped
-  X-Auth-Token API key against the customer's own subdomain (https://{subdomain}.sage.hr/api).
+  - url: https://sage.hr/
+    name: Sage HR Home
+    type: Portal
+  - url: https://www.sage.com/en-gb/sage-business-cloud/hr/
+    name: Sage HR on Sage.com
+    type: Portal
+  - url: https://apidoc.sage.hr/
+    name: Sage HR API Reference
+    type: Documentation
+  - url: https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+    name: How does Sage HR API work?
+    type: Documentation
+  - url: https://support.sage.hr/
+    name: Sage HR Support
+    type: Support
+  - url: https://sage.hr/pricing/
+    name: Sage HR Pricing
+    type: Pricing
+  - url: https://sage.hr/integrations/
+    name: Sage HR Integrations
+    type: Integrations
+  - url: https://www.linkedin.com/company/sage-hr/
+    name: Sage HR on LinkedIn
+    type: LinkedIn
+  - url: https://twitter.com/sagehr
+    name: Sage HR on X
+    type: Twitter
+  - url: https://github.com/Sage
+    name: Sage on GitHub
+    type: GitHub
+  - url: plans/sage-hr-plans-pricing.yml
+    name: Plans
+    type: Plans
+  - url: rate-limits/sage-hr-rate-limits.yml
+    name: Rate Limits
+    type: RateLimits
+  - url: finops/sage-hr-finops.yml
+    name: FinOps
+    type: FinOps
+description: >-
+  Sage HR (formerly CakeHR) is a cloud HRIS for small and mid-sized businesses, owned by Sage Group plc. It bundles core
+  HR records, leave management, performance, recruitment (ATS), timesheets, shift scheduling, expenses, and
+  onboarding/offboarding into a modular per-employee SaaS. The Sage HR REST API at apidoc.sage.hr exposes 53 operations
+  across employees, leave, recruitment, performance, timesheets, documents, onboarding, offboarding, organization, and a
+  Vikarina payroll integration bridge. Authentication is a tenant-scoped X-Auth-Token API key against the customer's own
+  subdomain (https://{subdomain}.sage.hr/api).
 created: '2026-05-25'
 modified: '2026-05-25'

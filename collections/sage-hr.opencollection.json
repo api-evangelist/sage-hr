@@ -1,0 +1,1349 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employee",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List active employees in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "team_history",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "employment_status_history",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "position_history",
+                "value": "true",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List active employees in company"
+        },
+        {
+          "info": {
+            "name": "Create new employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/employees",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new employee"
+        },
+        {
+          "info": {
+            "name": "Single active employee in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              },
+              {
+                "name": "team_history",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "employment_status_history",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "position_history",
+                "value": "true",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Single active employee in company"
+        },
+        {
+          "info": {
+            "name": "Update Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://subdomain.sage.hr/api/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Employee"
+        },
+        {
+          "info": {
+            "name": "Employee custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees/:id/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Employee custom fields"
+        },
+        {
+          "info": {
+            "name": "Update custom field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://subdomain.sage.hr/api/employees/:id/custom-fields/:custom_field_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Employee identifier"
+              },
+              {
+                "name": "custom_field_id",
+                "value": "",
+                "type": "path",
+                "description": "Custom field identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Update employee custom field"
+        },
+        {
+          "info": {
+            "name": "Terminate employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/employees/:id/terminations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Terminate employee"
+        },
+        {
+          "info": {
+            "name": "List terminated employees in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/terminated-employees",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List terminated employees in company"
+        },
+        {
+          "info": {
+            "name": "Single terminated employee in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/terminated-employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Single terminated employee in company"
+        },
+        {
+          "info": {
+            "name": "Employee compensations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees/:id/compensations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Employee compensations"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leave management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List time off policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List time off policies"
+        },
+        {
+          "info": {
+            "name": "Details about a time off policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the policy to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Details about a time off policy"
+        },
+        {
+          "info": {
+            "name": "Update KIT days configuration of a time off policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the policy to get."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update KIT days configuration of a time off policy"
+        },
+        {
+          "info": {
+            "name": "View all the KIT days of an employee in a policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "1",
+                "type": "query",
+                "description": "Time-off policy identifier"
+              },
+              {
+                "name": "employee_id",
+                "value": "2",
+                "type": "query",
+                "description": "Employee identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "View all the KIT days of an employee in a policy"
+        },
+        {
+          "info": {
+            "name": "Create a KIT day in a leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a KIT day in a leave"
+        },
+        {
+          "info": {
+            "name": "Approve, decline or cancel a KIT day",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "KIT day identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Approve, decline or cancel a KIT day"
+        },
+        {
+          "info": {
+            "name": "Report with individual allowances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/reports/individual-allowances",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "14,13",
+                "type": "query",
+                "description": "Limit the reports to employees in specified location ids"
+              },
+              {
+                "name": "employee_ids",
+                "value": "1,2,3",
+                "type": "query",
+                "description": "Limit the reports to selected employee ids"
+              },
+              {
+                "name": "team_ids",
+                "value": "1",
+                "type": "query",
+                "description": "Limit the reports to employees in specified team ids"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Report with individual allowances"
+        },
+        {
+          "info": {
+            "name": "Employee time off balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees/:id/leave-management/balances",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Employee time off balances"
+        },
+        {
+          "info": {
+            "name": "List time off requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/requests",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "Sat May 19 2018 20:00:00 GMT-0400 (Eastern Daylight Time)",
+                "type": "query",
+                "description": "If not specified defaults to beginning of current month"
+              },
+              {
+                "name": "to",
+                "value": "Tue Jun 19 2018 20:00:00 GMT-0400 (Eastern Daylight Time)",
+                "type": "query",
+                "description": "If not specified defaults to end of current month. Days between from date and to date must be less than 65. If you need info for larger period of time make multiple requests;"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List time off requests"
+        },
+        {
+          "info": {
+            "name": "Create new time off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/leave-management/requests",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new time off request"
+        },
+        {
+          "info": {
+            "name": "List employees out of office today",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/out-of-office-today",
+            "params": [
+              {
+                "name": "date",
+                "value": "Thu Nov 22 2018 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query",
+                "description": "Optional date, defauls to today"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List employees out of office today"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List document categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/documents/categories"
+          },
+          "docs": "List document categories"
+        },
+        {
+          "info": {
+            "name": "Create new document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/documents",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Document will only be visible to employee themselves"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List positions in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/positions",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List positions in company"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List teams in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/teams",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List teams in company"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Performance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Overview of quarterly goal progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/performance/goals/quarterly-progress/overall",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Overview of quarterly goal progress"
+        },
+        {
+          "info": {
+            "name": "Quarterly company goals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/performance/goals/quarterly-progress/company-goals",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Quarterly company goals"
+        },
+        {
+          "info": {
+            "name": "Quarterly team goals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/performance/goals/quarterly-progress/team-goals",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Quarterly team goals"
+        },
+        {
+          "info": {
+            "name": "Quarterly individual goals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/performance/goals/quarterly-progress/individual-goals",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Quarterly individual goals"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recruitment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List recruitment positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions",
+            "params": [
+              {
+                "name": "status",
+                "value": "completed",
+                "type": "query",
+                "description": "Filter by status, see list of possible statuses\n`?status=open`\n"
+              },
+              {
+                "name": "hiring_manager_ids",
+                "value": "251,121",
+                "type": "query",
+                "description": "Filter by hiring manager id, can appear multiple times\n`hiring_manager_ids[]=251&hiring_manager_ids[]=121`\n"
+              },
+              {
+                "name": "group_ids",
+                "value": "27,761",
+                "type": "query",
+                "description": "Filter by group id, can appear multiple times\n`group_ids[]=27&group_ids[]=761`\n"
+              },
+              {
+                "name": "location_ids",
+                "value": "1,12",
+                "type": "query",
+                "description": "Filter by location id, can appear multiple times\n`location_ids[]=1&location_ids[]=12`\n"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of positions to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Posible recruitment position statuses: `draft`, `published`, `internal`, `completed`, `cancelled`\n"
+        },
+        {
+          "info": {
+            "name": "Position details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Position details"
+        },
+        {
+          "info": {
+            "name": "List applicants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id/applicants",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position"
+              },
+              {
+                "name": "stage_id",
+                "value": "25",
+                "type": "query",
+                "description": "Optional filter by stage e.g. `?stage_id=25`"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset, default 1"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of applicants to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List applicants"
+        },
+        {
+          "info": {
+            "name": "Create new applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id/applicants",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position (must not be closed or completed)."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Tracking applicant's source:\n * if left blank, source will be automatically set to `api`\n * set source to a special keyword (`company_marketing`, `recruiters`, `referral`, `sourced`) to have it mapped to corresponding values \n * set source to a desired reference to create a custom source, e.g. `source=linkedin` will create a custom source called linkedin if it does not exist already\n * passing a referral object as a parameter will set the source to `referral`\n\n \nExample of creating an applicant "
+        },
+        {
+          "info": {
+            "name": "Applicant details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/applicants/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of applicant"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Applicant details"
+        },
+        {
+          "info": {
+            "name": "Applicant actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/applicants/:id/actions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of applicant"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of actions to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List applicant's process throught the recruitment pipeline. Newest, first.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Timesheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clock in & out employees on specific days",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/timesheets/clock-in",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Employees will be only clocked in & out if API time clocking is enabled for Timesheet group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Terminations reasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List termination reasons in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/termination-reasons",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List termination reasons in company"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Onboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List onboarding task categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/onboarding/categories"
+          },
+          "docs": "List onboarding task categories"
+        },
+        {
+          "info": {
+            "name": "Create new onboarding task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/onboarding/tasks",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new onboarding task"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Offboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List offboarding task categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/offboarding/categories"
+          },
+          "docs": "List offboarding task categories"
+        },
+        {
+          "info": {
+            "name": "Create new offboarding task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/offboarding/tasks",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new offboarding task"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Job position transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/job-positions"
+          },
+          "docs": "Job position transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Organizational structure transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/organization-structure"
+          },
+          "docs": "Organizational structure transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "New starters list from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/newstarter-employees",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "New starters list from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Contract (custom field) information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/contract-information"
+          },
+          "docs": "Contract (custom field) information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "New appointment (position changes) information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/appointments",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "New appointment (position changes) information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Salary information transfer from Sage HR to Vikarina to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/salaries",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salary information transfer from Sage HR to Vikarina to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Bank account information transfer (Custom field) from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/bank-accounts"
+          },
+          "docs": "Bank account information transfer (Custom field) from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Termination information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/terminated-employees",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Termination information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Unused vacation days transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/unused-days"
+          },
+          "docs": "Unused vacation days transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Leaves information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/leave-types",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Leaves information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Time Schedule information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/timesheets",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Time Schedule information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Sending bonuses [payed once] to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/bonuses",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "Tue Dec 31 2019 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "Fri Jan 31 2020 19:00:00 GMT-0500 (Eastern Standard Time)",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sending bonuses [payed once] to Vikarina"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
