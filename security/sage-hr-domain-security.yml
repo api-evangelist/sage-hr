@@ -1,0 +1,35 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: sage.hr
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  3 12:35:52 2026 GMT
+  hsts: true
+  hsts_max_age: 15552000
+- host: www.sage.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 10 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 15552000
+- host: apidoc.sage.hr
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  3 12:35:52 2026 GMT
+  hsts: true
+  hsts_max_age: 15552000
+domains:
+- domain: sage.hr
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: sage.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
