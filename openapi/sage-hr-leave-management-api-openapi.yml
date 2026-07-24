@@ -1,0 +1,1853 @@
+openapi: 3.0.0
+info:
+  description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  title: Sage HR Documents Leave management API
+  version: '1.0'
+  x-konfig-ignore:
+    potential-incorrect-type: true
+  x-konfig-uses-multipart-form-data: true
+servers:
+- url: https://subdomain.sage.hr/api
+tags:
+- name: Leave management
+paths:
+  /leave-management/policies:
+    summary: Time off policies
+    get:
+      operationId: LeaveManagement_listTimeOffPolicies
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+                      name: Vacation
+                      color: '#49B284'
+                      do_not_accrue: false
+                      unit: days
+                      default_allowance: '26'
+                      max_carryover: '100.0'
+                      accrue_type: yearly
+                    - id: 2
+                      name: Sickday
+                      color: '#DB263F'
+                      do_not_accrue: true
+                      unit: days
+                      default_allowance: '0.0'
+                      max_carryover: '0.0'
+                      accrue_type: no_tracking
+              schema:
+                $ref: '#/components/schemas/LeaveManagementListTimeOffPoliciesResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: List time off policies
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-policies
+      x-accepts: application/json
+  /leave-management/policies/{id}:
+    summary: Time off policy
+    get:
+      operationId: LeaveManagement_getTimeOffPolicyById
+      parameters:
+      - description: Numeric ID of the policy to get.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+                      name: Vacation
+                      color: '#3a7dd8'
+                      do_not_accrue: false
+                      unit: days
+                      default_allowance: '25.0'
+                      max_carryover: '100.0'
+                      accrue_type: yearly
+                      enable_employee_access: true
+                      only_full_days: false
+                      enable_probation_period: false
+                      dont_allow_negative_amount: false
+                      requests_in_advance_required: false
+                      enable_minimum_days: false
+                      enable_limited_days: false
+                      enable_dependent_policy": false
+                      blocks_enabled: false
+                      no_reset: false
+                      termination_recalculation: true
+                      enable_service_accruals: false
+                      child_allowance_enabled: false
+                      enable_negative_carryover: false
+                      max_accrual: false
+                      accrue_at_start: true
+                      enable_monthly_expiration: false
+                      starter_monthly_accrual_limitation: false
+                      starter_yearly_accrual_limitation: false
+                      auto_approves: false
+                      enable_specific_approvers: false
+                      override_approvers_enabled: false
+                      enable_duplicate_time_offs: false
+                      enable_replacement: false
+                      replacement_required: false
+                      enable_scopped_replacement: false
+                      enable_replacement_away: false
+                      enable_details: true
+                      require_details: false
+                      additional_field: true
+                      enable_attachment: false
+              schema:
+                $ref: '#/components/schemas/LeaveManagementGetTimeOffPolicyByIdResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: Details about a time off policy
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-policies-id
+      x-accepts: application/json
+    patch:
+      operationId: LeaveManagement_updateKitDaysConfiguration
+      parameters:
+      - description: Numeric ID of the policy to get.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementUpdateKitDaysConfigurationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error_code: invalid_policy_type
+                    errors:
+                    - The policy specified is not an event-based policy
+              schema:
+                $ref: '#/components/schemas/LeaveManagementUpdateKitDaysConfigurationResponse'
+          description: Unprocessable entity
+          x-do-not-generate: true
+      security:
+      - api_key: []
+      summary: Update KIT days configuration of a time off policy
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--leave-management-policies-id
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/kit-days:
+    summary: KIT days
+    get:
+      operationId: LeaveManagement_getKitDays
+      parameters:
+      - description: Time-off policy identifier
+        example: 1
+        explode: true
+        in: query
+        name: policy_id
+        required: true
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 1
+      - description: Employee identifier
+        example: 2
+        explode: true
+        in: query
+        name: employee_id
+        required: true
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+                      status: declined
+                      start_date: 2021-03-09
+                      end_date: 2021-03-10
+                    - id: 2
+                      status: approved
+                      start_date: 2021-03-09
+                      end_date: 2021-03-10
+              schema:
+                $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: View all the KIT days of an employee in a policy
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-kit-days
+      x-accepts: application/json
+    post:
+      operationId: LeaveManagement_createKitDay
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementCreateKitDayRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+              schema:
+                $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error_code: validation_failed
+                    errors:
+                    - First error
+                    - Second error
+              schema:
+                $ref: '#/components/schemas/LeaveManagementCreateKitDay422Response'
+          description: Unprocessable entity
+          x-do-not-generate: true
+      security:
+      - api_key: []
+      summary: Create a KIT day in a leave
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--leave-management-kit-days
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/kit-days/{id}:
+    summary: KIT days
+    patch:
+      operationId: LeaveManagement_processKitDay
+      parameters:
+      - description: KIT day identifier
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementProcessKitDayRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: Approve, decline or cancel a KIT day
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--leave-management-kit-days-id
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/reports/individual-allowances:
+    summary: Individual Allowances
+    get:
+      operationId: LeaveManagement_getIndividualAllowances
+      parameters:
+      - example: 2
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      - example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 25
+      - description: Limit the reports to employees in specified location ids
+        example:
+        - 14
+        - 13
+        explode: false
+        in: query
+        name: location_ids
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+        x-konfig-original-example:
+        - 14
+        - 13
+      - description: Limit the reports to selected employee ids
+        example:
+        - 1
+        - 2
+        - 3
+        explode: false
+        in: query
+        name: employee_ids
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+        x-konfig-original-example:
+        - 1
+        - 2
+        - 3
+      - description: Limit the reports to employees in specified team ids
+        example:
+        - 1
+        explode: false
+        in: query
+        name: team_ids
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+        x-konfig-original-example:
+        - 1
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - full_name: Joe Doe
+                      id: 11
+                      eligibilities:
+                      - policy:
+                          name: Sickday
+                          id: 2
+                        quantity: '0.0'
+                        unit: days
+                        carryover: '0.0'
+                      - policy:
+                          name: Vacation
+                          id: 1
+                        quantity: '25.0'
+                        unit: days
+                        carryover: '100.0'
+                    - full_name: Jane Doe
+                      id: 13
+                      eligibilities:
+                      - policy:
+                          name: Custom Policy
+                          id: 4
+                        quantity: '0.0'
+                        unit: days
+                        carryover: '0.0'
+                      - policy:
+                          name: Vacation
+                          id: 1
+                        quantity: '25.0'
+                        unit: days
+                        carryover: '100.0'
+                    meta:
+                      current_page: 1
+                      next_page: null
+                      previous_page: null
+                      total_pages: 1
+                      per_page: 25
+                      total_entries: 1
+              schema:
+                $ref: '#/components/schemas/LeaveManagementGetIndividualAllowancesResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: Report with individual allowances
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-reports-individual-allowances
+      x-accepts: application/json
+  /employees/{id}/leave-management/balances:
+    summary: Employee time off balances
+    get:
+      operationId: LeaveManagement_getTimeOffBalances
+      parameters:
+      - description: Numeric ID of the user to get.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - policy_id: 1
+                      used: 5.6
+                      available: 2
+                    - policy_id: 2
+                      used: 75
+                      available: null
+              schema:
+                $ref: '#/components/schemas/LeaveManagementGetTimeOffBalancesResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: Employee time off balances
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--employees-id-leave-management-balances
+      x-accepts: application/json
+  /leave-management/requests:
+    summary: Time off requests
+    get:
+      operationId: LeaveManagement_listTimeOffRequests
+      parameters:
+      - example: 2
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      - description: If not specified defaults to beginning of current month
+        example: 2018-05-20
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          type: string
+        style: form
+        x-konfig-original-example: 2018-05-20
+      - description: If not specified defaults to end of current month. Days between from date and to date must be less than 65. If you need info for larger period of time make multiple requests;
+        example: 2018-06-20
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          type: string
+        style: form
+        x-konfig-original-example: 2018-06-20
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 2902504
+                      status: Approved
+                      status_code: approved
+                      policy_id: 1
+                      employee_id: 1
+                      details: Birthday lunch
+                      is_multi_date: false
+                      is_single_day: true
+                      is_part_of_day: true
+                      first_part_of_day: false
+                      second_part_of_day: true
+                      start_date: 2018-05-24
+                      end_date: 2018-05-24
+                      request_date: 2018-05-22
+                      approval_date: null
+                      hours: 3.5
+                      fields:
+                      - title: Approved by manager?
+                        answer: true
+                    meta:
+                      current_page: 1
+                      next_page: 2
+                      previous_page: null
+                      total_pages: 2
+                      per_page: 50
+                      total_entries: 75
+              schema:
+                $ref: '#/components/schemas/LeaveManagementListTimeOffRequestsResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: List time off requests
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-requests
+      x-accepts: application/json
+    post:
+      operationId: LeaveManagement_newTimeOffRequest
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementNewTimeOffRequestRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                      id: 1
+              schema:
+                $ref: '#/components/schemas/LeaveManagementNewTimeOffRequestResponse'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error_code: validation_failed
+                    errors:
+                    - Error message
+              schema:
+                $ref: '#/components/schemas/LeaveManagementNewTimeOffRequest422Response'
+          description: Validation Failed Response
+          x-do-not-generate: true
+      summary: Create new time off request
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--leave-management-requests
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/out-of-office-today:
+    summary: Out of office today
+    get:
+      operationId: LeaveManagement_listEmployeesOutToday
+      parameters:
+      - description: Optional date, defauls to today
+        example: 2018-11-23
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+        x-konfig-original-example: 2018-11-23
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 2902504
+                      policy_id: 2
+                      policy:
+                        name: Vacation
+                      employee_id: 5
+                      employee:
+                        first_name: John
+                        last_name: Doe
+                      details: Birthday lunch
+                      is_multi_date: false
+                      is_single_day: true
+                      is_part_of_day: true
+                      first_part_of_day: false
+                      second_part_of_day: true
+                      start_date: 2018-05-24
+                      end_date: 2018-05-24
+                      hours: 3.5
+              schema:
+                $ref: '#/components/schemas/LeaveManagementListEmployeesOutTodayResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: List employees out of office today
+      tags:
+      - Leave management
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-out-of-office-today
+      x-accepts: application/json
+components:
+  schemas:
+    LeaveManagementCreateKitDayRequest:
+      properties:
+        policy_id:
+          description: Time-off policy identifier
+          type: integer
+        employee_id:
+          description: Employee identifier
+          type: integer
+        date:
+          description: Date of single-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date
+        date_from:
+          description: Start date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_from
+        date_to:
+          description: End date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_to
+      required:
+      - employee_id
+      - policy_id
+      type: object
+    LeaveManagementGetIndividualAllowancesResponse_data_inner_eligibilities_inner_policy:
+      properties:
+        name:
+          example: Sickday
+          type: string
+          x-konfig-original-example: Sickday
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-eligibilities-items-properties-policy-properties-name
+        id:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-eligibilities-items-properties-policy-properties-id
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationRequest:
+      properties:
+        kit_days_enabled:
+          description: Whether the policy allows Kit days or not
+          enum:
+          - true
+          - false
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_enabled
+        kit_days_quantity:
+          description: Maximum number of Kit days allowed in the policy
+          example: 5
+          type: integer
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_quantity
+      required:
+      - kit_days_enabled
+      - kit_days_quantity
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationResponse:
+      example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      properties:
+        error_code:
+          example: invalid_policy_type
+          type: string
+          x-konfig-original-example: invalid_policy_type
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-error_code
+        errors:
+          items:
+            example: The policy specified is not an event-based policy
+            type: string
+            x-konfig-original-example: The policy specified is not an event-based policy
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementNewTimeOffRequest422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - Error message
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequest422Response-properties-error_code
+        errors:
+          items:
+            example: Error message
+            type: string
+            x-konfig-original-example: Error message
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequest422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - Error message
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequest422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementGetKitDaysResponse:
+      example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementListTimeOffPoliciesResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-id
+        name:
+          example: Vacation
+          type: string
+          x-konfig-original-example: Vacation
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-name
+        color:
+          example: '#49B284'
+          type: string
+          x-konfig-original-example: '#49B284'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-color
+        do_not_accrue:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-do_not_accrue
+        unit:
+          example: days
+          type: string
+          x-konfig-original-example: days
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-unit
+        default_allowance:
+          example: '26'
+          type: string
+          x-konfig-original-example: '26'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-default_allowance
+        max_carryover:
+          example: '100.0'
+          type: string
+          x-konfig-original-example: '100.0'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-max_carryover
+        accrue_type:
+          example: yearly
+          type: string
+          x-konfig-original-example: yearly
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse-properties-data-items-properties-accrue_type
+      type: object
+    LeaveManagementListTimeOffRequestsResponse_meta:
+      properties:
+        current_page:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-current_page
+        next_page:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-next_page
+        previous_page:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-meta-properties-total_entries
+      type: object
+    LeaveManagementProcessKitDayRequest:
+      properties:
+        status:
+          description: Action to apply to the specified KIT day
+          enum:
+          - cancel
+          - approve
+          - decline
+          type: string
+      required:
+      - status
+      type: object
+    LeaveManagementListEmployeesOutTodayResponse_data_inner_employee:
+      properties:
+        first_name:
+          example: John
+          type: string
+          x-konfig-original-example: John
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-employee-properties-first_name
+        last_name:
+          example: Doe
+          type: string
+          x-konfig-original-example: Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-employee-properties-last_name
+      type: object
+    LeaveManagementNewTimeOffRequestRequest:
+      properties:
+        type:
+          enum:
+          - single
+          - multi
+          type: string
+        time_off_policy_id:
+          type: integer
+        employee_id:
+          type: integer
+        date:
+          description: 'format: YYYY-MM-DD; required if type is single'
+          type: string
+        date_from:
+          description: 'format: YYYY-MM-DD; required if type is multi'
+          type: string
+        date_to:
+          description: 'format: YYYY-MM-DD; required if type is multi'
+          type: string
+        part_of_day:
+          description: required if type is single
+          enum:
+          - all_day
+          - first_part_of_day
+          - second_part_of_day
+          - specific_timespan
+          type: string
+        hours:
+          description: required if type is single & part_of_day is first_part_of_day or second_part_of_day
+          type: number
+        time_from:
+          description: 'format: H:M; required if part_of_day is specific_timespan'
+          example: 07:30
+          type: string
+          x-konfig-original-example: 07:30
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequestRequest-properties-time_from
+        time_to:
+          description: 'format: H:M; required if part_of_day is specific_timespan'
+          example: '900'
+          type: string
+          x-konfig-original-example: 900
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequestRequest-properties-time_to
+        details:
+          description: required based on policy settings
+          type: string
+      required:
+      - employee_id
+      - part_of_day
+      - time_off_policy_id
+      - type
+      type: object
+    LeaveManagementGetIndividualAllowancesResponse_data_inner:
+      properties:
+        full_name:
+          example: Joe Doe
+          type: string
+          x-konfig-original-example: Joe Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-full_name
+        id:
+          example: 11
+          type: number
+          x-konfig-original-example: 11
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-id
+        eligibilities:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetIndividualAllowancesResponse_data_inner_eligibilities_inner'
+          type: array
+      type: object
+    LeaveManagementCreateKitDay422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
+        errors:
+          items:
+            example: First error
+            type: string
+            x-konfig-original-example: First error
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementGetKitDaysResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
+        status:
+          example: declined
+          type: string
+          x-konfig-original-example: declined
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
+        start_date:
+          example: 2021-03-09
+          type: string
+          x-konfig-original-example: 2021-03-09
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2021-03-10
+          type: string
+          x-konfig-original-example: 2021-03-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
+      type: object
+    LeaveManagementListEmployeesOutTodayResponse_data_inner:
+      properties:
+        id:
+          example: 2902504
+          type: number
+          x-konfig-original-example: 2902504
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-id
+        policy_id:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-policy_id
+        policy:
+          $ref: '#/components/schemas/LeaveManagementListEmployeesOutTodayResponse_data_inner_policy'
+        employee_id:
+          example: 5
+          type: number
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-employee_id
+        employee:
+          $ref: '#/components/schemas/LeaveManagementListEmployeesOutTodayResponse_data_inner_employee'
+        details:
+          example: Birthday lunch
+          type: string
+          x-konfig-original-example: Birthday lunch
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-details
+        is_multi_date:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-is_multi_date
+        is_single_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-is_single_day
+        is_part_of_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-is_part_of_day
+        first_part_of_day:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-first_part_of_day
+        second_part_of_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-second_part_of_day
+        start_date:
+          example: 2018-05-24
+          type: string
+          x-konfig-original-example: 2018-05-24
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2018-05-24
+          type: string
+          x-konfig-original-example: 2018-05-24
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-end_date
+        hours:
+          example: 3.5
+          type: number
+          x-konfig-original-example: 3.5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-hours
+      type: object
+    LeaveManagementGetIndividualAllowancesResponse_data_inner_eligibilities_inner:
+      properties:
+        policy:
+          $ref: '#/components/schemas/LeaveManagementGetIndividualAllowancesResponse_data_inner_eligibilities_inner_policy'
+        quantity:
+          example: '0.0'
+          type: string
+          x-konfig-original-example: '0.0'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-eligibilities-items-properties-quantity
+        unit:
+          example: days
+          type: string
+          x-konfig-original-example: days
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-eligibilities-items-properties-unit
+        carryover:
+          example: '0.0'
+          type: string
+          x-konfig-original-example: '0.0'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-data-items-properties-eligibilities-items-properties-carryover
+      type: object
+    LeaveManagementCreateKitDayResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
+      type: object
+    LeaveManagementListTimeOffRequestsResponse_data_inner_fields_inner:
+      properties:
+        title:
+          example: Approved by manager?
+          type: string
+          x-konfig-original-example: Approved by manager?
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-fields-items-properties-title
+        answer:
+          example: 'true'
+          type: string
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-fields-items-properties-answer
+      type: object
+    LeaveManagementNewTimeOffRequestResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/LeaveManagementNewTimeOffRequestResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequestResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementListTimeOffRequestsResponse:
+      example:
+        data:
+        - id: 2902504
+          status: Approved
+          status_code: approved
+          policy_id: 1
+          employee_id: 1
+          details: Birthday lunch
+          is_multi_date: false
+          is_single_day: true
+          is_part_of_day: true
+          first_part_of_day: false
+          second_part_of_day: true
+          start_date: 2018-05-24
+          end_date: 2018-05-24
+          request_date: 2018-05-22
+          approval_date: null
+          hours: 3.5
+          fields:
+          - title: Approved by manager?
+            answer: true
+        meta:
+          current_page: 1
+          next_page: 2
+          previous_page: null
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementListTimeOffRequestsResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/LeaveManagementListTimeOffRequestsResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 2902504
+          status: Approved
+          status_code: approved
+          policy_id: 1
+          employee_id: 1
+          details: Birthday lunch
+          is_multi_date: false
+          is_single_day: true
+          is_part_of_day: true
+          first_part_of_day: false
+          second_part_of_day: true
+          start_date: 2018-05-24
+          end_date: 2018-05-24
+          request_date: 2018-05-22
+          hours: 3.5
+          fields:
+          - title: Approved by manager?
+            answer: true
+        meta:
+          current_page: 1
+          next_page: 2
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementListTimeOffRequestsResponse_data_inner:
+      properties:
+        id:
+          example: 2902504
+          type: number
+          x-konfig-original-example: 2902504
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-id
+        status:
+          example: Approved
+          type: string
+          x-konfig-original-example: Approved
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-status
+        status_code:
+          example: approved
+          type: string
+          x-konfig-original-example: approved
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-status_code
+        policy_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-policy_id
+        employee_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-employee_id
+        details:
+          example: Birthday lunch
+          type: string
+          x-konfig-original-example: Birthday lunch
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-details
+        is_multi_date:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-is_multi_date
+        is_single_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-is_single_day
+        is_part_of_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-is_part_of_day
+        first_part_of_day:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-first_part_of_day
+        second_part_of_day:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-second_part_of_day
+        start_date:
+          example: 2018-05-24
+          type: string
+          x-konfig-original-example: 2018-05-24
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2018-05-24
+          type: string
+          x-konfig-original-example: 2018-05-24
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-end_date
+        request_date:
+          example: 2018-05-22
+          type: string
+          x-konfig-original-example: 2018-05-22
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-request_date
+        approval_date:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+        hours:
+          example: 3.5
+          type: number
+          x-konfig-original-example: 3.5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffRequestsResponse-properties-data-items-properties-hours
+        fields:
+          items:
+            $ref: '#/components/schemas/LeaveManagementListTimeOffRequestsResponse_data_inner_fields_inner'
+          type: array
+      type: object
+    LeaveManagementListEmployeesOutTodayResponse_data_inner_policy:
+      properties:
+        name:
+          example: Vacation
+          type: string
+          x-konfig-original-example: Vacation
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse-properties-data-items-properties-policy-properties-name
+      type: object
+    LeaveManagementGetTimeOffPolicyByIdResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-id
+        name:
+          example: Vacation
+          type: string
+          x-konfig-original-example: Vacation
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-name
+        color:
+          example: '#3a7dd8'
+          type: string
+          x-konfig-original-example: '#3a7dd8'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-color
+        do_not_accrue:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-do_not_accrue
+        unit:
+          example: days
+          type: string
+          x-konfig-original-example: days
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-unit
+        default_allowance:
+          example: '25.0'
+          type: string
+          x-konfig-original-example: '25.0'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-default_allowance
+        max_carryover:
+          example: '100.0'
+          type: string
+          x-konfig-original-example: '100.0'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-max_carryover
+        accrue_type:
+          example: yearly
+          type: string
+          x-konfig-original-example: yearly
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-accrue_type
+        enable_employee_access:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_employee_access
+        only_full_days:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-only_full_days
+        enable_probation_period:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_probation_period
+        dont_allow_negative_amount:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-dont_allow_negative_amount
+        requests_in_advance_required:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-requests_in_advance_required
+        enable_minimum_days:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_minimum_days
+        enable_limited_days:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_limited_days
+        enable_dependent_policy":
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_dependent_policy"
+        blocks_enabled:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-blocks_enabled
+        no_reset:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-no_reset
+        termination_recalculation:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-termination_recalculation
+        enable_service_accruals:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_service_accruals
+        child_allowance_enabled:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-child_allowance_enabled
+        enable_negative_carryover:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_negative_carryover
+        max_accrual:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-max_accrual
+        accrue_at_start:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-accrue_at_start
+        enable_monthly_expiration:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_monthly_expiration
+        starter_monthly_accrual_limitation:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-starter_monthly_accrual_limitation
+        starter_yearly_accrual_limitation:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-starter_yearly_accrual_limitation
+        auto_approves:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-auto_approves
+        enable_specific_approvers:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_specific_approvers
+        override_approvers_enabled:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-override_approvers_enabled
+        enable_duplicate_time_offs:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_duplicate_time_offs
+        enable_replacement:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_replacement
+        replacement_required:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-replacement_required
+        enable_scopped_replacement:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_scopped_replacement
+        enable_replacement_away:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_replacement_away
+        enable_details:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_details
+        require_details:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-require_details
+        additional_field:
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-additional_field
+        enable_attachment:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_attachment
+      type: object
+    LeaveManagementGetTimeOffBalancesResponse_data_inner:
+      properties:
+        policy_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-policy_id
+        used:
+          example: 5.6
+          type: number
+          x-konfig-original-example: 5.6
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-used
+        available:
+          example: 2
+          nullable: true
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-available
+      type: object
+    LeaveManagementGetTimeOffBalancesResponse:
+      example:
+        data:
+        - policy_id: 1
+          used: 5.6
+          available: 2
+        - policy_id: 2
+          used: 75
+          available: null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetTimeOffBalancesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - policy_id: 1
+          used: 5.6
+          available: 2
+        - policy_id: 2
+          used: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetIndividualAllowancesResponse:
+      example:
+        data:
+        - full_name: Joe Doe
+          id: 11
+          eligibilities:
+          - policy:
+              name: Sickday
+              id: 2
+            quantity: '0.0'
+            unit: days
+            carryover: '0.0'
+          - policy:
+              name: Vacation
+              id: 1
+            quantity: '25.0'
+            unit: days
+            carryover: '100.0'
+        - full_name: Jane Doe
+          id: 13
+          eligibilities:
+          - policy:
+              name: Custom Policy
+              id: 4
+            quantity: '0.0'
+            unit: days
+            carryover: '0.0'
+          - policy:
+              name: Vacation
+              id: 1
+            quantity: '25.0'
+            unit: days
+            carryover: '100.0'
+        meta:
+          current_page: 1
+          next_page: null
+          previous_page: null
+          total_pages: 1
+          per_page: 25
+          total_entries: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetIndividualAllowancesResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/LeaveManagementGetIndividualAllowancesResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - full_name: Joe Doe
+          id: 11
+          eligibilities:
+          - policy:
+              name: Sickday
+              id: 2
+            quantity: '0.0'
+            unit: days
+            carryover: '0.0'
+          - policy:
+              name: Vacation
+              id: 1
+            quantity: '25.0'
+            unit: days
+            carryover: '100.0'
+        - full_name: Jane Doe
+          id: 13
+          eligibilities:
+          - policy:
+              name: Custom Policy
+              id: 4
+            quantity: '0.0'
+            unit: days
+            carryover: '0.0'
+          - policy:
+              name: Vacation
+              id: 1
+            quantity: '25.0'
+            unit: days
+            carryover: '100.0'
+        meta:
+          current_page: 1
+          total_pages: 1
+          per_page: 25
+          total_entries: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementNewTimeOffRequestResponse_data:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementNewTimeOffRequestResponse-properties-data-properties-id
+      type: object
+    LeaveManagementCreateKitDayResponse:
+      example:
+        data:
+        - id: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementListTimeOffPoliciesResponse:
+      example:
+        data:
+        - id: 1
+          name: Vacation
+          color: '#49B284'
+          do_not_accrue: false
+          unit: days
+          default_allowance: '26'
+          max_carryover: '100.0'
+          accrue_type: yearly
+        - id: 2
+          name: Sickday
+          color: '#DB263F'
+          do_not_accrue: true
+          unit: days
+          default_allowance: '0.0'
+          max_carryover: '0.0'
+          accrue_type: no_tracking
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementListTimeOffPoliciesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          name: Vacation
+          color: '#49B284'
+          do_not_accrue: false
+          unit: days
+          default_allowance: '26'
+          max_carryover: '100.0'
+          accrue_type: yearly
+        - id: 2
+          name: Sickday
+          color: '#DB263F'
+          do_not_accrue: true
+          unit: days
+          default_allowance: '0.0'
+          max_carryover: '0.0'
+          accrue_type: no_tracking
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListTimeOffPoliciesResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetIndividualAllowancesResponse_meta:
+      properties:
+        current_page:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-current_page
+        next_page:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-next_page
+          example: null
+        previous_page:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 25
+          type: number
+          x-konfig-original-example: 25
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetIndividualAllowancesResponse-properties-meta-properties-total_entries
+      type: object
+    LeaveManagementListEmployeesOutTodayResponse:
+      example:
+        data:
+        - id: 2902504
+          policy_id: 2
+          policy:
+            name: Vacation
+          employee_id: 5
+          employee:
+            first_name: John
+            last_name: Doe
+          details: Birthday lunch
+          is_multi_date: false
+          is_single_day: true
+          is_part_of_day: true
+          first_part_of_day: false
+          second_part_of_day: true
+          start_date: 2018-05-24
+          end_date: 2018-05-24
+          hours: 3.5
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementListEmployeesOutTodayResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 2902504
+          policy_id: 2
+          policy:
+            name: Vacation
+          employee_id: 5
+          employee:
+            first_name: John
+            last_name: Doe
+          details: Birthday lunch
+          is_multi_date: false
+          is_single_day: true
+          is_part_of_day: true
+          first_part_of_day: false
+          second_part_of_day: true
+          start_date: 2018-05-24
+          end_date: 2018-05-24
+          hours: 3.5
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementListEmployeesOutTodayResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetTimeOffPolicyByIdResponse:
+      example:
+        data:
+        - id: 1
+          name: Vacation
+          color: '#3a7dd8'
+          do_not_accrue: false
+          unit: days
+          default_allowance: '25.0'
+          max_carryover: '100.0'
+          accrue_type: yearly
+          enable_employee_access: true
+          only_full_days: false
+          enable_probation_period: false
+          dont_allow_negative_amount: false
+          requests_in_advance_required: false
+          enable_minimum_days: false
+          enable_limited_days: false
+          enable_dependent_policy": false
+          blocks_enabled: false
+          no_reset: false
+          termination_recalculation: true
+          enable_service_accruals: false
+          child_allowance_enabled: false
+          enable_negative_carryover: false
+          max_accrual: false
+          accrue_at_start: true
+          enable_monthly_expiration: false
+          starter_monthly_accrual_limitation: false
+          starter_yearly_accrual_limitation: false
+          auto_approves: false
+          enable_specific_approvers: false
+          override_approvers_enabled: false
+          enable_duplicate_time_offs: false
+          enable_replacement: false
+          replacement_required: false
+          enable_scopped_replacement: false
+          enable_replacement_away: false
+          enable_details: true
+          require_details: false
+          additional_field: true
+          enable_attachment: false
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetTimeOffPolicyByIdResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          name: Vacation
+          color: '#3a7dd8'
+          do_not_accrue: false
+          unit: days
+          default_allowance: '25.0'
+          max_carryover: '100.0'
+          accrue_type: yearly
+          enable_employee_access: true
+          only_full_days: false
+          enable_probation_period: false
+          dont_allow_negative_amount: false
+          requests_in_advance_required: false
+          enable_minimum_days: false
+          enable_limited_days: false
+          enable_dependent_policy": false
+          blocks_enabled: false
+          no_reset: false
+          termination_recalculation: true
+          enable_service_accruals: false
+          child_allowance_enabled: false
+          enable_negative_carryover: false
+          max_accrual: false
+          accrue_at_start: true
+          enable_monthly_expiration: false
+          starter_monthly_accrual_limitation: false
+          starter_yearly_accrual_limitation: false
+          auto_approves: false
+          enable_specific_approvers: false
+          override_approvers_enabled: false
+          enable_duplicate_time_offs: false
+          enable_replacement: false
+          replacement_required: false
+          enable_scopped_replacement: false
+          enable_replacement_away: false
+          enable_details: true
+          require_details: false
+          additional_field: true
+          enable_attachment: false
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse
+      x-konfig-is-used-in-successful-response: true
+  securitySchemes:
+    api_key:
+      description: All request are required to pass a `X-Auth-Token` header.
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+      x-konfig-globally-required-security: false

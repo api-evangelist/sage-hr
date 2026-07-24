@@ -1,0 +1,385 @@
+openapi: 3.0.0
+info:
+  description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  title: Sage HR Documents KIT days API
+  version: '1.0'
+  x-konfig-ignore:
+    potential-incorrect-type: true
+  x-konfig-uses-multipart-form-data: true
+servers:
+- url: https://subdomain.sage.hr/api
+tags:
+- name: KIT days
+paths:
+  /leave-management/policies/{id}:
+    summary: Time off policy
+    patch:
+      operationId: LeaveManagement_updateKitDaysConfiguration
+      parameters:
+      - description: Numeric ID of the policy to get.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementUpdateKitDaysConfigurationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error_code: invalid_policy_type
+                    errors:
+                    - The policy specified is not an event-based policy
+              schema:
+                $ref: '#/components/schemas/LeaveManagementUpdateKitDaysConfigurationResponse'
+          description: Unprocessable entity
+          x-do-not-generate: true
+      security:
+      - api_key: []
+      summary: Update KIT days configuration of a time off policy
+      tags:
+      - KIT days
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--leave-management-policies-id
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/kit-days:
+    summary: KIT days
+    get:
+      operationId: LeaveManagement_getKitDays
+      parameters:
+      - description: Time-off policy identifier
+        example: 1
+        explode: true
+        in: query
+        name: policy_id
+        required: true
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 1
+      - description: Employee identifier
+        example: 2
+        explode: true
+        in: query
+        name: employee_id
+        required: true
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+                      status: declined
+                      start_date: 2021-03-09
+                      end_date: 2021-03-10
+                    - id: 2
+                      status: approved
+                      start_date: 2021-03-09
+                      end_date: 2021-03-10
+              schema:
+                $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: View all the KIT days of an employee in a policy
+      tags:
+      - KIT days
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--leave-management-kit-days
+      x-accepts: application/json
+    post:
+      operationId: LeaveManagement_createKitDay
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementCreateKitDayRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+              schema:
+                $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    error_code: validation_failed
+                    errors:
+                    - First error
+                    - Second error
+              schema:
+                $ref: '#/components/schemas/LeaveManagementCreateKitDay422Response'
+          description: Unprocessable entity
+          x-do-not-generate: true
+      security:
+      - api_key: []
+      summary: Create a KIT day in a leave
+      tags:
+      - KIT days
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--leave-management-kit-days
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /leave-management/kit-days/{id}:
+    summary: KIT days
+    patch:
+      operationId: LeaveManagement_processKitDay
+      parameters:
+      - description: KIT day identifier
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LeaveManagementProcessKitDayRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: Approve, decline or cancel a KIT day
+      tags:
+      - KIT days
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--leave-management-kit-days-id
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+components:
+  schemas:
+    LeaveManagementCreateKitDayRequest:
+      properties:
+        policy_id:
+          description: Time-off policy identifier
+          type: integer
+        employee_id:
+          description: Employee identifier
+          type: integer
+        date:
+          description: Date of single-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date
+        date_from:
+          description: Start date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_from
+        date_to:
+          description: End date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_to
+      required:
+      - employee_id
+      - policy_id
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationRequest:
+      properties:
+        kit_days_enabled:
+          description: Whether the policy allows Kit days or not
+          enum:
+          - true
+          - false
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_enabled
+        kit_days_quantity:
+          description: Maximum number of Kit days allowed in the policy
+          example: 5
+          type: integer
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_quantity
+      required:
+      - kit_days_enabled
+      - kit_days_quantity
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationResponse:
+      example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      properties:
+        error_code:
+          example: invalid_policy_type
+          type: string
+          x-konfig-original-example: invalid_policy_type
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-error_code
+        errors:
+          items:
+            example: The policy specified is not an event-based policy
+            type: string
+            x-konfig-original-example: The policy specified is not an event-based policy
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementCreateKitDayResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
+      type: object
+    LeaveManagementGetKitDaysResponse:
+      example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementCreateKitDayResponse:
+      example:
+        data:
+        - id: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetKitDaysResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
+        status:
+          example: declined
+          type: string
+          x-konfig-original-example: declined
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
+        start_date:
+          example: 2021-03-09
+          type: string
+          x-konfig-original-example: 2021-03-09
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2021-03-10
+          type: string
+          x-konfig-original-example: 2021-03-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
+      type: object
+    LeaveManagementProcessKitDayRequest:
+      properties:
+        status:
+          description: Action to apply to the specified KIT day
+          enum:
+          - cancel
+          - approve
+          - decline
+          type: string
+      required:
+      - status
+      type: object
+    LeaveManagementCreateKitDay422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
+        errors:
+          items:
+            example: First error
+            type: string
+            x-konfig-original-example: First error
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+  securitySchemes:
+    api_key:
+      description: All request are required to pass a `X-Auth-Token` header.
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+      x-konfig-globally-required-security: false

@@ -1,0 +1,165 @@
+openapi: 3.0.0
+info:
+  description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  title: Sage HR Documents API
+  version: '1.0'
+  x-konfig-ignore:
+    potential-incorrect-type: true
+  x-konfig-uses-multipart-form-data: true
+servers:
+- url: https://subdomain.sage.hr/api
+tags:
+- name: Documents
+paths:
+  /documents/categories:
+    summary: Document categories
+    get:
+      operationId: Documents_listCategories
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 1
+                      name: General
+                      documents_count: 10
+                    - id: 2
+                      name: Job contracts
+                      documents_count: 1
+              schema:
+                $ref: '#/components/schemas/DocumentsListCategoriesResponse'
+          description: Successful Response
+      summary: List document categories
+      tags:
+      - Documents
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--documents-categories
+      x-accepts: application/json
+  /documents:
+    summary: Document
+    post:
+      description: Document will only be visible to employee themselves
+      operationId: Documents_createNewDocument
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DocumentsCreateNewDocumentRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                      id: 1
+              schema:
+                $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse'
+          description: Successful Response
+      summary: Create new document
+      tags:
+      - Documents
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--documents
+      x-content-type: multipart/form-data
+      x-accepts: application/json
+components:
+  schemas:
+    DocumentsListCategoriesResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse-properties-data-items-properties-id
+        name:
+          example: General
+          type: string
+          x-konfig-original-example: General
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse-properties-data-items-properties-name
+        documents_count:
+          example: 10
+          type: number
+          x-konfig-original-example: 10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse-properties-data-items-properties-documents_count
+      type: object
+    DocumentsCreateNewDocumentResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse
+      x-konfig-is-used-in-successful-response: true
+    DocumentsCreateNewDocumentResponse_data:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse-properties-data-properties-id
+      type: object
+    DocumentsCreateNewDocumentRequest:
+      properties:
+        description:
+          description: Document description
+          type: string
+        file:
+          description: The file to upload.
+          format: binary
+          type: string
+        employee_id:
+          description: Employee identifier
+          type: integer
+        category_id:
+          description: Category identifier, leave empty for default category
+          type: integer
+        notify:
+          description: '''true'' to notify employee by email'
+          type: string
+      required:
+      - employee_id
+      - file
+      type: object
+    DocumentsListCategoriesResponse:
+      example:
+        data:
+        - id: 1
+          name: General
+          documents_count: 10
+        - id: 2
+          name: Job contracts
+          documents_count: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DocumentsListCategoriesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          name: General
+          documents_count: 10
+        - id: 2
+          name: Job contracts
+          documents_count: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse
+      x-konfig-is-used-in-successful-response: true
+  securitySchemes:
+    api_key:
+      description: All request are required to pass a `X-Auth-Token` header.
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+      x-konfig-globally-required-security: false

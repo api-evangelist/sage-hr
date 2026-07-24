@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  title: Sage HR Documents Positions API
+  version: '1.0'
+  x-konfig-ignore:
+    potential-incorrect-type: true
+  x-konfig-uses-multipart-form-data: true
+servers:
+- url: https://subdomain.sage.hr/api
+tags:
+- name: Positions
+paths:
+  /positions:
+    summary: Positions
+    get:
+      operationId: Positions_listCompanyPositions
+      parameters:
+      - example: 2
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - title: CFO
+                      description: '...'
+                      id: 19
+                      code: X2
+                    - title: CEO
+                      description: null
+                      id: 20
+                      code: null
+                    meta:
+                      current_page: 1
+                      next_page: 2
+                      previous_page: null
+                      total_pages: 2
+                      per_page: 50
+                      total_entries: 75
+              schema:
+                $ref: '#/components/schemas/PositionsListCompanyPositionsResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: List positions in company
+      tags:
+      - Positions
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--positions
+      x-accepts: application/json
+components:
+  schemas:
+    PositionsListCompanyPositionsResponse_data_inner:
+      properties:
+        title:
+          example: CFO
+          type: string
+          x-konfig-original-example: CFO
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-title
+        description:
+          example: '...'
+          nullable: true
+          type: string
+          x-konfig-original-example: '...'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-description
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-id
+        code:
+          example: X2
+          nullable: true
+          type: string
+          x-konfig-original-example: X2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-code
+      type: object
+    PositionsListCompanyPositionsResponse:
+      example:
+        data:
+        - title: CFO
+          description: '...'
+          id: 19
+          code: X2
+        - title: CEO
+          description: null
+          id: 20
+          code: null
+        meta:
+          current_page: 1
+          next_page: 2
+          previous_page: null
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PositionsListCompanyPositionsResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/PositionsListCompanyPositionsResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - title: CFO
+          description: '...'
+          id: 19
+          code: X2
+        - title: CEO
+          id: 20
+        meta:
+          current_page: 1
+          next_page: 2
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse
+      x-konfig-is-used-in-successful-response: true
+    PositionsListCompanyPositionsResponse_meta:
+      properties:
+        current_page:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-current_page
+        next_page:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-next_page
+        previous_page:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_entries
+      type: object
+  securitySchemes:
+    api_key:
+      description: All request are required to pass a `X-Auth-Token` header.
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+      x-konfig-globally-required-security: false

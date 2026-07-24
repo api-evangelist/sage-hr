@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  title: Sage HR Documents Teams API
+  version: '1.0'
+  x-konfig-ignore:
+    potential-incorrect-type: true
+  x-konfig-uses-multipart-form-data: true
+servers:
+- url: https://subdomain.sage.hr/api
+tags:
+- name: Teams
+paths:
+  /teams:
+    summary: Teams
+    get:
+      operationId: Teams_listInCompany
+      parameters:
+      - example: 2
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+        x-konfig-original-example: 2
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                    - id: 19
+                      name: Sales
+                      manager_ids:
+                      - 1
+                      - 2
+                      employee_ids:
+                      - 5
+                      - 7
+                      - 90
+                    meta:
+                      current_page: 1
+                      next_page: 2
+                      previous_page: null
+                      total_pages: 2
+                      per_page: 50
+                      total_entries: 75
+              schema:
+                $ref: '#/components/schemas/TeamsListInCompanyResponse'
+          description: Successful Response
+      security:
+      - api_key: []
+      summary: List teams in company
+      tags:
+      - Teams
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--teams
+      x-accepts: application/json
+components:
+  schemas:
+    TeamsListInCompanyResponse_data_inner:
+      properties:
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-id
+        name:
+          example: Sales
+          type: string
+          x-konfig-original-example: Sales
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-name
+        manager_ids:
+          items:
+            example: 1
+            type: number
+            x-konfig-original-example: 1
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-manager_ids-items
+          type: array
+        employee_ids:
+          items:
+            example: 5
+            type: number
+            x-konfig-original-example: 5
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-employee_ids-items
+          type: array
+      type: object
+    TeamsListInCompanyResponse:
+      example:
+        data:
+        - id: 19
+          name: Sales
+          manager_ids:
+          - 1
+          - 2
+          employee_ids:
+          - 5
+          - 7
+          - 90
+        meta:
+          current_page: 1
+          next_page: 2
+          previous_page: null
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TeamsListInCompanyResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/TeamsListInCompanyResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 19
+          name: Sales
+          manager_ids:
+          - 1
+          - 2
+          employee_ids:
+          - 5
+          - 7
+          - 90
+        meta:
+          current_page: 1
+          next_page: 2
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse
+      x-konfig-is-used-in-successful-response: true
+    TeamsListInCompanyResponse_meta:
+      properties:
+        current_page:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-current_page
+        next_page:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-next_page
+        previous_page:
+          nullable: true
+          type: string
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-total_entries
+      type: object
+  securitySchemes:
+    api_key:
+      description: All request are required to pass a `X-Auth-Token` header.
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+      x-konfig-globally-required-security: false
