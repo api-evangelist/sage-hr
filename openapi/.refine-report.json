@@ -1,0 +1,40 @@
+{
+  "provider": "sage-hr",
+  "sources": [
+    "sage-hr-documents-api-openapi.yml",
+    "sage-hr-employee-api-openapi.yml",
+    "sage-hr-integrations-api-openapi.yml",
+    "sage-hr-kit-days-api-openapi.yml",
+    "sage-hr-leave-management-api-openapi.yml",
+    "sage-hr-offboarding-api-openapi.yml",
+    "sage-hr-onboarding-api-openapi.yml",
+    "sage-hr-performance-api-openapi.yml",
+    "sage-hr-policies-api-openapi.yml",
+    "sage-hr-positions-api-openapi.yml",
+    "sage-hr-recruitment-api-openapi.yml",
+    "sage-hr-teams-api-openapi.yml",
+    "sage-hr-terminations-reasons-api-openapi.yml",
+    "sage-hr-timesheets-api-openapi.yml"
+  ],
+  "outputs": [
+    "sage-hr-documents-api-openapi.yml",
+    "sage-hr-employee-api-openapi.yml",
+    "sage-hr-integrations-api-openapi.yml",
+    "sage-hr-kit-days-api-openapi.yml",
+    "sage-hr-leave-management-api-openapi.yml",
+    "sage-hr-offboarding-api-openapi.yml",
+    "sage-hr-onboarding-api-openapi.yml",
+    "sage-hr-performance-api-openapi.yml",
+    "sage-hr-policies-api-openapi.yml",
+    "sage-hr-positions-api-openapi.yml",
+    "sage-hr-recruitment-api-openapi.yml",
+    "sage-hr-teams-api-openapi.yml",
+    "sage-hr-terminations-reasons-api-openapi.yml",
+    "sage-hr-timesheets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
