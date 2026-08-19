@@ -1,0 +1,552 @@
+{
+  "item": [
+    {
+      "id": "3381ba97-9e55-4de5-8eef-e17d369b4c6c",
+      "name": "Policies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "603e7407-cc6e-497f-b5dc-b22810acf733",
+          "name": "View all the KIT days of an employee in a policy",
+          "request": {
+            "name": "View all the KIT days of an employee in a policy",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<integer>",
+                  "description": "(Required) Time-off policy identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "description": "(Required) Employee identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32635f59-520c-420c-8ee9-29fead5718d7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "policy_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "employee_id",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"status\": \"declined\",\n      \"start_date\": \"2021-03-09\",\n      \"end_date\": \"2021-03-10\"\n    },\n    {\n      \"id\": 2,\n      \"status\": \"approved\",\n      \"start_date\": \"2021-03-09\",\n      \"end_date\": \"2021-03-10\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44511e7f-0da4-4b0b-b8af-98485e896d3e",
+          "name": "Create a KIT day in a leave",
+          "request": {
+            "name": "Create a KIT day in a leave",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "description": "(Required) Employee identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<integer>",
+                  "description": "(Required) Time-off policy identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Date of single-day KIT day"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "Start date of a multi-day KIT day"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "End date of a multi-day KIT day"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5a42731a-3039-486b-bc81-6a38662024bd",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Employee identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Time-off policy identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date of single-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Start date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "End date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "2020-01-01"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb08857c-0eec-4b55-928d-eca123702984",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Employee identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Time-off policy identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date of single-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Start date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "End date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "2020-01-01"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"validation_failed\",\n  \"errors\": [\n    \"First error\",\n    \"Second error\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb54092b-8651-4ad0-a4e6-402e99ea3f61",
+          "name": "Approve, decline or cancel a KIT day",
+          "request": {
+            "name": "Approve, decline or cancel a KIT day",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) KIT day identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) Action to apply to the specified KIT day"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e71a3d9-ee35-4b1d-87b5-ab9fced55389",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) KIT day identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Action to apply to the specified KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f798831f-e455-4511-8964-fae81f5e4c3e",
+    "name": "Sage HR Documents Policies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

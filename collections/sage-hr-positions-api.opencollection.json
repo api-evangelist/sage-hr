@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Positions API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List positions in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/positions",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List positions in company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

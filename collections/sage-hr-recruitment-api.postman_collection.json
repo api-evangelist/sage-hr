@@ -1,0 +1,1121 @@
+{
+  "item": [
+    {
+      "id": "c6c1db77-0eb3-4a15-b9a4-5b8d08bb446f",
+      "name": "Recruitment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cac670ea-c90e-4caa-8984-bd6d1b985131",
+          "name": "List recruitment positions",
+          "request": {
+            "name": "List recruitment positions",
+            "description": {
+              "content": "Posible recruitment position statuses: `draft`, `published`, `internal`, `completed`, `cancelled`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recruitment",
+                "positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by status, see list of possible statuses\n`?status=open`\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "hiring_manager_ids",
+                  "value": "<string>,<string>",
+                  "description": "Filter by hiring manager id, can appear multiple times\n`hiring_manager_ids[]=251&hiring_manager_ids[]=121`\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "group_ids",
+                  "value": "<string>,<string>",
+                  "description": "Filter by group id, can appear multiple times\n`group_ids[]=27&group_ids[]=761`\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>,<string>",
+                  "description": "Filter by location id, can appear multiple times\n`location_ids[]=1&location_ids[]=12`\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Pagination: fetch page at given offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Pagination: amount of positions to return in 1 call, default: 30, max: 100\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "07878d96-af00-4c4e-a814-5f6607cf8d07",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "completed"
+                    },
+                    {
+                      "key": "hiring_manager_ids",
+                      "value": "251,121"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "27,761"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "1,12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"CEO\",\n      \"id\": 2902504,\n      \"status\": \"published\",\n      \"visibility\": \"Published\",\n      \"created_at\": \"2019-09-01\",\n      \"internal_date\": \"2019-10-01\",\n      \"completed_at\": null,\n      \"link\": \"https://talent.sage.hr/jobs/xxx\",\n      \"team\": \"Management\",\n      \"applicants_required\": 1,\n      \"applicants_count\": 3,\n      \"employment_type\": \"Full-time\",\n      \"location\": \"London\",\n      \"location_id\": 9182712,\n      \"group\": \"Hiring Group\",\n      \"group_id\": 871621,\n      \"priority\": 1,\n      \"description_blocks\": [\n        {\n          \"title\": \"Requirements\",\n          \"content\": \"Html content goes here\"\n        }\n      ]\n    },\n    {\n      \"title\": \"CFO\",\n      \"id\": 212,\n      \"status\": \"completed\",\n      \"visibility\": \"Completed\",\n      \"created_at\": \"2019-09-01\",\n      \"internal_date\": \"2019-10-21\",\n      \"completed_at\": \"2019-10-12\",\n      \"link\": null,\n      \"team\": \"\",\n      \"applicants_required\": 2,\n      \"applicants_count\": 4,\n      \"employment_type\": null,\n      \"location\": null,\n      \"location_id\": null,\n      \"group\": \"Hiring Group\",\n      \"group_id\": 871621,\n      \"priority\": 9800,\n      \"description_blocks\": [\n        {\n          \"title\": \"Description\",\n          \"content\": \"<p>This is a CFO position.</p>\"\n        },\n        {\n          \"title\": \"Requirements\",\n          \"content\": \"<p>Be a CFO</p>\"\n        },\n        {\n          \"title\": \"Benefits\",\n          \"content\": \"<p>iPhone 12</p>\"\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 1,\n    \"next_page\": 2,\n    \"previous_page\": null,\n    \"total_pages\": 2,\n    \"per_page\": 20,\n    \"total_entries\": 34\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03c718a1-e806-4b03-9750-00c9d5d151f2",
+          "name": "Position details",
+          "request": {
+            "name": "Position details",
+            "description": {},
+            "url": {
+              "path": [
+                "recruitment",
+                "positions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of position"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc6d26e9-99ed-4bcc-a2ca-2cd698a27c96",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "positions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"title\": \"CTO\",\n    \"id\": 1,\n    \"status\": \"completed\",\n    \"visibility\": \"Completed\",\n    \"created_at\": \"2020-10-15\",\n    \"internal_date\": \"2020-10-31\",\n    \"completed_at\": \"2020-10-28\",\n    \"link\": null,\n    \"team\": \"\",\n    \"applicants_required\": 1,\n    \"applicants_count\": 2,\n    \"employment_type\": \"Full-time\",\n    \"location\": \"New York\",\n    \"location_id\": 4,\n    \"group\": \"Hiring Group\",\n    \"group_id\": 1,\n    \"priority\": 1,\n    \"description_blocks\": [\n      {\n        \"title\": \"Description\",\n        \"content\": \"<h1>This Is A CTO Position</h1>\"\n      },\n      {\n        \"title\": \"Requirements\",\n        \"content\": \"<p>This is what we required.</p>\"\n      },\n      {\n        \"title\": \"Benefits\",\n        \"content\": \"<p>Here are some benefits.</p>\"\n      },\n      {\n        \"title\": \"More Details\",\n        \"content\": \"<p>A custom block.</p>\"\n      }\n    ],\n    \"applicants\": [\n      {\n        \"id\": 1,\n        \"full_name\": \"Jon Vondrak\",\n        \"email\": \"jon.vondrak@example.com\"\n      },\n      {\n        \"id\": 2,\n        \"full_name\": \"Samantha Cross\",\n        \"email\": \"sam.cross@example.com\"\n      }\n    ],\n    \"hiring_team\": [\n      {\n        \"id\": 12,\n        \"full_name\": \"Manel Lopez-Bru\",\n        \"role\": \"hiring_manager\"\n      },\n      {\n        \"id\": 1,\n        \"full_name\": \"Pau Capdevilla\",\n        \"role\": \"interviewer\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed389746-420b-428c-a5d2-cb94a493a546",
+          "name": "List applicants",
+          "request": {
+            "name": "List applicants",
+            "description": {},
+            "url": {
+              "path": [
+                "recruitment",
+                "positions",
+                ":id",
+                "applicants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stage_id",
+                  "value": "<integer>",
+                  "description": "Optional filter by stage e.g. `?stage_id=25`"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Pagination: fetch page at given offset, default 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Pagination: amount of applicants to return in 1 call, default: 30, max: 100\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of position"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "41459621-983c-4b6d-9973-0382943e4453",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "positions",
+                    ":id",
+                    "applicants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stage_id",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"summary\": null,\n      \"id\": 1,\n      \"full_name\": \"Jon Vondrak\",\n      \"first_name\": \"Jon\",\n      \"last_name\": \"Vondrak\",\n      \"email\": \"jon.vondrak@example.com\",\n      \"address\": null,\n      \"phone_number\": null,\n      \"source\": \"recruiters\",\n      \"created_at\": \"2020-10-15 10:58:57+00:00\",\n      \"disqualified_date\": null,\n      \"hired_date\": null,\n      \"stage\": {\n        \"title\": \"Reference check\",\n        \"id\": 6,\n        \"created_at\": \"2020-10-15 10:57:34+00:00\"\n      }\n    },\n    {\n      \"summary\": null,\n      \"id\": 2,\n      \"full_name\": \"Samantha Cross\",\n      \"first_name\": \"Samantha\",\n      \"last_name\": \"Cross\",\n      \"email\": \"sam.cross@example.com\",\n      \"address\": null,\n      \"phone_number\": null,\n      \"source\": \"recruiters\",\n      \"created_at\": \"2020-10-15 11:02:34+00:00\",\n      \"disqualified_date\": null,\n      \"hired_date\": \"2020-10-28\",\n      \"stage\": {\n        \"title\": \"Hired\",\n        \"id\": 10,\n        \"created_at\": \"2020-10-15 10:57:34+00:00\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 1,\n    \"next_page\": null,\n    \"previous_page\": null,\n    \"total_pages\": 1,\n    \"per_page\": 30,\n    \"total_entries\": 3\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9d12ba2-07b0-4b3b-82cb-7d74463f90f5",
+          "name": "Create new applicant",
+          "request": {
+            "name": "Create new applicant",
+            "description": {
+              "content": "Tracking applicant's source:\n * if left blank, source will be automatically set to `api`\n * set source to a special keyword (`company_marketing`, `recruiters`, `referral`, `sourced`) to have it mapped to corresponding values \n * set source to a desired reference to create a custom source, e.g. `source=linkedin` will create a custom source called linkedin if it does not exist already\n * passing a referral object as a parameter will set the source to `referral`\n\n \nExample of creating an applicant with a refferal object:\n```\ncurl -X POST -H 'X-AUTH-TOKEN:***' -H 'Content-Type:application/json' \\\n  \"https://***/api/recruitment/positions/2/applicants\" \\\n  -d '{\"applicant\": \\\n          {\"referral\": {\"email\": \"recruitment@example.com\", \"full_name\": \"Alice L\"}, \\\n           \"address\": \"BD23 8UL\", \"summary\":\"An applicant\", \\\n           \"first_name\": \"Applicant Name\"}}'\n```\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recruitment",
+                "positions",
+                ":id",
+                "applicants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of position (must not be closed or completed)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "applicant[first_name]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "send_thank_you_email",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "'true' to send thank you email to applicant"
+                },
+                {
+                  "key": "applicant[last_name]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[email]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[referral]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[phone_number]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[source]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[address]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[summary]",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "applicant[attachment]",
+                  "type": "file",
+                  "description": "The file to upload."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "416530e2-f82e-4820-9d8e-014cc9da33f2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "positions",
+                    ":id",
+                    "applicants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of position (must not be closed or completed)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[first_name]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "'true' to send thank you email to applicant",
+                        "type": "text/plain"
+                      },
+                      "key": "send_thank_you_email",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[last_name]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[email]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[referral]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[phone_number]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[source]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[address]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[summary]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "The file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[attachment]",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8eaf713c-4889-45ed-b5d1-b1d001aab0d3",
+              "name": "Validation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "positions",
+                    ":id",
+                    "applicants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of position (must not be closed or completed)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[first_name]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "'true' to send thank you email to applicant",
+                        "type": "text/plain"
+                      },
+                      "key": "send_thank_you_email",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[last_name]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[email]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[referral]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[phone_number]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[source]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[address]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[summary]",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "The file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "applicant[attachment]",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"validation_failed\",\n  \"errors\": [\n    \"Email has already been taken\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f0bbf7c-63eb-41a6-9dc5-b6cebdbd06f9",
+          "name": "Applicant details",
+          "request": {
+            "name": "Applicant details",
+            "description": {},
+            "url": {
+              "path": [
+                "recruitment",
+                "applicants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of applicant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ce7a9136-aad4-437b-b7a0-f0ef69022cd7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "applicants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of applicant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"summary\": null,\n    \"id\": 3,\n    \"full_name\": \"Fritzgerard Stachie\",\n    \"first_name\": \"Fritzgerard\",\n    \"last_name\": \"Stachie\",\n    \"email\": \"fritzgerard@example.com\",\n    \"address\": null,\n    \"phone_number\": null,\n    \"source\": \"referral\",\n    \"created_at\": \"2020-10-21 12:58:43+00:00\",\n    \"disqualified_date\": \"2020-10-28\",\n    \"hired_date\": null,\n    \"stage\": {\n      \"title\": \"Interview\",\n      \"id\": 4,\n      \"created_at\": \"2020-10-15 10:57:34+00:00\"\n    },\n    \"position_id\": 1,\n    \"added_by\": {\n      \"id\": 1,\n      \"full_name\": \"Vlad Hendrik\",\n      \"email\": \"vlad@example.com\"\n    },\n    \"referrer\": {\n      \"id\": 1,\n      \"full_name\": \"Josh Pascuale\",\n      \"email\": \"josh@example.com\",\n      \"phone_number\": 67876162\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fac85ac-1332-4425-819e-442b126f2fb5",
+          "name": "Applicant actions",
+          "request": {
+            "name": "Applicant actions",
+            "description": {
+              "content": "List applicant's process throught the recruitment pipeline. Newest, first.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recruitment",
+                "applicants",
+                ":id",
+                "actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Pagination: fetch page at given offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Pagination: amount of actions to return in 1 call, default: 30, max: 100\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of applicant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "130d41e1-0792-4c0b-acd8-88e7ce33ddf3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recruitment",
+                    "applicants",
+                    ":id",
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of applicant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"action\": \"moved_between_stages\",\n      \"message\": \"Applicant moved from \\\"Interview\\\" to \\\"Reference check\\\"\",\n      \"created_at\": \"2020-10-28 09:05:45+00:00\"\n    },\n    {\n      \"action\": \"moved_between_stages\",\n      \"message\": \"Applicant moved from \\\"CV review\\\" to \\\"Interview\\\"\",\n      \"created_at\": \"2020-10-27 10:59:23+00:00\"\n    },\n    {\n      \"action\": \"moved_between_stages\",\n      \"message\": \"Applicant moved from \\\"New\\\" to \\\"CV review\\\"\",\n      \"created_at\": \"2020-10-15 11:01:39+00:00\"\n    },\n    {\n      \"action\": \"document_created\",\n      \"message\": \"Uploaded \\\"empty-document.pdf\\\"\",\n      \"created_at\": \"2020-10-15 10:59:15+00:00\"\n    },\n    {\n      \"action\": \"applicant_created\",\n      \"message\": \"Applicant created\",\n      \"created_at\": \"2020-10-15 10:58:57+00:00\"\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 1,\n    \"next_page\": null,\n    \"previous_page\": null,\n    \"total_pages\": 1,\n    \"per_page\": 30,\n    \"total_entries\": 5\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b3a5cf3-7841-4502-be10-fc77713f1eee",
+    "name": "Sage HR Documents Recruitment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

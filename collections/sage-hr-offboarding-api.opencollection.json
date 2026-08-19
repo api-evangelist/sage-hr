@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Offboarding API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List offboarding task categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/offboarding/categories"
+          },
+          "docs": "List offboarding task categories"
+        },
+        {
+          "info": {
+            "name": "Create new offboarding task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/offboarding/tasks",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new offboarding task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

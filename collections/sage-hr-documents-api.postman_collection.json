@@ -1,0 +1,258 @@
+{
+  "item": [
+    {
+      "id": "e5a39b22-96b5-4a01-95d9-96798caf08d0",
+      "name": "Documents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eadaed4d-5e6e-43e0-8c05-c6c43d7c0288",
+          "name": "List document categories",
+          "request": {
+            "name": "List document categories",
+            "description": {},
+            "url": {
+              "path": [
+                "documents",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3aec74d2-fd6e-4368-b312-3d0b531a2b09",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"General\",\n      \"documents_count\": 10\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Job contracts\",\n      \"documents_count\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a9be5b4-5743-4345-965d-dbc51209da60",
+          "name": "Create new document",
+          "request": {
+            "name": "Create new document",
+            "description": {
+              "content": "Document will only be visible to employee themselves",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": "(Required) Employee identifier"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) The file to upload."
+                },
+                {
+                  "key": "description",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Document description"
+                },
+                {
+                  "key": "category_id",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": "Category identifier, leave empty for default category"
+                },
+                {
+                  "key": "notify",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "'true' to notify employee by email"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cf419a6-65eb-4b51-aa79-9f08aa7de0bf",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Employee identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Document description",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Category identifier, leave empty for default category",
+                        "type": "text/plain"
+                      },
+                      "key": "category_id",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "'true' to notify employee by email",
+                        "type": "text/plain"
+                      },
+                      "key": "notify",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c77c11de-15c8-471e-a9f1-b10b282b7390",
+    "name": "Sage HR Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Recruitment API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recruitment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List recruitment positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions",
+            "params": [
+              {
+                "name": "status",
+                "value": "completed",
+                "type": "query",
+                "description": "Filter by status, see list of possible statuses\n`?status=open`\n"
+              },
+              {
+                "name": "hiring_manager_ids",
+                "value": "251,121",
+                "type": "query",
+                "description": "Filter by hiring manager id, can appear multiple times\n`hiring_manager_ids[]=251&hiring_manager_ids[]=121`\n"
+              },
+              {
+                "name": "group_ids",
+                "value": "27,761",
+                "type": "query",
+                "description": "Filter by group id, can appear multiple times\n`group_ids[]=27&group_ids[]=761`\n"
+              },
+              {
+                "name": "location_ids",
+                "value": "1,12",
+                "type": "query",
+                "description": "Filter by location id, can appear multiple times\n`location_ids[]=1&location_ids[]=12`\n"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of positions to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Posible recruitment position statuses: `draft`, `published`, `internal`, `completed`, `cancelled`\n"
+        },
+        {
+          "info": {
+            "name": "Position details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Position details"
+        },
+        {
+          "info": {
+            "name": "List applicants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id/applicants",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position"
+              },
+              {
+                "name": "stage_id",
+                "value": "25",
+                "type": "query",
+                "description": "Optional filter by stage e.g. `?stage_id=25`"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset, default 1"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of applicants to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List applicants"
+        },
+        {
+          "info": {
+            "name": "Create new applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/recruitment/positions/:id/applicants",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of position (must not be closed or completed)."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Tracking applicant's source:\n * if left blank, source will be automatically set to `api`\n * set source to a special keyword (`company_marketing`, `recruiters`, `referral`, `sourced`) to have it mapped to corresponding values \n * set source to a desired reference to create a custom source, e.g. `source=linkedin` will create a custom source called linkedin if it does not exist already\n * passing a referral object as a parameter will set the source to `referral`\n\n \nExample of creating an applicant "
+        },
+        {
+          "info": {
+            "name": "Applicant details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/applicants/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of applicant"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Applicant details"
+        },
+        {
+          "info": {
+            "name": "Applicant actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/recruitment/applicants/:id/actions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of applicant"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query",
+                "description": "Pagination: fetch page at given offset"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Pagination: amount of actions to return in 1 call, default: 30, max: 100\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List applicant's process throught the recruitment pipeline. Newest, first.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

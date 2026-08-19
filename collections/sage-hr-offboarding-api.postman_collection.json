@@ -1,0 +1,283 @@
+{
+  "item": [
+    {
+      "id": "0ee5252e-eb24-481a-a629-9ddccb18c033",
+      "name": "Offboarding",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3bb7b548-6e4a-4c4e-9b28-f7835b8394ad",
+          "name": "List offboarding task categories",
+          "request": {
+            "name": "List offboarding task categories",
+            "description": {},
+            "url": {
+              "path": [
+                "offboarding",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "945f00ec-9982-4927-82be-fd45f1b62761",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"General\",\n      \"id\": 1\n    },\n    {\n      \"title\": \"Platform\",\n      \"id\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f48052af-e295-4e7f-af32-a8e04b7cbed3",
+          "name": "Create new offboarding task",
+          "request": {
+            "name": "Create new offboarding task",
+            "description": {},
+            "url": {
+              "path": [
+                "offboarding",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "boarding_task_template_category_id",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "due_in",
+                  "value": "<number>",
+                  "description": "(Required) Due date in days before employee last working day"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "default_assignee_type",
+                  "value": "<string>",
+                  "description": "Default: self; leader - direct manager; employee - specific employee via assignee_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignee_id",
+                  "value": "<number>",
+                  "description": "Specific assignee if default_assignee_type is 'employee'"
+                },
+                {
+                  "disabled": false,
+                  "key": "require_attachment",
+                  "value": "<string>",
+                  "description": "'true' to enabled required attachment"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aec3c24a-5130-4175-8223-5fa93df44ea5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "boarding_task_template_category_id",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Due date in days before employee last working day",
+                        "type": "text/plain"
+                      },
+                      "key": "due_in",
+                      "value": "30"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default: self; leader - direct manager; employee - specific employee via assignee_id",
+                        "type": "text/plain"
+                      },
+                      "key": "default_assignee_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Specific assignee if default_assignee_type is 'employee'",
+                        "type": "text/plain"
+                      },
+                      "key": "assignee_id",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "'true' to enabled required attachment",
+                        "type": "text/plain"
+                      },
+                      "key": "require_attachment",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f7c023a5-535c-44b5-ad6e-4b6fa13567f5",
+    "name": "Sage HR Documents Offboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

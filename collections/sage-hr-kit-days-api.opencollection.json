@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents KIT days API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KIT days",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update KIT days configuration of a time off policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the policy to get."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update KIT days configuration of a time off policy"
+        },
+        {
+          "info": {
+            "name": "View all the KIT days of an employee in a policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "1",
+                "type": "query",
+                "description": "Time-off policy identifier"
+              },
+              {
+                "name": "employee_id",
+                "value": "2",
+                "type": "query",
+                "description": "Employee identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "View all the KIT days of an employee in a policy"
+        },
+        {
+          "info": {
+            "name": "Create a KIT day in a leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a KIT day in a leave"
+        },
+        {
+          "info": {
+            "name": "Approve, decline or cancel a KIT day",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "KIT day identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Approve, decline or cancel a KIT day"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

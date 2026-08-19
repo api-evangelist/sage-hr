@@ -1,0 +1,1000 @@
+{
+  "item": [
+    {
+      "id": "08de806e-6498-4789-8730-9d40d1e6a685",
+      "name": "Integrations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9faccf06-62f8-4775-bd8f-d1d0ad256a53",
+          "name": "Job position transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Job position transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "job-positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4820a717-4493-4093-8596-7000188469b2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "job-positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"title\": \"Job title\",\n    \"id\": 1,\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1e297d9-eaa2-430e-bfc7-73e9d102af6f",
+          "name": "Organizational structure transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Organizational structure transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "organization-structure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f7ec44f-7e10-4b5a-912f-35d08b47c5c2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "organization-structure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"department_code\": \"department code (custom_field)\",\n    \"department_name\": \"department name (custom_field)\",\n    \"section_code\": \"section code (custom_field)\",\n    \"section_title\": \"section title (custom_field)\",\n    \"subsection_code\": \"subsection code (custom_field)\",\n    \"subsection_title\": \"Test Team\",\n    \"cost_center_code\": \"cost center code (custom_field)\",\n    \"cost_center_title\": \"cost center tile (custom_field)\",\n    \"work_address\": \"employee address (custom_field)\",\n    \"work_city\": \"employee city (custom_field)\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eab3cc3c-f9e1-44bf-b3c2-7a5c981f85e0",
+          "name": "New starters list from Sage HR to Vikarina",
+          "request": {
+            "name": "New starters list from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "newstarter-employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "760341f0-9072-4a31-a218-42ccf59c6a19",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "newstarter-employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"work_start_date\": \"2020-10-10 00:00:00+00:00\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"gender\": \"male\",\n    \"personal_code\": \"personal code (custom_field)\",\n    \"social_security_code\": \"social security code (custom_field)\",\n    \"address\": \"Street 1, City\",\n    \"home_city\": \"employee home city (custom_field)\",\n    \"country_id\": \"country id (GB)\",\n    \"npd\": \"NPD\",\n    \"email\": \"test@test.com\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4994d3f2-ca47-4ef7-847f-5e94e9e3f233",
+          "name": "Contract (custom field) information transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Contract (custom field) information transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "contract-information"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56c47e20-bf24-4151-8e59-47932532952b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "contract-information"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"work_start_date\": \"2020-10-10 00:00:00+00:00\",\n    \"contract_number\": \"contract number (custom_field)\",\n    \"termination_date\": \"2020-10-11 00:00:00+00:00\",\n    \"employment_status\": \"Full-time\",\n    \"contract_type\": \"contract type (custom_field)\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e6b2f89-0533-4007-984b-6309061acb15",
+          "name": "New appointment (position changes) information transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "New appointment (position changes) information transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "239ba7c1-4ee9-472a-acfe-60f41ca0248d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"work_start_date\": \"2020-01-10\",\n    \"position_start_date\": \"2020-10-10\",\n    \"last_position_end_date\": \"2020-09-10\",\n    \"cost_center_code\": \"cost center code (custom_field)\",\n    \"position_id\": 1,\n    \"schedule_id\": \"scheduled id (custom_field)\",\n    \"employment_status\": \"Full-time\",\n    \"job_type\": \"job type (custom_field)\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f0e36d4-b7cb-4dd2-a4bf-704fa762bfaa",
+          "name": "Salary information transfer from Sage HR to Vikarina to Vikarina",
+          "request": {
+            "name": "Salary information transfer from Sage HR to Vikarina to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "salaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dfae0e8-a778-46c5-b048-90f00ad49f32",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"compensation_id\": 1,\n    \"employee_number\": 123,\n    \"contract_number\": \"contract number (custom_field)\",\n    \"type\": \"Salary\",\n    \"start_date\": \"2020-09-10\",\n    \"end_date\": \"2020-10-10\",\n    \"amount\": 1000,\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beb33590-ec4c-42a6-8115-2d2c94c7f587",
+          "name": "Bank account information transfer (Custom field) from Sage HR to Vikarina",
+          "request": {
+            "name": "Bank account information transfer (Custom field) from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "bank-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf7761f5-0bd6-44ee-ae25-c78223e99d66",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "bank-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"bank_code\": \"bank code (custom_field)\",\n    \"bank_account\": \"bank account (custom_field)\",\n    \"last_change\": \"2020-09-10\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "563c8984-3891-498b-8e88-9e3a9ce0beb5",
+          "name": "Termination information transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Termination information transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "terminated-employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7418165d-59b4-4894-84e6-e09c0a969e7f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "terminated-employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"contract_number\": \"contract number (custom_field)\",\n    \"termination_date\": \"2020-09-10\",\n    \"termination_reason\": \"New job\",\n    \"unused_days\": 5,\n    \"termination_comment\": \"Was good employee\",\n    \"compensation\": 1000,\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bd52a2a-f01d-43b6-a996-e02263038d31",
+          "name": "Unused vacation days transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Unused vacation days transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "unused-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29b91d62-5343-417c-a114-56fee33a3d31",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "unused-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"unused_days\": 5,\n    \"date\": \"2020-10-10\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f1f5d06-1b82-43fa-ad9a-ec794c5d122e",
+          "name": "Leaves information transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Leaves information transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "leave-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c46bcbe-717e-450f-b810-3750fc1d7875",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "leave-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"calendar_event_id\": 1,\n    \"employee_number\": 123,\n    \"leave_type\": \"Vacation\",\n    \"days\": 2,\n    \"start_date\": \"2020-10-10\",\n    \"end_date\": \"2020-10-10\",\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e9f0daa-dc10-471a-9d96-0b6120309254",
+          "name": "Time Schedule information transfer from Sage HR to Vikarina",
+          "request": {
+            "name": "Time Schedule information transfer from Sage HR to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "timesheets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ccd1c8d-db51-4a01-8d01-f16238652bf6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "timesheets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"employee_id\": 1,\n    \"employee_number\": 123,\n    \"date\": \"2020-10-10\",\n    \"stand_by\": 8,\n    \"hours\": 8.5,\n    \"nightours\": 0.5,\n    \"cost_center_code\": \"cost center code (custom field)\",\n    \"overtime_title\": 0.5,\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0101731-2bac-46ad-bbc4-66216ac751fd",
+          "name": "Sending bonuses [payed once] to Vikarina",
+          "request": {
+            "name": "Sending bonuses [payed once] to Vikarina",
+            "description": {},
+            "url": {
+              "path": [
+                "vikarina",
+                "bonuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4802edc-55cb-4af2-8569-4d43fac73a48",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vikarina",
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2020-02-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"compensation_id\": 1,\n    \"employee_number\": 123,\n    \"contract_number\": \"contract number (custom_field)\",\n    \"type\": \"Bonus\",\n    \"start_date\": \"2020-09-10\",\n    \"end_date\": \"2020-10-10\",\n    \"amount\": 1000,\n    \"status\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3cc2b29b-36da-44fb-a001-51ab0917382f",
+    "name": "Sage HR Documents Integrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

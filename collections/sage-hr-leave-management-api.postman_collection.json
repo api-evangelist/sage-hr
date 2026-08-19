@@ -1,0 +1,1854 @@
+{
+  "item": [
+    {
+      "id": "f3286a99-adab-4235-b29c-4fe4fcd58806",
+      "name": "Leave management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4929b182-8af6-427c-a6c7-b03fac88ff47",
+          "name": "List time off policies",
+          "request": {
+            "name": "List time off policies",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9cfe9e3c-8759-4217-98fe-fd1a0efdcdf1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Vacation\",\n      \"color\": \"#49B284\",\n      \"do_not_accrue\": false,\n      \"unit\": \"days\",\n      \"default_allowance\": \"26\",\n      \"max_carryover\": \"100.0\",\n      \"accrue_type\": \"yearly\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Sickday\",\n      \"color\": \"#DB263F\",\n      \"do_not_accrue\": true,\n      \"unit\": \"days\",\n      \"default_allowance\": \"0.0\",\n      \"max_carryover\": \"0.0\",\n      \"accrue_type\": \"no_tracking\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0efacfc1-3e53-404f-92d6-e4f8921de07c",
+          "name": "Details about a time off policy",
+          "request": {
+            "name": "Details about a time off policy",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "policies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of the policy to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "45a1e2c3-2f04-4af4-9e9e-e597ce6c7e89",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of the policy to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Vacation\",\n      \"color\": \"#3a7dd8\",\n      \"do_not_accrue\": false,\n      \"unit\": \"days\",\n      \"default_allowance\": \"25.0\",\n      \"max_carryover\": \"100.0\",\n      \"accrue_type\": \"yearly\",\n      \"enable_employee_access\": true,\n      \"only_full_days\": false,\n      \"enable_probation_period\": false,\n      \"dont_allow_negative_amount\": false,\n      \"requests_in_advance_required\": false,\n      \"enable_minimum_days\": false,\n      \"enable_limited_days\": false,\n      \"enable_dependent_policy\\\"\": false,\n      \"blocks_enabled\": false,\n      \"no_reset\": false,\n      \"termination_recalculation\": true,\n      \"enable_service_accruals\": false,\n      \"child_allowance_enabled\": false,\n      \"enable_negative_carryover\": false,\n      \"max_accrual\": false,\n      \"accrue_at_start\": true,\n      \"enable_monthly_expiration\": false,\n      \"starter_monthly_accrual_limitation\": false,\n      \"starter_yearly_accrual_limitation\": false,\n      \"auto_approves\": false,\n      \"enable_specific_approvers\": false,\n      \"override_approvers_enabled\": false,\n      \"enable_duplicate_time_offs\": false,\n      \"enable_replacement\": false,\n      \"replacement_required\": false,\n      \"enable_scopped_replacement\": false,\n      \"enable_replacement_away\": false,\n      \"enable_details\": true,\n      \"require_details\": false,\n      \"additional_field\": true,\n      \"enable_attachment\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb9d5783-aa81-49d9-a074-ede49c9468cf",
+          "name": "Update KIT days configuration of a time off policy",
+          "request": {
+            "name": "Update KIT days configuration of a time off policy",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "policies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of the policy to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "kit_days_enabled",
+                  "value": "<boolean>",
+                  "description": "(Required) Whether the policy allows Kit days or not"
+                },
+                {
+                  "disabled": false,
+                  "key": "kit_days_quantity",
+                  "value": "<integer>",
+                  "description": "(Required) Maximum number of Kit days allowed in the policy"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "979b21c5-0e9e-49c8-aa52-a61ec706fdd4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of the policy to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Whether the policy allows Kit days or not",
+                        "type": "text/plain"
+                      },
+                      "key": "kit_days_enabled",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Maximum number of Kit days allowed in the policy",
+                        "type": "text/plain"
+                      },
+                      "key": "kit_days_quantity",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f644c8a-0f57-4ecb-a6f6-145e5b550a6d",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of the policy to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Whether the policy allows Kit days or not",
+                        "type": "text/plain"
+                      },
+                      "key": "kit_days_enabled",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Maximum number of Kit days allowed in the policy",
+                        "type": "text/plain"
+                      },
+                      "key": "kit_days_quantity",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"invalid_policy_type\",\n  \"errors\": [\n    \"The policy specified is not an event-based policy\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eecaef50-7a41-4754-b9af-d78ddcf8d8de",
+          "name": "View all the KIT days of an employee in a policy",
+          "request": {
+            "name": "View all the KIT days of an employee in a policy",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<integer>",
+                  "description": "(Required) Time-off policy identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "description": "(Required) Employee identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eda9e640-0be2-437a-aebc-06ea261f2d88",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "policy_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "employee_id",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"status\": \"declined\",\n      \"start_date\": \"2021-03-09\",\n      \"end_date\": \"2021-03-10\"\n    },\n    {\n      \"id\": 2,\n      \"status\": \"approved\",\n      \"start_date\": \"2021-03-09\",\n      \"end_date\": \"2021-03-10\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7013eaaf-1a43-4079-9890-385b7d387c2f",
+          "name": "Create a KIT day in a leave",
+          "request": {
+            "name": "Create a KIT day in a leave",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "description": "(Required) Employee identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<integer>",
+                  "description": "(Required) Time-off policy identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Date of single-day KIT day"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "Start date of a multi-day KIT day"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "End date of a multi-day KIT day"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0558c02b-3f55-4b7d-be91-845fb300b58b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Employee identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Time-off policy identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date of single-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Start date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "End date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "2020-01-01"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c1eefee-5e67-4adf-be98-805a16d6a7b5",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Employee identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Time-off policy identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date of single-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Start date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "2020-01-01"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "End date of a multi-day KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "2020-01-01"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"validation_failed\",\n  \"errors\": [\n    \"First error\",\n    \"Second error\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "117b8945-3061-4d84-9b5f-8f2640ca2526",
+          "name": "Approve, decline or cancel a KIT day",
+          "request": {
+            "name": "Approve, decline or cancel a KIT day",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "kit-days",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) KIT day identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) Action to apply to the specified KIT day"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68ad2302-adb5-4ef9-8ed7-dfb131212ad2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "kit-days",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) KIT day identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Action to apply to the specified KIT day",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98be4df9-e6cf-4109-8995-a1bfd9ed11af",
+          "name": "Report with individual allowances",
+          "request": {
+            "name": "Report with individual allowances",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "reports",
+                "individual-allowances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Limit the reports to employees in specified location ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Limit the reports to selected employee ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "team_ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Limit the reports to employees in specified team ids"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e4da972e-ec2c-4c5a-986b-0770e96ceb9e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "reports",
+                    "individual-allowances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "14,13"
+                    },
+                    {
+                      "key": "employee_ids",
+                      "value": "1,2,3"
+                    },
+                    {
+                      "key": "team_ids",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"full_name\": \"Joe Doe\",\n      \"id\": 11,\n      \"eligibilities\": [\n        {\n          \"policy\": {\n            \"name\": \"Sickday\",\n            \"id\": 2\n          },\n          \"quantity\": \"0.0\",\n          \"unit\": \"days\",\n          \"carryover\": \"0.0\"\n        },\n        {\n          \"policy\": {\n            \"name\": \"Vacation\",\n            \"id\": 1\n          },\n          \"quantity\": \"25.0\",\n          \"unit\": \"days\",\n          \"carryover\": \"100.0\"\n        }\n      ]\n    },\n    {\n      \"full_name\": \"Jane Doe\",\n      \"id\": 13,\n      \"eligibilities\": [\n        {\n          \"policy\": {\n            \"name\": \"Custom Policy\",\n            \"id\": 4\n          },\n          \"quantity\": \"0.0\",\n          \"unit\": \"days\",\n          \"carryover\": \"0.0\"\n        },\n        {\n          \"policy\": {\n            \"name\": \"Vacation\",\n            \"id\": 1\n          },\n          \"quantity\": \"25.0\",\n          \"unit\": \"days\",\n          \"carryover\": \"100.0\"\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 1,\n    \"next_page\": null,\n    \"previous_page\": null,\n    \"total_pages\": 1,\n    \"per_page\": 25,\n    \"total_entries\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f13cb35c-d7d1-4fb1-bdc9-8034912e00e2",
+          "name": "Employee time off balances",
+          "request": {
+            "name": "Employee time off balances",
+            "description": {},
+            "url": {
+              "path": [
+                "employees",
+                ":id",
+                "leave-management",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric ID of the user to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "54a22935-1daa-4843-a379-efe79e32afcd",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":id",
+                    "leave-management",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric ID of the user to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"policy_id\": 1,\n      \"used\": 5.6,\n      \"available\": 2\n    },\n    {\n      \"policy_id\": 2,\n      \"used\": 75,\n      \"available\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ea63ab4-268b-43c6-8878-33573a4fbea6",
+          "name": "List time off requests",
+          "request": {
+            "name": "List time off requests",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "If not specified defaults to beginning of current month"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "If not specified defaults to end of current month. Days between from date and to date must be less than 65. If you need info for larger period of time make multiple requests;"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3abdccc-ea5c-4ebc-888f-7b063c5e4f9e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2018-05-20"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2018-06-20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 2902504,\n      \"status\": \"Approved\",\n      \"status_code\": \"approved\",\n      \"policy_id\": 1,\n      \"employee_id\": 1,\n      \"details\": \"Birthday lunch\",\n      \"is_multi_date\": false,\n      \"is_single_day\": true,\n      \"is_part_of_day\": true,\n      \"first_part_of_day\": false,\n      \"second_part_of_day\": true,\n      \"start_date\": \"2018-05-24\",\n      \"end_date\": \"2018-05-24\",\n      \"request_date\": \"2018-05-22\",\n      \"approval_date\": null,\n      \"hours\": 3.5,\n      \"fields\": [\n        {\n          \"title\": \"Approved by manager?\",\n          \"answer\": true\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 1,\n    \"next_page\": 2,\n    \"previous_page\": null,\n    \"total_pages\": 2,\n    \"per_page\": 50,\n    \"total_entries\": 75\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a75a423f-e9ed-4bfd-bbb7-3c62e6427bc3",
+          "name": "Create new time off request",
+          "request": {
+            "name": "Create new time off request",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "part_of_day",
+                  "value": "<string>",
+                  "description": "(Required) required if type is single"
+                },
+                {
+                  "disabled": false,
+                  "key": "time_off_policy_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "format: YYYY-MM-DD; required if type is single"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "format: YYYY-MM-DD; required if type is multi"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "format: YYYY-MM-DD; required if type is multi"
+                },
+                {
+                  "disabled": false,
+                  "key": "hours",
+                  "value": "<number>",
+                  "description": "required if type is single & part_of_day is first_part_of_day or second_part_of_day"
+                },
+                {
+                  "disabled": false,
+                  "key": "time_from",
+                  "value": "<string>",
+                  "description": "format: H:M; required if part_of_day is specific_timespan"
+                },
+                {
+                  "disabled": false,
+                  "key": "time_to",
+                  "value": "<string>",
+                  "description": "format: H:M; required if part_of_day is specific_timespan"
+                },
+                {
+                  "disabled": false,
+                  "key": "details",
+                  "value": "<string>",
+                  "description": "required based on policy settings"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "651002d2-a66f-4d3f-8696-c3f0e42644e5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) required if type is single",
+                        "type": "text/plain"
+                      },
+                      "key": "part_of_day",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "time_off_policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is single",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is multi",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is multi",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "required if type is single & part_of_day is first_part_of_day or second_part_of_day",
+                        "type": "text/plain"
+                      },
+                      "key": "hours",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: H:M; required if part_of_day is specific_timespan",
+                        "type": "text/plain"
+                      },
+                      "key": "time_from",
+                      "value": "07:30"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: H:M; required if part_of_day is specific_timespan",
+                        "type": "text/plain"
+                      },
+                      "key": "time_to",
+                      "value": "900"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "required based on policy settings",
+                        "type": "text/plain"
+                      },
+                      "key": "details",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2241e08-3ec0-4e5c-8920-f8cb9701a7b6",
+              "name": "Validation Failed Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "employee_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) required if type is single",
+                        "type": "text/plain"
+                      },
+                      "key": "part_of_day",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "time_off_policy_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is single",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is multi",
+                        "type": "text/plain"
+                      },
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: YYYY-MM-DD; required if type is multi",
+                        "type": "text/plain"
+                      },
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "required if type is single & part_of_day is first_part_of_day or second_part_of_day",
+                        "type": "text/plain"
+                      },
+                      "key": "hours",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: H:M; required if part_of_day is specific_timespan",
+                        "type": "text/plain"
+                      },
+                      "key": "time_from",
+                      "value": "07:30"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "format: H:M; required if part_of_day is specific_timespan",
+                        "type": "text/plain"
+                      },
+                      "key": "time_to",
+                      "value": "900"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "required based on policy settings",
+                        "type": "text/plain"
+                      },
+                      "key": "details",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"validation_failed\",\n  \"errors\": [\n    \"Error message\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f5fd474-1587-4df7-b07d-89af585296b6",
+          "name": "List employees out of office today",
+          "request": {
+            "name": "List employees out of office today",
+            "description": {},
+            "url": {
+              "path": [
+                "leave-management",
+                "out-of-office-today"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Optional date, defauls to today"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e3f4d9a-890a-40dc-b109-2d3adfd8e1ba",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave-management",
+                    "out-of-office-today"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2018-11-23"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 2902504,\n      \"policy_id\": 2,\n      \"policy\": {\n        \"name\": \"Vacation\"\n      },\n      \"employee_id\": 5,\n      \"employee\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\"\n      },\n      \"details\": \"Birthday lunch\",\n      \"is_multi_date\": false,\n      \"is_single_day\": true,\n      \"is_part_of_day\": true,\n      \"first_part_of_day\": false,\n      \"second_part_of_day\": true,\n      \"start_date\": \"2018-05-24\",\n      \"end_date\": \"2018-05-24\",\n      \"hours\": 3.5\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b902e19-7844-42b4-a833-73299728b5c1",
+    "name": "Sage HR Documents Leave management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

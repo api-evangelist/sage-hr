@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Terminations reasons API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Terminations reasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List termination reasons in company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/termination-reasons",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List termination reasons in company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

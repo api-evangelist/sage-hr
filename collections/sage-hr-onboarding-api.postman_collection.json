@@ -1,0 +1,298 @@
+{
+  "item": [
+    {
+      "id": "5cc86bc6-07a9-4749-a560-42405c583824",
+      "name": "Onboarding",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a380379-2996-4ca3-8bfb-59981bffb14d",
+          "name": "List onboarding task categories",
+          "request": {
+            "name": "List onboarding task categories",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e49073b-04a3-4b6b-a1b0-ff639b4dfade",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"General\",\n      \"id\": 1\n    },\n    {\n      \"title\": \"Platform\",\n      \"id\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "224d57d5-aefc-42c0-8b21-c14e17109dbb",
+          "name": "Create new onboarding task",
+          "request": {
+            "name": "Create new onboarding task",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "boarding_task_template_category_id",
+                  "value": "<number>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "due_in",
+                  "value": "<number>",
+                  "description": "(Required) Due date in days after employee start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "default_assignee_type",
+                  "value": "<string>",
+                  "description": "Default: self; leader - direct manager; employee - specific employee via assignee_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignee_id",
+                  "value": "<number>",
+                  "description": "Specific assignee if default_assignee_type is 'employee'"
+                },
+                {
+                  "disabled": false,
+                  "key": "require_attachment",
+                  "value": "<string>",
+                  "description": "'true' to enabled required attachment"
+                },
+                {
+                  "disabled": false,
+                  "key": "add_after",
+                  "value": "<number>",
+                  "description": "Task start date in days after employee start date"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e1f20b2-f529-4403-9080-20c76df5ae1d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "boarding_task_template_category_id",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Due date in days after employee start date",
+                        "type": "text/plain"
+                      },
+                      "key": "due_in",
+                      "value": "30"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default: self; leader - direct manager; employee - specific employee via assignee_id",
+                        "type": "text/plain"
+                      },
+                      "key": "default_assignee_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Specific assignee if default_assignee_type is 'employee'",
+                        "type": "text/plain"
+                      },
+                      "key": "assignee_id",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "'true' to enabled required attachment",
+                        "type": "text/plain"
+                      },
+                      "key": "require_attachment",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Task start date in days after employee start date",
+                        "type": "text/plain"
+                      },
+                      "key": "add_after",
+                      "value": "<number>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "381b3d7d-fd03-4609-9fde-7c7d1e245bd7",
+    "name": "Sage HR Documents Onboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Integrations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Job position transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/job-positions"
+          },
+          "docs": "Job position transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Organizational structure transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/organization-structure"
+          },
+          "docs": "Organizational structure transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "New starters list from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/newstarter-employees",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "New starters list from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Contract (custom field) information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/contract-information"
+          },
+          "docs": "Contract (custom field) information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "New appointment (position changes) information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/appointments",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "New appointment (position changes) information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Salary information transfer from Sage HR to Vikarina to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/salaries",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Salary information transfer from Sage HR to Vikarina to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Bank account information transfer (Custom field) from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/bank-accounts"
+          },
+          "docs": "Bank account information transfer (Custom field) from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Termination information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/terminated-employees",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Termination information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Unused vacation days transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/unused-days"
+          },
+          "docs": "Unused vacation days transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Leaves information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/leave-types",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Leaves information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Time Schedule information transfer from Sage HR to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/timesheets",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Time Schedule information transfer from Sage HR to Vikarina"
+        },
+        {
+          "info": {
+            "name": "Sending bonuses [payed once] to Vikarina",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/vikarina/bonuses",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "2020-01-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "2020-02-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sending bonuses [payed once] to Vikarina"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

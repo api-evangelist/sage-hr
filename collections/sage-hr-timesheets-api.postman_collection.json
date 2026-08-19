@@ -1,0 +1,149 @@
+{
+  "item": [
+    {
+      "id": "428f43a8-80f7-41bf-a7e2-c48e7e1ecf97",
+      "name": "Timesheets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da5442ac-481e-46b9-828d-d59f0f1ebddd",
+          "name": "Clock in & out employees on specific days",
+          "request": {
+            "name": "Clock in & out employees on specific days",
+            "description": {
+              "content": "Employees will be only clocked in & out if API time clocking is enabled for Timesheet group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timesheets",
+                "clock-in"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"override\": \"<string>\",\n  \"clocked_time\": {\n    \"YYYY/MM/DD\": {\n      \"employee_id\": [\n        {\n          \"clock_in\": \"<string>\",\n          \"clock_out\": \"<string>\"\n        },\n        {\n          \"clock_in\": \"<string>\",\n          \"clock_out\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ccfe7c2-eede-440a-bdb4-1c55a5db8bca",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timesheets",
+                    "clock-in"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clocked_time\": {\n    \"YYYY/MM/DD\": {\n      \"employee_id\": [\n        {\n          \"clock_in\": \"clock_in\",\n          \"clock_out\": \"clock_out\"\n        },\n        {\n          \"clock_in\": \"clock_in\",\n          \"clock_out\": \"clock_out\"\n        }\n      ]\n    }\n  },\n  \"override\": \"override\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"error 1\",\n    \"error 2\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://subdomain.sage.hr/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "93f7eb64-bbee-404f-babf-ea0b5b564cbc",
+    "name": "Sage HR Documents Timesheets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work",
+      "type": "text/plain"
+    }
+  }
+}

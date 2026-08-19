@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Onboarding API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Onboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List onboarding task categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/onboarding/categories"
+          },
+          "docs": "List onboarding task categories"
+        },
+        {
+          "info": {
+            "name": "Create new onboarding task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/onboarding/tasks",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new onboarding task"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

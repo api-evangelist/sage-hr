@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage HR Documents Leave management API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Leave management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List time off policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List time off policies"
+        },
+        {
+          "info": {
+            "name": "Details about a time off policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the policy to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Details about a time off policy"
+        },
+        {
+          "info": {
+            "name": "Update KIT days configuration of a time off policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the policy to get."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update KIT days configuration of a time off policy"
+        },
+        {
+          "info": {
+            "name": "View all the KIT days of an employee in a policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "1",
+                "type": "query",
+                "description": "Time-off policy identifier"
+              },
+              {
+                "name": "employee_id",
+                "value": "2",
+                "type": "query",
+                "description": "Employee identifier"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "View all the KIT days of an employee in a policy"
+        },
+        {
+          "info": {
+            "name": "Create a KIT day in a leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a KIT day in a leave"
+        },
+        {
+          "info": {
+            "name": "Approve, decline or cancel a KIT day",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://subdomain.sage.hr/api/leave-management/kit-days/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "KIT day identifier"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Approve, decline or cancel a KIT day"
+        },
+        {
+          "info": {
+            "name": "Report with individual allowances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/reports/individual-allowances",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "location_ids",
+                "value": "14,13",
+                "type": "query",
+                "description": "Limit the reports to employees in specified location ids"
+              },
+              {
+                "name": "employee_ids",
+                "value": "1,2,3",
+                "type": "query",
+                "description": "Limit the reports to selected employee ids"
+              },
+              {
+                "name": "team_ids",
+                "value": "1",
+                "type": "query",
+                "description": "Limit the reports to employees in specified team ids"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Report with individual allowances"
+        },
+        {
+          "info": {
+            "name": "Employee time off balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/employees/:id/leave-management/balances",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric ID of the user to get."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Employee time off balances"
+        },
+        {
+          "info": {
+            "name": "List time off requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/requests",
+            "params": [
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "2018-05-20",
+                "type": "query",
+                "description": "If not specified defaults to beginning of current month"
+              },
+              {
+                "name": "to",
+                "value": "2018-06-20",
+                "type": "query",
+                "description": "If not specified defaults to end of current month. Days between from date and to date must be less than 65. If you need info for larger period of time make multiple requests;"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List time off requests"
+        },
+        {
+          "info": {
+            "name": "Create new time off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://subdomain.sage.hr/api/leave-management/requests",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Create new time off request"
+        },
+        {
+          "info": {
+            "name": "List employees out of office today",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://subdomain.sage.hr/api/leave-management/out-of-office-today",
+            "params": [
+              {
+                "name": "date",
+                "value": "2018-11-23",
+                "type": "query",
+                "description": "Optional date, defauls to today"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Token",
+              "value": "{{X-Auth-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List employees out of office today"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
