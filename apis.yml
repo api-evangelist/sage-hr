@@ -37,6 +37,8 @@ apis:
   description: The Integrations API from Sage HR — 12 operation(s) for integrations.
   humanURL: https://apidoc.sage.hr/
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -67,6 +69,8 @@ apis:
   description: The Leave management API from Sage HR — 8 operation(s) for leave management.
   humanURL: https://apidoc.sage.hr/
   tags:
+  - Leave Management
+  tags_raw:
   - Leave management
   properties:
   - type: OpenAPI
@@ -172,6 +176,8 @@ apis:
   description: The Teams API from Sage HR — 1 operation(s) for teams.
   humanURL: https://apidoc.sage.hr/
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
