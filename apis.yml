@@ -81,7 +81,7 @@ apis:
   description: The Leave management API from Sage HR — 8 operation(s) for leave management.
   humanURL: https://apidoc.sage.hr/
   tags:
-  - Leave Management
+  - Leave management
   tags_raw:
   - Leave management
   properties:
