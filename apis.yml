@@ -232,15 +232,15 @@ apis:
     url: json-ld/sage-hr-context.jsonld
 name: Sage HR
 tags:
-  - HR
-  - HRIS
-  - People
-  - SMB
-  - Leave Management
-  - Recruitment
-  - Performance
-  - Timesheets
-  - Onboarding
+- HR
+- HRIS
+- People
+- SMB
+- Leave Management
+- Recruitment
+- Performance
+- Timesheets
+- Onboarding
 kind: contract
 accessModel:
   pricing: paid
@@ -259,59 +259,60 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sage-hr.png
 access: 3rd-Party
 common:
-  - type: AgenticAccess
-    url: agentic-access/sage-hr-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/sage-hr-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/sage-hr-domain-security.yml
-  - type: Authentication
-    url: authentication/sage-hr-authentication.yml
-  - url: https://sage.hr/
-    name: Sage HR Home
-    type: Portal
-  - url: https://www.sage.com/en-gb/sage-business-cloud/hr/
-    name: Sage HR on Sage.com
-    type: Portal
-  - url: https://apidoc.sage.hr/
-    name: Sage HR API Reference
-    type: Documentation
-  - url: https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
-    name: How does Sage HR API work?
-    type: Documentation
-  - url: https://support.sage.hr/
-    name: Sage HR Support
-    type: Support
-  - url: https://sage.hr/pricing/
-    name: Sage HR Pricing
-    type: Pricing
-  - url: https://sage.hr/integrations/
-    name: Sage HR Integrations
-    type: Integrations
-  - url: https://www.linkedin.com/company/sage-hr/
-    name: Sage HR on LinkedIn
-    type: LinkedIn
-  - url: https://twitter.com/sagehr
-    name: Sage HR on X
-    type: Twitter
-  - url: https://github.com/Sage
-    name: Sage on GitHub
-    type: GitHub
-  - url: plans/sage-hr-plans-pricing.yml
-    name: Plans
-    type: Plans
-  - url: rate-limits/sage-hr-rate-limits.yml
-    name: Rate Limits
-    type: RateLimits
-  - url: finops/sage-hr-finops.yml
-    name: FinOps
-    type: FinOps
-description: >-
-  Sage HR (formerly CakeHR) is a cloud HRIS for small and mid-sized businesses, owned by Sage Group plc. It bundles core
-  HR records, leave management, performance, recruitment (ATS), timesheets, shift scheduling, expenses, and
-  onboarding/offboarding into a modular per-employee SaaS. The Sage HR REST API at apidoc.sage.hr exposes 53 operations
-  across employees, leave, recruitment, performance, timesheets, documents, onboarding, offboarding, organization, and a
-  Vikarina payroll integration bridge. Authentication is a tenant-scoped X-Auth-Token API key against the customer's own
-  subdomain (https://{subdomain}.sage.hr/api).
+- type: Website
+  url: https://sage.hr
+- type: AgenticAccess
+  url: agentic-access/sage-hr-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/sage-hr-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/sage-hr-domain-security.yml
+- type: Authentication
+  url: authentication/sage-hr-authentication.yml
+- url: https://sage.hr/
+  name: Sage HR Home
+  type: Portal
+- url: https://www.sage.com/en-gb/sage-business-cloud/hr/
+  name: Sage HR on Sage.com
+  type: Portal
+- url: https://apidoc.sage.hr/
+  name: Sage HR API Reference
+  type: Documentation
+- url: https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
+  name: How does Sage HR API work?
+  type: Documentation
+- url: https://support.sage.hr/
+  name: Sage HR Support
+  type: Support
+- url: https://sage.hr/pricing/
+  name: Sage HR Pricing
+  type: Pricing
+- url: https://sage.hr/integrations/
+  name: Sage HR Integrations
+  type: Integrations
+- url: https://www.linkedin.com/company/sage-hr/
+  name: Sage HR on LinkedIn
+  type: LinkedIn
+- url: https://twitter.com/sagehr
+  name: Sage HR on X
+  type: Twitter
+- url: https://github.com/Sage
+  name: Sage on GitHub
+  type: GitHub
+- url: plans/sage-hr-plans-pricing.yml
+  name: Plans
+  type: Plans
+- url: rate-limits/sage-hr-rate-limits.yml
+  name: Rate Limits
+  type: RateLimits
+- url: finops/sage-hr-finops.yml
+  name: FinOps
+  type: FinOps
+description: Sage HR (formerly CakeHR) is a cloud HRIS for small and mid-sized businesses, owned by Sage
+  Group plc. It bundles core HR records, leave management, performance, recruitment (ATS), timesheets,
+  shift scheduling, expenses, and onboarding/offboarding into a modular per-employee SaaS. The Sage HR
+  REST API at apidoc.sage.hr exposes 53 operations across employees, leave, recruitment, performance,
+  timesheets, documents, onboarding, offboarding, organization, and a Vikarina payroll integration bridge.
+  Authentication is a tenant-scoped X-Auth-Token API key against the customer's own subdomain (https://{subdomain}.sage.hr/api).
 created: '2026-05-25'
-modified: '2026-05-25'
+modified: '2026-09-16'
