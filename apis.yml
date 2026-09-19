@@ -232,6 +232,16 @@ apis:
     url: json-ld/sage-hr-context.jsonld
 name: Sage HR
 tags:
+- Human Resources
+- HRIS
+- People
+- SMB
+- Leave Management
+- Recruitment
+- Performance
+- Timesheets
+- Onboarding
+tags_raw:
 - HR
 - HRIS
 - People
