@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
-  title: Sage HR Documents Teams API
+  title: Sage HR Teams API
   version: '1.0'
   x-konfig-ignore:
     potential-incorrect-type: true
@@ -62,33 +62,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    TeamsListInCompanyResponse_data_inner:
-      properties:
-        id:
-          example: 19
-          type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-id
-        name:
-          example: Sales
-          type: string
-          x-konfig-original-example: Sales
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-name
-        manager_ids:
-          items:
-            example: 1
-            type: number
-            x-konfig-original-example: 1
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-manager_ids-items
-          type: array
-        employee_ids:
-          items:
-            example: 5
-            type: number
-            x-konfig-original-example: 5
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-employee_ids-items
-          type: array
-      type: object
     TeamsListInCompanyResponse:
       example:
         data:
@@ -148,8 +121,9 @@ components:
           x-konfig-original-example: 2
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-next_page
         previous_page:
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
           x-konfig-null-placeholder: true
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-previous_page
           example: null
@@ -168,6 +142,33 @@ components:
           type: number
           x-konfig-original-example: 75
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-total_entries
+      type: object
+    TeamsListInCompanyResponse_data_inner:
+      properties:
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-id
+        name:
+          example: Sales
+          type: string
+          x-konfig-original-example: Sales
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-name
+        manager_ids:
+          items:
+            example: 1
+            type: number
+            x-konfig-original-example: 1
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-manager_ids-items
+          type: array
+        employee_ids:
+          items:
+            example: 5
+            type: number
+            x-konfig-original-example: 5
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-employee_ids-items
+          type: array
       type: object
   securitySchemes:
     api_key:

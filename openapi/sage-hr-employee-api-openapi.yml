@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: All requests are required to be sent to your subdomain. To learn how to enable API in your Sage HR account, please visit https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work
-  title: Sage HR Documents Employee API
+  title: Sage HR Employee API
   version: '1.0'
   x-konfig-ignore:
     potential-incorrect-type: true
@@ -615,712 +615,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    EmployeeGetByIdResponse_data:
-      properties:
-        id:
-          example: 19
-          type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-id
-        email:
-          example: john@example.com
-          type: string
-          x-konfig-original-example: john@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-email
-        first_name:
-          example: John
-          type: string
-          x-konfig-original-example: John
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-first_name
-        last_name:
-          example: Doe
-          type: string
-          x-konfig-original-example: Doe
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-last_name
-        picture_url:
-          example: https://example.com/john.png
-          type: string
-          x-konfig-original-example: https://example.com/john.png
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-picture_url
-        employment_start_date:
-          example: 2014-08-25
-          type: string
-          x-konfig-original-example: 2014-08-25
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_start_date
-        date_of_birth:
-          example: 1991-02-13
-          type: string
-          x-konfig-original-example: 1991-02-13
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-date_of_birth
-        team:
-          example: Sage HR
-          type: string
-          x-konfig-original-example: Sage HR
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team
-        team_id:
-          example: 6742
-          type: number
-          x-konfig-original-example: 6742
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_id
-        position:
-          example: Api developer
-          type: string
-          x-konfig-original-example: Api developer
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position
-        position_id:
-          example: 123
-          type: number
-          x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_id
-        reports_to_employee_id:
-          example: 5
-          type: number
-          x-konfig-original-example: 5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-reports_to_employee_id
-        work_phone:
-          example: 555-0505
-          type: string
-          x-konfig-original-example: 555-0505
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-work_phone
-        home_phone:
-          example: 555-0506
-          type: string
-          x-konfig-original-example: 555-0506
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-home_phone
-        mobile_phone:
-          example: 555-0507
-          type: string
-          x-konfig-original-example: 555-0507
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-mobile_phone
-        gender:
-          example: Male
-          type: string
-          x-konfig-original-example: Male
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-gender
-        street_first:
-          example: 84 Glenwood Street
-          type: string
-          x-konfig-original-example: 84 Glenwood Street
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-street_first
-        street_second:
-          example: Peoria
-          type: string
-          x-konfig-original-example: Peoria
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-street_second
-        city:
-          example: London
-          type: string
-          x-konfig-original-example: London
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-city
-        post_code:
-          example: 99999
-          type: number
-          x-konfig-original-example: 99999
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-post_code
-        country:
-          example: GB
-          type: string
-          x-konfig-original-example: GB
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-country
-        employee_number:
-          example: A1
-          type: string
-          x-konfig-original-example: A1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employee_number
-        employment_status:
-          example: Full-time
-          type: string
-          x-konfig-original-example: Full-time
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status
-        team_history:
-          items:
-            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_team_history_inner'
-          type: array
-        employment_status_history:
-          items:
-            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_employment_status_history_inner'
-          type: array
-        position_history:
-          items:
-            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_position_history_inner'
-          type: array
-      type: object
-    EmployeeGetTerminatedEmployeeResponse_data_termination:
-      properties:
-        reason:
-          example: Moving location
-          type: string
-          x-konfig-original-example: Moving location
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination-properties-reason
-        comments:
-          example: Moving to
-          type: string
-          x-konfig-original-example: Moving to
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination-properties-comments
-      type: object
-    EmployeeListActiveEmployeesResponse_data_inner_position_history_inner:
-      properties:
-        position_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_id
-        start_date:
-          example: 2018-01-01
-          type: string
-          x-konfig-original-example: 2018-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-start_date
-        end_date:
-          example: 201-01-01
-          type: string
-          x-konfig-original-example: 201-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-end_date
-        position_name:
-          example: Developer
-          type: string
-          x-konfig-original-example: Developer
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_name
-        position_code:
-          example: '1234'
-          type: string
-          x-konfig-original-example: '1234'
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_code
-      type: object
-    EmployeeTerminateEmployeeResponse:
-      example:
-        data: {}
-      properties:
-        data:
-          properties: {}
-          type: object
-      type: object
-      x-konfig-original-example:
-        data: {}
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeTerminateEmployeeResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeUpdateByIdRequest:
-      example:
-        last_name: Doe
-        employee_number: '0123456'
-        approver_ids:
-        - 1
-        - 1
-        leader_id: 3
-        selected_leave_types:
-        - 2
-        - 2
-        team_id: 2
-        first_name: Jane
-        work_start_date: 2020-01-28
-        location_id: 1
-        position_id: 101
-      properties:
-        first_name:
-          example: Jane
-          type: string
-          x-konfig-original-example: Jane
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-first_name
-        last_name:
-          example: Doe
-          type: string
-          x-konfig-original-example: Doe
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-last_name
-        work_start_date:
-          example: 2020-01-28
-          type: string
-          x-konfig-original-example: 2020-01-28
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-work_start_date
-        location_id:
-          example: 1
-          type: integer
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-location_id
-        team_id:
-          example: 2
-          type: integer
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-team_id
-        leader_id:
-          example: 3
-          type: integer
-          x-konfig-original-example: 3
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-leader_id
-        position_id:
-          example: 101
-          type: integer
-          x-konfig-original-example: 101
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-position_id
-        employee_number:
-          example: '0123456'
-          type: string
-          x-konfig-original-example: '0123456'
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-employee_number
-        approver_ids:
-          items:
-            example: 1
-            type: integer
-            x-konfig-original-example: 1
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-approver_ids-items
-          type: array
-        selected_leave_types:
-          items:
-            example: 2
-            type: integer
-            x-konfig-original-example: 2
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-selected_leave_types-items
-          type: array
-      type: object
-    EmployeeUpdateById404Response:
-      example:
-        error_code: not_found
-        errors: []
-      properties:
-        error_code:
-          example: not_found
-          type: string
-          x-konfig-original-example: not_found
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateById404Response-properties-error_code
-        errors:
-          items:
-            type: string
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: not_found
-        errors: []
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateById404Response
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
-    EmployeeTerminateEmployeeRequest:
-      properties:
-        date:
-          description: 'Last working day; format: YYYY-MM-DD'
-          type: string
-        termination_reason_id:
-          description: Termination reason ID
-          type: number
-        comments:
-          description: Comments
-          type: string
-      required:
-      - date
-      - termination_reason_id
-      type: object
-    EmployeeGetCustomFieldsResponse_data_inner:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-id
-        label:
-          example: Hobby
-          type: string
-          x-konfig-original-example: Hobby
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-label
-        type:
-          example: CustomDropdownField
-          type: string
-          x-konfig-original-example: CustomDropdownField
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-type
-        value: {}
-        options:
-          items:
-            example: Hockey
-            type: string
-            x-konfig-original-example: Hockey
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-options-items
-          nullable: true
-          type: array
-      type: object
-    EmployeeGetCompensationsResponse_data_inner:
-      properties:
-        start_date:
-          example: 2017-01-01
-          type: string
-          x-konfig-original-example: 2017-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-start_date
-        end_date:
-          example: 2019-01-01
-          type: string
-          x-konfig-original-example: 2019-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-end_date
-        currency:
-          example: EUR
-          type: string
-          x-konfig-original-example: EUR
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-currency
-        amount:
-          example: 1234
-          type: number
-          x-konfig-original-example: 1234
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-amount
-        period:
-          example: monthly
-          type: string
-          x-konfig-original-example: monthly
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-period
-        comment:
-          example: Starting salary
-          type: string
-          x-konfig-original-example: Starting salary
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-comment
-        category:
-          example: Salary
-          type: string
-          x-konfig-original-example: Salary
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-category
-      type: object
-    EmployeeGetCustomFieldsResponse:
-      example:
-        data:
-        - id: 1
-          label: Hobby
-          type: CustomDropdownField
-          value: Hockey
-          options:
-          - Hockey
-          - Football
-          - Voleyball
-        - id: 2
-          label: Languages
-          type: CustomTags
-          options: null
-          value:
-          - English
-          - Latvian
-          - Estonian
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EmployeeGetCustomFieldsResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - id: 1
-          label: Hobby
-          type: CustomDropdownField
-          value: Hockey
-          options:
-          - Hockey
-          - Football
-          - Voleyball
-        - id: 2
-          label: Languages
-          type: CustomTags
-          value:
-          - English
-          - Latvian
-          - Estonian
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeGetCompensationsResponse_meta:
-      properties:
-        current_page:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-current_page
-        next_page:
-          example: 2
-          type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-next_page
-        previous_page:
-          nullable: true
-          type: string
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-previous_page
-          example: null
-        total_pages:
-          example: 2
-          type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-total_pages
-        per_page:
-          example: 50
-          type: number
-          x-konfig-original-example: 50
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-per_page
-        total_entries:
-          example: 75
-          type: number
-          x-konfig-original-example: 75
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-total_entries
-      type: object
-    EmployeeGetByIdResponse_data_team_history_inner:
-      properties:
-        team_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-team_id
-        start_date:
-          example: 2018-01-01
-          type: string
-          x-konfig-original-example: 2018-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-start_date
-        end_date:
-          example: 201-01-01
-          type: string
-          x-konfig-original-example: 201-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-end_date
-        team_name:
-          example: Some Team
-          type: string
-          x-konfig-original-example: Some Team
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-team_name
-      type: object
-    EmployeeListActiveEmployeesResponse_meta:
-      properties:
-        current_page:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-current_page
-        next_page:
-          example: 2
-          type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-next_page
-        previous_page:
-          nullable: true
-          type: string
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-previous_page
-          example: null
-        total_pages:
-          example: 2
-          type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-total_pages
-        per_page:
-          example: 50
-          type: number
-          x-konfig-original-example: 50
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-per_page
-        total_entries:
-          example: 75
-          type: number
-          x-konfig-original-example: 75
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-total_entries
-      type: object
-    EmployeeUpdateCustomFieldRequest:
-      properties:
-        value:
-          description: String or array (for tags)
-          type: string
-      required:
-      - value
-      type: object
-    EmployeeUpdateByIdResponse:
-      example:
-        data:
-          id: 1711
-      properties:
-        data:
-          $ref: '#/components/schemas/EmployeeUpdateByIdResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1711
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeUpdateByIdResponse_data:
-      properties:
-        id:
-          example: 1711
-          type: number
-          x-konfig-original-example: 1711
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdResponse-properties-data-properties-id
-      type: object
-    EmployeeGetTerminatedEmployeeResponse_data:
-      properties:
-        id:
-          example: 19
-          type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-id
-        termination_date:
-          example: 2015-05-28
-          type: string
-          x-konfig-original-example: 2015-05-28
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination_date
-        email:
-          example: john@example.com
-          type: string
-          x-konfig-original-example: john@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-email
-        first_name:
-          example: John
-          type: string
-          x-konfig-original-example: John
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-first_name
-        last_name:
-          example: Doe
-          type: string
-          x-konfig-original-example: Doe
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-last_name
-        picture_url:
-          example: https://example.com/john.png
-          type: string
-          x-konfig-original-example: https://example.com/john.png
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-picture_url
-        employment_start_date:
-          example: 2014-08-25
-          type: string
-          x-konfig-original-example: 2014-08-25
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-employment_start_date
-        date_of_birth:
-          example: 1991-02-13
-          type: string
-          x-konfig-original-example: 1991-02-13
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-date_of_birth
-        position:
-          example: Api developer
-          type: string
-          x-konfig-original-example: Api developer
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-position
-        termination:
-          $ref: '#/components/schemas/EmployeeGetTerminatedEmployeeResponse_data_termination'
-      type: object
-    EmployeeGetByIdResponse_data_position_history_inner:
-      properties:
-        position_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_id
-        start_date:
-          example: 2018-01-01
-          type: string
-          x-konfig-original-example: 2018-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-start_date
-        end_date:
-          example: 201-01-01
-          type: string
-          x-konfig-original-example: 201-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-end_date
-        position_name:
-          example: Developer
-          type: string
-          x-konfig-original-example: Developer
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_name
-        position_code:
-          example: '1234'
-          type: string
-          x-konfig-original-example: '1234'
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_code
-      type: object
-    EmployeeGetTerminatedEmployeeResponse:
-      example:
-        data:
-          id: 19
-          termination_date: 2015-05-28
-          email: john@example.com
-          first_name: John
-          last_name: Doe
-          picture_url: https://example.com/john.png
-          employment_start_date: 2014-08-25
-          date_of_birth: 1991-02-13
-          position: Api developer
-          termination:
-            reason: Moving location
-            comments: Moving to
-      properties:
-        data:
-          $ref: '#/components/schemas/EmployeeGetTerminatedEmployeeResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 19
-          termination_date: 2015-05-28
-          email: john@example.com
-          first_name: John
-          last_name: Doe
-          picture_url: https://example.com/john.png
-          employment_start_date: 2014-08-25
-          date_of_birth: 1991-02-13
-          position: Api developer
-          termination:
-            reason: Moving location
-            comments: Moving to
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeGetCompensationsResponse:
-      example:
-        data:
-        - start_date: 2017-01-01
-          end_date: 2019-01-01
-          currency: EUR
-          amount: 1234
-          period: monthly
-          comment: Starting salary
-          category: Salary
-        meta:
-          current_page: 1
-          next_page: 2
-          previous_page: null
-          total_pages: 2
-          per_page: 50
-          total_entries: 75
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EmployeeGetCompensationsResponse_data_inner'
-          type: array
-        meta:
-          $ref: '#/components/schemas/EmployeeGetCompensationsResponse_meta'
-      type: object
-      x-konfig-original-example:
-        data:
-        - start_date: 2017-01-01
-          end_date: 2019-01-01
-          currency: EUR
-          amount: 1234
-          period: monthly
-          comment: Starting salary
-          category: Salary
-        meta:
-          current_page: 1
-          next_page: 2
-          total_pages: 2
-          per_page: 50
-          total_entries: 75
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeCreateNewEmployeeResponse_data:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeCreateNewEmployeeResponse-properties-data-properties-id
-      type: object
-    EmployeeListActiveEmployeesResponse_data_inner_team_history_inner:
-      properties:
-        team_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-team_id
-        start_date:
-          example: 2018-01-01
-          type: string
-          x-konfig-original-example: 2018-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-start_date
-        end_date:
-          example: 201-01-01
-          type: string
-          x-konfig-original-example: 201-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-end_date
-        team_name:
-          example: Some Team
-          type: string
-          x-konfig-original-example: Some Team
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-team_name
-      type: object
     EmployeeListTerminatedEmployeesResponse_data_inner:
       properties:
         id:
@@ -1373,6 +667,64 @@ components:
           type: string
           x-konfig-original-example: Api developer
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListTerminatedEmployeesResponse-properties-data-items-properties-position
+      type: object
+    EmployeeUpdateCustomFieldRequest:
+      properties:
+        value:
+          description: String or array (for tags)
+          type: string
+      required:
+      - value
+      type: object
+    EmployeeGetTerminatedEmployeeResponse_data:
+      properties:
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-id
+        termination_date:
+          example: 2015-05-28
+          type: string
+          x-konfig-original-example: 2015-05-28
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination_date
+        email:
+          example: john@example.com
+          type: string
+          x-konfig-original-example: john@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-email
+        first_name:
+          example: John
+          type: string
+          x-konfig-original-example: John
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-first_name
+        last_name:
+          example: Doe
+          type: string
+          x-konfig-original-example: Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-last_name
+        picture_url:
+          example: https://example.com/john.png
+          type: string
+          x-konfig-original-example: https://example.com/john.png
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-picture_url
+        employment_start_date:
+          example: 2014-08-25
+          type: string
+          x-konfig-original-example: 2014-08-25
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-employment_start_date
+        date_of_birth:
+          example: 1991-02-13
+          type: string
+          x-konfig-original-example: 1991-02-13
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-date_of_birth
+        position:
+          example: Api developer
+          type: string
+          x-konfig-original-example: Api developer
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-position
+        termination:
+          $ref: '#/components/schemas/EmployeeGetTerminatedEmployeeResponse_data_termination'
       type: object
     EmployeeListActiveEmployeesResponse_data_inner:
       properties:
@@ -1517,97 +869,259 @@ components:
           id: 1
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeCreateNewEmployeeResponse
       x-konfig-is-used-in-successful-response: true
-    LeaveManagementGetTimeOffBalancesResponse_data_inner:
+    EmployeeUpdateByIdResponse:
+      example:
+        data:
+          id: 1711
       properties:
-        policy_id:
+        data:
+          $ref: '#/components/schemas/EmployeeUpdateByIdResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1711
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdResponse
+      x-konfig-is-used-in-successful-response: true
+    EmployeeGetByIdResponse_data:
+      properties:
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-id
+        email:
+          example: john@example.com
+          type: string
+          x-konfig-original-example: john@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-email
+        first_name:
+          example: John
+          type: string
+          x-konfig-original-example: John
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-first_name
+        last_name:
+          example: Doe
+          type: string
+          x-konfig-original-example: Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-last_name
+        picture_url:
+          example: https://example.com/john.png
+          type: string
+          x-konfig-original-example: https://example.com/john.png
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-picture_url
+        employment_start_date:
+          example: 2014-08-25
+          type: string
+          x-konfig-original-example: 2014-08-25
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_start_date
+        date_of_birth:
+          example: 1991-02-13
+          type: string
+          x-konfig-original-example: 1991-02-13
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-date_of_birth
+        team:
+          example: Sage HR
+          type: string
+          x-konfig-original-example: Sage HR
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team
+        team_id:
+          example: 6742
+          type: number
+          x-konfig-original-example: 6742
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_id
+        position:
+          example: Api developer
+          type: string
+          x-konfig-original-example: Api developer
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position
+        position_id:
+          example: 123
+          type: number
+          x-konfig-original-example: 123
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_id
+        reports_to_employee_id:
+          example: 5
+          type: number
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-reports_to_employee_id
+        work_phone:
+          example: 555-0505
+          type: string
+          x-konfig-original-example: 555-0505
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-work_phone
+        home_phone:
+          example: 555-0506
+          type: string
+          x-konfig-original-example: 555-0506
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-home_phone
+        mobile_phone:
+          example: 555-0507
+          type: string
+          x-konfig-original-example: 555-0507
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-mobile_phone
+        gender:
+          example: Male
+          type: string
+          x-konfig-original-example: Male
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-gender
+        street_first:
+          example: 84 Glenwood Street
+          type: string
+          x-konfig-original-example: 84 Glenwood Street
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-street_first
+        street_second:
+          example: Peoria
+          type: string
+          x-konfig-original-example: Peoria
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-street_second
+        city:
+          example: London
+          type: string
+          x-konfig-original-example: London
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-city
+        post_code:
+          example: 99999
+          type: number
+          x-konfig-original-example: 99999
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-post_code
+        country:
+          example: GB
+          type: string
+          x-konfig-original-example: GB
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-country
+        employee_number:
+          example: A1
+          type: string
+          x-konfig-original-example: A1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employee_number
+        employment_status:
+          example: Full-time
+          type: string
+          x-konfig-original-example: Full-time
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status
+        team_history:
+          items:
+            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_team_history_inner'
+          type: array
+        employment_status_history:
+          items:
+            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_employment_status_history_inner'
+          type: array
+        position_history:
+          items:
+            $ref: '#/components/schemas/EmployeeGetByIdResponse_data_position_history_inner'
+          type: array
+      type: object
+    EmployeeGetCustomFieldsResponse_data_inner:
+      properties:
+        id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-policy_id
-        used:
-          example: 5.6
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-id
+        label:
+          example: Hobby
+          type: string
+          x-konfig-original-example: Hobby
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-label
+        type:
+          example: CustomDropdownField
+          type: string
+          x-konfig-original-example: CustomDropdownField
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-type
+        value: {}
+        options:
+          items:
+            example: Hockey
+            type: string
+            x-konfig-original-example: Hockey
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse-properties-data-items-properties-options-items
+          type:
+          - array
+          - 'null'
+      type: object
+    EmployeeTerminateEmployeeResponse:
+      example:
+        data: {}
+      properties:
+        data:
+          properties: {}
+          type: object
+      type: object
+      x-konfig-original-example:
+        data: {}
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeTerminateEmployeeResponse
+      x-konfig-is-used-in-successful-response: true
+    EmployeeGetCompensationsResponse_meta:
+      properties:
+        current_page:
+          example: 1
           type: number
-          x-konfig-original-example: 5.6
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-used
-        available:
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-current_page
+        next_page:
           example: 2
-          nullable: true
           type: number
           x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-available
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-next_page
+        previous_page:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-meta-properties-total_entries
       type: object
-    LeaveManagementGetTimeOffBalancesResponse:
-      example:
-        data:
-        - policy_id: 1
-          used: 5.6
-          available: 2
-        - policy_id: 2
-          used: 75
-          available: null
+    EmployeeListActiveEmployeesResponse_meta:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/LeaveManagementGetTimeOffBalancesResponse_data_inner'
-          type: array
+        current_page:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-current_page
+        next_page:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-next_page
+        previous_page:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-meta-properties-total_entries
       type: object
-      x-konfig-original-example:
-        data:
-        - policy_id: 1
-          used: 5.6
-          available: 2
-        - policy_id: 2
-          used: 75
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse
-      x-konfig-is-used-in-successful-response: true
-    EmployeeCreateNewEmployeeRequest:
-      properties:
-        email:
-          description: Employees email
-          type: string
-        first_name:
-          description: Employees first name
-          type: string
-        last_name:
-          description: Employees last name
-          type: string
-        work_start_date:
-          description: 'Employees work start date, format: YYYY-MM-DD, leave empty to use todays date'
-          type: string
-        send_email:
-          description: '''true'' to send welcome email to employee'
-          type: string
-      required:
-      - email
-      - first_name
-      - last_name
-      type: object
-    EmployeeUpdateCustomField422Response:
-      example:
-        error_code: validation_failed
-        errors:
-        - Custom field text too long (max 250 characters)
-      properties:
-        error_code:
-          example: validation_failed
-          type: string
-          x-konfig-original-example: validation_failed
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response-properties-error_code
-        errors:
-          items:
-            example: Custom field text too long (max 250 characters)
-            type: string
-            x-konfig-original-example: Custom field text too long (max 250 characters)
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: validation_failed
-        errors:
-        - Custom field text too long (max 250 characters)
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
     EmployeeListTerminatedEmployeesResponse_meta:
       properties:
         current_page:
@@ -1621,8 +1135,9 @@ components:
           x-konfig-original-example: 2
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListTerminatedEmployeesResponse-properties-meta-properties-next_page
         previous_page:
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
           x-konfig-null-placeholder: true
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListTerminatedEmployeesResponse-properties-meta-properties-previous_page
           example: null
@@ -1642,20 +1157,37 @@ components:
           x-konfig-original-example: 75
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListTerminatedEmployeesResponse-properties-meta-properties-total_entries
       type: object
-    EmployeeUpdateCustomFieldResponse:
-      example:
-        data: null
+    EmployeeListActiveEmployeesResponse_data_inner_team_history_inner:
       properties:
-        data:
-          nullable: true
+        team_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-team_id
+        start_date:
+          example: 2018-01-01
           type: string
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomFieldResponse-properties-data
-          example: null
+          x-konfig-original-example: 2018-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-start_date
+        end_date:
+          example: 201-01-01
+          type: string
+          x-konfig-original-example: 201-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-end_date
+        team_name:
+          example: Some Team
+          type: string
+          x-konfig-original-example: Some Team
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-team_history-items-properties-team_name
       type: object
-      x-konfig-original-example: {}
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomFieldResponse
-      x-konfig-is-used-in-successful-response: true
+    EmployeeCreateNewEmployeeResponse_data:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeCreateNewEmployeeResponse-properties-data-properties-id
+      type: object
     EmployeeListActiveEmployeesResponse:
       example:
         data:
@@ -1762,6 +1294,34 @@ components:
           total_entries: 75
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse
       x-konfig-is-used-in-successful-response: true
+    EmployeeListActiveEmployeesResponse_data_inner_position_history_inner:
+      properties:
+        position_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_id
+        start_date:
+          example: 2018-01-01
+          type: string
+          x-konfig-original-example: 2018-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-start_date
+        end_date:
+          example: 201-01-01
+          type: string
+          x-konfig-original-example: 201-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-end_date
+        position_name:
+          example: Developer
+          type: string
+          x-konfig-original-example: Developer
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_name
+        position_code:
+          example: '1234'
+          type: string
+          x-konfig-original-example: '1234'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-position_history-items-properties-position_code
+      type: object
     EmployeeGetByIdResponse:
       example:
         data:
@@ -1851,29 +1411,153 @@ components:
             position_code: '1234'
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse
       x-konfig-is-used-in-successful-response: true
-    EmployeeGetByIdResponse_data_employment_status_history_inner:
+    EmployeeGetTerminatedEmployeeResponse_data_termination:
       properties:
-        employment_status_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-employment_status_id
-        start_date:
-          example: 2018-01-01
+        reason:
+          example: Moving location
           type: string
-          x-konfig-original-example: 2018-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-start_date
-        end_date:
-          example: 201-01-01
+          x-konfig-original-example: Moving location
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination-properties-reason
+        comments:
+          example: Moving to
           type: string
-          x-konfig-original-example: 201-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-end_date
-        employment_statu_name:
-          example: Full time
-          type: string
-          x-konfig-original-example: Full time
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-employment_statu_name
+          x-konfig-original-example: Moving to
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse-properties-data-properties-termination-properties-comments
       type: object
+    EmployeeUpdateByIdRequest:
+      example:
+        last_name: Doe
+        employee_number: '0123456'
+        approver_ids:
+        - 1
+        - 1
+        leader_id: 3
+        selected_leave_types:
+        - 2
+        - 2
+        team_id: 2
+        first_name: Jane
+        work_start_date: 2020-01-28
+        location_id: 1
+        position_id: 101
+      properties:
+        first_name:
+          example: Jane
+          type: string
+          x-konfig-original-example: Jane
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-first_name
+        last_name:
+          example: Doe
+          type: string
+          x-konfig-original-example: Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-last_name
+        work_start_date:
+          example: 2020-01-28
+          type: string
+          x-konfig-original-example: 2020-01-28
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-work_start_date
+        location_id:
+          example: 1
+          type: integer
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-location_id
+        team_id:
+          example: 2
+          type: integer
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-team_id
+        leader_id:
+          example: 3
+          type: integer
+          x-konfig-original-example: 3
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-leader_id
+        position_id:
+          example: 101
+          type: integer
+          x-konfig-original-example: 101
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-position_id
+        employee_number:
+          example: '0123456'
+          type: string
+          x-konfig-original-example: '0123456'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-employee_number
+        approver_ids:
+          items:
+            example: 1
+            type: integer
+            x-konfig-original-example: 1
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-approver_ids-items
+          type: array
+        selected_leave_types:
+          items:
+            example: 2
+            type: integer
+            x-konfig-original-example: 2
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdRequest-properties-selected_leave_types-items
+          type: array
+      type: object
+    EmployeeUpdateById404Response:
+      example:
+        error_code: not_found
+        errors: []
+      properties:
+        error_code:
+          example: not_found
+          type: string
+          x-konfig-original-example: not_found
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateById404Response-properties-error_code
+        errors:
+          items:
+            type: string
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: not_found
+        errors: []
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateById404Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    EmployeeUpdateCustomField422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - Custom field text too long (max 250 characters)
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response-properties-error_code
+        errors:
+          items:
+            example: Custom field text too long (max 250 characters)
+            type: string
+            x-konfig-original-example: Custom field text too long (max 250 characters)
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - Custom field text too long (max 250 characters)
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomField422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    EmployeeUpdateCustomFieldResponse:
+      example:
+        data: null
+      properties:
+        data:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomFieldResponse-properties-data
+          example: null
+      type: object
+      x-konfig-original-example: {}
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateCustomFieldResponse
+      x-konfig-is-used-in-successful-response: true
     EmployeeListActiveEmployeesResponse_data_inner_employment_status_history_inner:
       properties:
         employment_status_id:
@@ -1896,6 +1580,147 @@ components:
           type: string
           x-konfig-original-example: Full time
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListActiveEmployeesResponse-properties-data-items-properties-employment_status_history-items-properties-employment_statu_name
+      type: object
+    EmployeeGetTerminatedEmployeeResponse:
+      example:
+        data:
+          id: 19
+          termination_date: 2015-05-28
+          email: john@example.com
+          first_name: John
+          last_name: Doe
+          picture_url: https://example.com/john.png
+          employment_start_date: 2014-08-25
+          date_of_birth: 1991-02-13
+          position: Api developer
+          termination:
+            reason: Moving location
+            comments: Moving to
+      properties:
+        data:
+          $ref: '#/components/schemas/EmployeeGetTerminatedEmployeeResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 19
+          termination_date: 2015-05-28
+          email: john@example.com
+          first_name: John
+          last_name: Doe
+          picture_url: https://example.com/john.png
+          employment_start_date: 2014-08-25
+          date_of_birth: 1991-02-13
+          position: Api developer
+          termination:
+            reason: Moving location
+            comments: Moving to
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetTerminatedEmployeeResponse
+      x-konfig-is-used-in-successful-response: true
+    EmployeeGetCustomFieldsResponse:
+      example:
+        data:
+        - id: 1
+          label: Hobby
+          type: CustomDropdownField
+          value: Hockey
+          options:
+          - Hockey
+          - Football
+          - Voleyball
+        - id: 2
+          label: Languages
+          type: CustomTags
+          options: null
+          value:
+          - English
+          - Latvian
+          - Estonian
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EmployeeGetCustomFieldsResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          label: Hobby
+          type: CustomDropdownField
+          value: Hockey
+          options:
+          - Hockey
+          - Football
+          - Voleyball
+        - id: 2
+          label: Languages
+          type: CustomTags
+          value:
+          - English
+          - Latvian
+          - Estonian
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCustomFieldsResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetTimeOffBalancesResponse:
+      example:
+        data:
+        - policy_id: 1
+          used: 5.6
+          available: 2
+        - policy_id: 2
+          used: 75
+          available: null
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetTimeOffBalancesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - policy_id: 1
+          used: 5.6
+          available: 2
+        - policy_id: 2
+          used: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse
+      x-konfig-is-used-in-successful-response: true
+    EmployeeTerminateEmployeeRequest:
+      properties:
+        date:
+          description: 'Last working day; format: YYYY-MM-DD'
+          type: string
+        termination_reason_id:
+          description: Termination reason ID
+          type: number
+        comments:
+          description: Comments
+          type: string
+      required:
+      - date
+      - termination_reason_id
+      type: object
+    EmployeeGetByIdResponse_data_employment_status_history_inner:
+      properties:
+        employment_status_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-employment_status_id
+        start_date:
+          example: 2018-01-01
+          type: string
+          x-konfig-original-example: 2018-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-start_date
+        end_date:
+          example: 201-01-01
+          type: string
+          x-konfig-original-example: 201-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-end_date
+        employment_statu_name:
+          example: Full time
+          type: string
+          x-konfig-original-example: Full time
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-employment_status_history-items-properties-employment_statu_name
       type: object
     EmployeeListTerminatedEmployeesResponse:
       example:
@@ -1945,6 +1770,187 @@ components:
           total_entries: 75
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeListTerminatedEmployeesResponse
       x-konfig-is-used-in-successful-response: true
+    EmployeeGetByIdResponse_data_team_history_inner:
+      properties:
+        team_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-team_id
+        start_date:
+          example: 2018-01-01
+          type: string
+          x-konfig-original-example: 2018-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-start_date
+        end_date:
+          example: 201-01-01
+          type: string
+          x-konfig-original-example: 201-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-end_date
+        team_name:
+          example: Some Team
+          type: string
+          x-konfig-original-example: Some Team
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-team_history-items-properties-team_name
+      type: object
+    EmployeeGetCompensationsResponse_data_inner:
+      properties:
+        start_date:
+          example: 2017-01-01
+          type: string
+          x-konfig-original-example: 2017-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2019-01-01
+          type: string
+          x-konfig-original-example: 2019-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-end_date
+        currency:
+          example: EUR
+          type: string
+          x-konfig-original-example: EUR
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-currency
+        amount:
+          example: 1234
+          type: number
+          x-konfig-original-example: 1234
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-amount
+        period:
+          example: monthly
+          type: string
+          x-konfig-original-example: monthly
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-period
+        comment:
+          example: Starting salary
+          type: string
+          x-konfig-original-example: Starting salary
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-comment
+        category:
+          example: Salary
+          type: string
+          x-konfig-original-example: Salary
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse-properties-data-items-properties-category
+      type: object
+    EmployeeUpdateByIdResponse_data:
+      properties:
+        id:
+          example: 1711
+          type: number
+          x-konfig-original-example: 1711
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeUpdateByIdResponse-properties-data-properties-id
+      type: object
+    EmployeeGetCompensationsResponse:
+      example:
+        data:
+        - start_date: 2017-01-01
+          end_date: 2019-01-01
+          currency: EUR
+          amount: 1234
+          period: monthly
+          comment: Starting salary
+          category: Salary
+        meta:
+          current_page: 1
+          next_page: 2
+          previous_page: null
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EmployeeGetCompensationsResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/EmployeeGetCompensationsResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - start_date: 2017-01-01
+          end_date: 2019-01-01
+          currency: EUR
+          amount: 1234
+          period: monthly
+          comment: Starting salary
+          category: Salary
+        meta:
+          current_page: 1
+          next_page: 2
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetCompensationsResponse
+      x-konfig-is-used-in-successful-response: true
+    EmployeeGetByIdResponse_data_position_history_inner:
+      properties:
+        position_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_id
+        start_date:
+          example: 2018-01-01
+          type: string
+          x-konfig-original-example: 2018-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-start_date
+        end_date:
+          example: 201-01-01
+          type: string
+          x-konfig-original-example: 201-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-end_date
+        position_name:
+          example: Developer
+          type: string
+          x-konfig-original-example: Developer
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_name
+        position_code:
+          example: '1234'
+          type: string
+          x-konfig-original-example: '1234'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EmployeeGetByIdResponse-properties-data-properties-position_history-items-properties-position_code
+      type: object
+    EmployeeCreateNewEmployeeRequest:
+      properties:
+        email:
+          description: Employees email
+          type: string
+        first_name:
+          description: Employees first name
+          type: string
+        last_name:
+          description: Employees last name
+          type: string
+        work_start_date:
+          description: 'Employees work start date, format: YYYY-MM-DD, leave empty to use todays date'
+          type: string
+        send_email:
+          description: '''true'' to send welcome email to employee'
+          type: string
+      required:
+      - email
+      - first_name
+      - last_name
+      type: object
+    LeaveManagementGetTimeOffBalancesResponse_data_inner:
+      properties:
+        policy_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-policy_id
+        used:
+          example: 5.6
+          type: number
+          x-konfig-original-example: 5.6
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-used
+        available:
+          example: 2
+          type:
+          - number
+          - 'null'
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffBalancesResponse-properties-data-items-properties-available
+      type: object
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

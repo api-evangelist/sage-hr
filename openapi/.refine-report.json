@@ -1,20 +1,7 @@
 {
   "provider": "sage-hr",
   "sources": [
-    "sage-hr-documents-api-openapi.yml",
-    "sage-hr-employee-api-openapi.yml",
-    "sage-hr-integrations-api-openapi.yml",
-    "sage-hr-kit-days-api-openapi.yml",
-    "sage-hr-leave-management-api-openapi.yml",
-    "sage-hr-offboarding-api-openapi.yml",
-    "sage-hr-onboarding-api-openapi.yml",
-    "sage-hr-performance-api-openapi.yml",
-    "sage-hr-policies-api-openapi.yml",
-    "sage-hr-positions-api-openapi.yml",
-    "sage-hr-recruitment-api-openapi.yml",
-    "sage-hr-teams-api-openapi.yml",
-    "sage-hr-terminations-reasons-api-openapi.yml",
-    "sage-hr-timesheets-api-openapi.yml"
+    "_original/sage-hr-openapi.yml"
   ],
   "outputs": [
     "sage-hr-documents-api-openapi.yml",
@@ -35,6 +22,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sage-hr-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0; renamed 1 component key(s) illegal in 3.x (e.g. konfig-generated-schema-components-schemas-LeaveManagementGetTimeOffPolicyByIdResponse-properties-data-items-properties-enable_dependent_policy\")",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sage-hr-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-employee-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-integrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-kit-days-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-leave-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-offboarding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-onboarding-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-performance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-positions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-recruitment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-terminations-reasons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-hr-timesheets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
