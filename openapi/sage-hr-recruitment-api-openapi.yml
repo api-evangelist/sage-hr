@@ -573,6 +573,466 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    RecruitmentGetPositionDetailsResponse_data_hiring_team_inner:
+      properties:
+        id:
+          example: 12
+          type: number
+          x-konfig-original-example: 12
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-id
+        full_name:
+          example: Manel Lopez-Bru
+          type: string
+          x-konfig-original-example: Manel Lopez-Bru
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-full_name
+        role:
+          example: hiring_manager
+          type: string
+          x-konfig-original-example: hiring_manager
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-role
+      type: object
+    RecruitmentGetApplicantDetailsResponse:
+      example:
+        data:
+          summary: null
+          id: 3
+          full_name: Fritzgerard Stachie
+          first_name: Fritzgerard
+          last_name: Stachie
+          email: fritzgerard@example.com
+          address: null
+          phone_number: null
+          source: referral
+          created_at: 2020-10-21 12:58:43+00:00
+          disqualified_date: 2020-10-28
+          hired_date: null
+          stage:
+            title: Interview
+            id: 4
+            created_at: 2020-10-15 10:57:34+00:00
+          position_id: 1
+          added_by:
+            id: 1
+            full_name: Vlad Hendrik
+            email: vlad@example.com
+          referrer:
+            id: 1
+            full_name: Josh Pascuale
+            email: josh@example.com
+            phone_number: 67876162
+      properties:
+        data:
+          $ref: '#/components/schemas/RecruitmentGetApplicantDetailsResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 3
+          full_name: Fritzgerard Stachie
+          first_name: Fritzgerard
+          last_name: Stachie
+          email: fritzgerard@example.com
+          source: referral
+          created_at: 2020-10-21 12:58:43+00:00
+          disqualified_date: 2020-10-28
+          stage:
+            title: Interview
+            id: 4
+            created_at: 2020-10-15 10:57:34+00:00
+          position_id: 1
+          added_by:
+            id: 1
+            full_name: Vlad Hendrik
+            email: vlad@example.com
+          referrer:
+            id: 1
+            full_name: Josh Pascuale
+            email: josh@example.com
+            phone_number: 67876162
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse
+      x-konfig-is-used-in-successful-response: true
+    RecruitmentListApplicantActionsResponse:
+      example:
+        data:
+        - action: moved_between_stages
+          message: Applicant moved from "Interview" to "Reference check"
+          created_at: 2020-10-28 09:05:45+00:00
+        - action: moved_between_stages
+          message: Applicant moved from "CV review" to "Interview"
+          created_at: 2020-10-27 10:59:23+00:00
+        - action: moved_between_stages
+          message: Applicant moved from "New" to "CV review"
+          created_at: 2020-10-15 11:01:39+00:00
+        - action: document_created
+          message: Uploaded "empty-document.pdf"
+          created_at: 2020-10-15 10:59:15+00:00
+        - action: applicant_created
+          message: Applicant created
+          created_at: 2020-10-15 10:58:57+00:00
+        meta:
+          current_page: 1
+          next_page: null
+          previous_page: null
+          total_pages: 1
+          per_page: 30
+          total_entries: 5
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/RecruitmentListApplicantActionsResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/RecruitmentListApplicantActionsResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - action: moved_between_stages
+          message: Applicant moved from "Interview" to "Reference check"
+          created_at: 2020-10-28 09:05:45+00:00
+        - action: moved_between_stages
+          message: Applicant moved from "CV review" to "Interview"
+          created_at: 2020-10-27 10:59:23+00:00
+        - action: moved_between_stages
+          message: Applicant moved from "New" to "CV review"
+          created_at: 2020-10-15 11:01:39+00:00
+        - action: document_created
+          message: Uploaded "empty-document.pdf"
+          created_at: 2020-10-15 10:59:15+00:00
+        - action: applicant_created
+          message: Applicant created
+          created_at: 2020-10-15 10:58:57+00:00
+        meta:
+          current_page: 1
+          total_pages: 1
+          per_page: 30
+          total_entries: 5
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse
+      x-konfig-is-used-in-successful-response: true
+    RecruitmentCreateApplicantWithReferral422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - Email has already been taken
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response-properties-error_code
+        errors:
+          items:
+            example: Email has already been taken
+            type: string
+            x-konfig-original-example: Email has already been taken
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - Email has already been taken
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    RecruitmentCreateApplicantWithReferralResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/RecruitmentCreateApplicantWithReferralResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferralResponse
+      x-konfig-is-used-in-successful-response: true
+    RecruitmentGetApplicantDetailsResponse_data_referrer:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-id
+        full_name:
+          example: Josh Pascuale
+          type: string
+          x-konfig-original-example: Josh Pascuale
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-full_name
+        email:
+          example: josh@example.com
+          type: string
+          x-konfig-original-example: josh@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-email
+        phone_number:
+          example: 67876162
+          type: number
+          x-konfig-original-example: 67876162
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-phone_number
+      type: object
+    RecruitmentListPositionsResponse_data_inner:
+      properties:
+        title:
+          example: CEO
+          type: string
+          x-konfig-original-example: CEO
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-title
+        id:
+          example: 2902504
+          type: number
+          x-konfig-original-example: 2902504
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-id
+        status:
+          example: published
+          type: string
+          x-konfig-original-example: published
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-status
+        visibility:
+          example: Published
+          type: string
+          x-konfig-original-example: Published
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-visibility
+        created_at:
+          example: 2019-09-01
+          type: string
+          x-konfig-original-example: 2019-09-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-created_at
+        internal_date:
+          example: 2019-10-01
+          type: string
+          x-konfig-original-example: 2019-10-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-internal_date
+        completed_at:
+          example: 2019-10-12
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: 2019-10-12
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-completed_at
+        link:
+          example: https://talent.sage.hr/jobs/xxx
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: https://talent.sage.hr/jobs/xxx
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-link
+        team:
+          example: Management
+          type: string
+          x-konfig-original-example: Management
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-team
+        applicants_required:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-applicants_required
+        applicants_count:
+          example: 3
+          type: number
+          x-konfig-original-example: 3
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-applicants_count
+        employment_type:
+          example: Full-time
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: Full-time
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-employment_type
+        location:
+          example: London
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: London
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-location
+        location_id:
+          example: 9182712
+          type:
+          - number
+          - 'null'
+          x-konfig-original-example: 9182712
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-location_id
+        group:
+          example: Hiring Group
+          type: string
+          x-konfig-original-example: Hiring Group
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-group
+        group_id:
+          example: 871621
+          type: number
+          x-konfig-original-example: 871621
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-group_id
+        priority:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-priority
+        description_blocks:
+          items:
+            $ref: '#/components/schemas/RecruitmentListPositionsResponse_data_inner_description_blocks_inner'
+          type: array
+      type: object
+    RecruitmentListApplicantsResponse:
+      example:
+        data:
+        - summary: null
+          id: 1
+          full_name: Jon Vondrak
+          first_name: Jon
+          last_name: Vondrak
+          email: jon.vondrak@example.com
+          address: null
+          phone_number: null
+          source: recruiters
+          created_at: 2020-10-15 10:58:57+00:00
+          disqualified_date: null
+          hired_date: null
+          stage:
+            title: Reference check
+            id: 6
+            created_at: 2020-10-15 10:57:34+00:00
+        - summary: null
+          id: 2
+          full_name: Samantha Cross
+          first_name: Samantha
+          last_name: Cross
+          email: sam.cross@example.com
+          address: null
+          phone_number: null
+          source: recruiters
+          created_at: 2020-10-15 11:02:34+00:00
+          disqualified_date: null
+          hired_date: 2020-10-28
+          stage:
+            title: Hired
+            id: 10
+            created_at: 2020-10-15 10:57:34+00:00
+        meta:
+          current_page: 1
+          next_page: null
+          previous_page: null
+          total_pages: 1
+          per_page: 30
+          total_entries: 3
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/RecruitmentListApplicantsResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/RecruitmentListApplicantsResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          full_name: Jon Vondrak
+          first_name: Jon
+          last_name: Vondrak
+          email: jon.vondrak@example.com
+          source: recruiters
+          created_at: 2020-10-15 10:58:57+00:00
+          stage:
+            title: Reference check
+            id: 6
+            created_at: 2020-10-15 10:57:34+00:00
+        - id: 2
+          full_name: Samantha Cross
+          first_name: Samantha
+          last_name: Cross
+          email: sam.cross@example.com
+          source: recruiters
+          created_at: 2020-10-15 11:02:34+00:00
+          hired_date: 2020-10-28
+          stage:
+            title: Hired
+            id: 10
+            created_at: 2020-10-15 10:57:34+00:00
+        meta:
+          current_page: 1
+          total_pages: 1
+          per_page: 30
+          total_entries: 3
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse
+      x-konfig-is-used-in-successful-response: true
+    RecruitmentListApplicantActionsResponse_data_inner:
+      properties:
+        action:
+          example: moved_between_stages
+          type: string
+          x-konfig-original-example: moved_between_stages
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-action
+        message:
+          example: Applicant moved from "Interview" to "Reference check"
+          type: string
+          x-konfig-original-example: Applicant moved from "Interview" to "Reference check"
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-message
+        created_at:
+          example: 2020-10-28 09:05:45+00:00
+          type: string
+          x-konfig-original-example: 2020-10-28 09:05:45+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-created_at
+      type: object
+    RecruitmentGetApplicantDetailsResponse_data_added_by:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-id
+        full_name:
+          example: Vlad Hendrik
+          type: string
+          x-konfig-original-example: Vlad Hendrik
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-full_name
+        email:
+          example: vlad@example.com
+          type: string
+          x-konfig-original-example: vlad@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-email
+      type: object
+    RecruitmentGetApplicantDetailsResponse_data_stage:
+      properties:
+        title:
+          example: Interview
+          type: string
+          x-konfig-original-example: Interview
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-title
+        id:
+          example: 4
+          type: number
+          x-konfig-original-example: 4
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-id
+        created_at:
+          example: 2020-10-15 10:57:34+00:00
+          type: string
+          x-konfig-original-example: 2020-10-15 10:57:34+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-created_at
+      type: object
+    RecruitmentListPositionsResponse_data_inner_description_blocks_inner:
+      properties:
+        title:
+          example: Requirements
+          type: string
+          x-konfig-original-example: Requirements
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-description_blocks-items-properties-title
+        content:
+          example: Html content goes here
+          type: string
+          x-konfig-original-example: Html content goes here
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-description_blocks-items-properties-content
+      type: object
+    RecruitmentGetPositionDetailsResponse_data_description_blocks_inner:
+      properties:
+        title:
+          example: Description
+          type: string
+          x-konfig-original-example: Description
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-description_blocks-items-properties-title
+        content:
+          example: <h1>This Is A CTO Position</h1>
+          type: string
+          x-konfig-original-example: <h1>This Is A CTO Position</h1>
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-description_blocks-items-properties-content
+      type: object
     RecruitmentGetPositionDetailsResponse_data:
       properties:
         title:
@@ -675,59 +1135,41 @@ components:
             $ref: '#/components/schemas/RecruitmentGetPositionDetailsResponse_data_hiring_team_inner'
           type: array
       type: object
-    RecruitmentListApplicantActionsResponse_data_inner:
-      properties:
-        action:
-          example: moved_between_stages
-          type: string
-          x-konfig-original-example: moved_between_stages
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-action
-        message:
-          example: Applicant moved from "Interview" to "Reference check"
-          type: string
-          x-konfig-original-example: Applicant moved from "Interview" to "Reference check"
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-message
-        created_at:
-          example: 2020-10-28 09:05:45+00:00
-          type: string
-          x-konfig-original-example: 2020-10-28 09:05:45+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-data-items-properties-created_at
-      type: object
-    RecruitmentGetPositionDetailsResponse_data_description_blocks_inner:
+    RecruitmentListApplicantsResponse_data_inner_stage:
       properties:
         title:
-          example: Description
+          example: Reference check
           type: string
-          x-konfig-original-example: Description
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-description_blocks-items-properties-title
-        content:
-          example: <h1>This Is A CTO Position</h1>
+          x-konfig-original-example: Reference check
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-title
+        id:
+          example: 6
+          type: number
+          x-konfig-original-example: 6
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-id
+        created_at:
+          example: 2020-10-15 10:57:34+00:00
           type: string
-          x-konfig-original-example: <h1>This Is A CTO Position</h1>
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-description_blocks-items-properties-content
+          x-konfig-original-example: 2020-10-15 10:57:34+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-created_at
       type: object
-    RecruitmentGetApplicantDetailsResponse_data_referrer:
+    RecruitmentGetPositionDetailsResponse_data_applicants_inner:
       properties:
         id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-id
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-id
         full_name:
-          example: Josh Pascuale
+          example: Jon Vondrak
           type: string
-          x-konfig-original-example: Josh Pascuale
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-full_name
+          x-konfig-original-example: Jon Vondrak
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-full_name
         email:
-          example: josh@example.com
+          example: jon.vondrak@example.com
           type: string
-          x-konfig-original-example: josh@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-email
-        phone_number:
-          example: 67876162
-          type: number
-          x-konfig-original-example: 67876162
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-referrer-properties-phone_number
+          x-konfig-original-example: jon.vondrak@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-email
       type: object
     RecruitmentGetApplicantDetailsResponse_data:
       properties:
@@ -810,6 +1252,73 @@ components:
           $ref: '#/components/schemas/RecruitmentGetApplicantDetailsResponse_data_added_by'
         referrer:
           $ref: '#/components/schemas/RecruitmentGetApplicantDetailsResponse_data_referrer'
+      type: object
+    RecruitmentListApplicantsResponse_data_inner:
+      properties:
+        summary:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-id
+        full_name:
+          example: Jon Vondrak
+          type: string
+          x-konfig-original-example: Jon Vondrak
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-full_name
+        first_name:
+          example: Jon
+          type: string
+          x-konfig-original-example: Jon
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-first_name
+        last_name:
+          example: Vondrak
+          type: string
+          x-konfig-original-example: Vondrak
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-last_name
+        email:
+          example: jon.vondrak@example.com
+          type: string
+          x-konfig-original-example: jon.vondrak@example.com
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-email
+        address:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+        phone_number:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+        source:
+          example: recruiters
+          type: string
+          x-konfig-original-example: recruiters
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-source
+        created_at:
+          example: 2020-10-15 10:58:57+00:00
+          type: string
+          x-konfig-original-example: 2020-10-15 10:58:57+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-created_at
+        disqualified_date:
+          type:
+          - string
+          - 'null'
+          x-konfig-null-placeholder: true
+        hired_date:
+          example: 2020-10-28
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: 2020-10-28
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-hired_date
+        stage:
+          $ref: '#/components/schemas/RecruitmentListApplicantsResponse_data_inner_stage'
       type: object
     RecruitmentGetPositionDetailsResponse:
       example:
@@ -901,254 +1410,6 @@ components:
             role: interviewer
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse
       x-konfig-is-used-in-successful-response: true
-    RecruitmentCreateApplicantWithReferralResponse_data:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferralResponse-properties-data-properties-id
-      type: object
-    RecruitmentCreateApplicantWithReferralRequest:
-      properties:
-        send_thank_you_email:
-          description: '''true'' to send thank you email to applicant'
-          type: string
-        applicant[first_name]:
-          type: string
-        applicant[last_name]:
-          type: string
-        applicant[email]:
-          type: string
-        applicant[referral]:
-          type: string
-        applicant[phone_number]:
-          type: string
-        applicant[source]:
-          type: string
-        applicant[address]:
-          type: string
-        applicant[summary]:
-          type: string
-        applicant[attachment]:
-          description: The file to upload.
-          format: binary
-          type: string
-      required:
-      - applicant[first_name]
-      type: object
-    RecruitmentListPositionsResponse_data_inner_description_blocks_inner:
-      properties:
-        title:
-          example: Requirements
-          type: string
-          x-konfig-original-example: Requirements
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-description_blocks-items-properties-title
-        content:
-          example: Html content goes here
-          type: string
-          x-konfig-original-example: Html content goes here
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-description_blocks-items-properties-content
-      type: object
-    RecruitmentGetPositionDetailsResponse_data_hiring_team_inner:
-      properties:
-        id:
-          example: 12
-          type: number
-          x-konfig-original-example: 12
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-id
-        full_name:
-          example: Manel Lopez-Bru
-          type: string
-          x-konfig-original-example: Manel Lopez-Bru
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-full_name
-        role:
-          example: hiring_manager
-          type: string
-          x-konfig-original-example: hiring_manager
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-hiring_team-items-properties-role
-      type: object
-    RecruitmentListApplicantsResponse:
-      example:
-        data:
-        - summary: null
-          id: 1
-          full_name: Jon Vondrak
-          first_name: Jon
-          last_name: Vondrak
-          email: jon.vondrak@example.com
-          address: null
-          phone_number: null
-          source: recruiters
-          created_at: 2020-10-15 10:58:57+00:00
-          disqualified_date: null
-          hired_date: null
-          stage:
-            title: Reference check
-            id: 6
-            created_at: 2020-10-15 10:57:34+00:00
-        - summary: null
-          id: 2
-          full_name: Samantha Cross
-          first_name: Samantha
-          last_name: Cross
-          email: sam.cross@example.com
-          address: null
-          phone_number: null
-          source: recruiters
-          created_at: 2020-10-15 11:02:34+00:00
-          disqualified_date: null
-          hired_date: 2020-10-28
-          stage:
-            title: Hired
-            id: 10
-            created_at: 2020-10-15 10:57:34+00:00
-        meta:
-          current_page: 1
-          next_page: null
-          previous_page: null
-          total_pages: 1
-          per_page: 30
-          total_entries: 3
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/RecruitmentListApplicantsResponse_data_inner'
-          type: array
-        meta:
-          $ref: '#/components/schemas/RecruitmentListApplicantsResponse_meta'
-      type: object
-      x-konfig-original-example:
-        data:
-        - id: 1
-          full_name: Jon Vondrak
-          first_name: Jon
-          last_name: Vondrak
-          email: jon.vondrak@example.com
-          source: recruiters
-          created_at: 2020-10-15 10:58:57+00:00
-          stage:
-            title: Reference check
-            id: 6
-            created_at: 2020-10-15 10:57:34+00:00
-        - id: 2
-          full_name: Samantha Cross
-          first_name: Samantha
-          last_name: Cross
-          email: sam.cross@example.com
-          source: recruiters
-          created_at: 2020-10-15 11:02:34+00:00
-          hired_date: 2020-10-28
-          stage:
-            title: Hired
-            id: 10
-            created_at: 2020-10-15 10:57:34+00:00
-        meta:
-          current_page: 1
-          total_pages: 1
-          per_page: 30
-          total_entries: 3
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse
-      x-konfig-is-used-in-successful-response: true
-    RecruitmentGetPositionDetailsResponse_data_applicants_inner:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-id
-        full_name:
-          example: Jon Vondrak
-          type: string
-          x-konfig-original-example: Jon Vondrak
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-full_name
-        email:
-          example: jon.vondrak@example.com
-          type: string
-          x-konfig-original-example: jon.vondrak@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetPositionDetailsResponse-properties-data-properties-applicants-items-properties-email
-      type: object
-    RecruitmentListApplicantActionsResponse_meta:
-      properties:
-        current_page:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-current_page
-        next_page:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-next_page
-          example: null
-        previous_page:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-previous_page
-          example: null
-        total_pages:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-total_pages
-        per_page:
-          example: 30
-          type: number
-          x-konfig-original-example: 30
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-per_page
-        total_entries:
-          example: 5
-          type: number
-          x-konfig-original-example: 5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-total_entries
-      type: object
-    RecruitmentCreateApplicantWithReferral422Response:
-      example:
-        error_code: validation_failed
-        errors:
-        - Email has already been taken
-      properties:
-        error_code:
-          example: validation_failed
-          type: string
-          x-konfig-original-example: validation_failed
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response-properties-error_code
-        errors:
-          items:
-            example: Email has already been taken
-            type: string
-            x-konfig-original-example: Email has already been taken
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: validation_failed
-        errors:
-        - Email has already been taken
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferral422Response
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
-    RecruitmentGetApplicantDetailsResponse_data_stage:
-      properties:
-        title:
-          example: Interview
-          type: string
-          x-konfig-original-example: Interview
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-title
-        id:
-          example: 4
-          type: number
-          x-konfig-original-example: 4
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-id
-        created_at:
-          example: 2020-10-15 10:57:34+00:00
-          type: string
-          x-konfig-original-example: 2020-10-15 10:57:34+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-stage-properties-created_at
-      type: object
     RecruitmentListPositionsResponse:
       example:
         data:
@@ -1297,215 +1558,42 @@ components:
           x-konfig-original-example: 3
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-meta-properties-total_entries
       type: object
-    RecruitmentListApplicantsResponse_data_inner_stage:
+    RecruitmentListApplicantActionsResponse_meta:
       properties:
-        title:
-          example: Reference check
-          type: string
-          x-konfig-original-example: Reference check
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-title
-        id:
-          example: 6
-          type: number
-          x-konfig-original-example: 6
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-id
-        created_at:
-          example: 2020-10-15 10:57:34+00:00
-          type: string
-          x-konfig-original-example: 2020-10-15 10:57:34+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-stage-properties-created_at
-      type: object
-    RecruitmentGetApplicantDetailsResponse:
-      example:
-        data:
-          summary: null
-          id: 3
-          full_name: Fritzgerard Stachie
-          first_name: Fritzgerard
-          last_name: Stachie
-          email: fritzgerard@example.com
-          address: null
-          phone_number: null
-          source: referral
-          created_at: 2020-10-21 12:58:43+00:00
-          disqualified_date: 2020-10-28
-          hired_date: null
-          stage:
-            title: Interview
-            id: 4
-            created_at: 2020-10-15 10:57:34+00:00
-          position_id: 1
-          added_by:
-            id: 1
-            full_name: Vlad Hendrik
-            email: vlad@example.com
-          referrer:
-            id: 1
-            full_name: Josh Pascuale
-            email: josh@example.com
-            phone_number: 67876162
-      properties:
-        data:
-          $ref: '#/components/schemas/RecruitmentGetApplicantDetailsResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 3
-          full_name: Fritzgerard Stachie
-          first_name: Fritzgerard
-          last_name: Stachie
-          email: fritzgerard@example.com
-          source: referral
-          created_at: 2020-10-21 12:58:43+00:00
-          disqualified_date: 2020-10-28
-          stage:
-            title: Interview
-            id: 4
-            created_at: 2020-10-15 10:57:34+00:00
-          position_id: 1
-          added_by:
-            id: 1
-            full_name: Vlad Hendrik
-            email: vlad@example.com
-          referrer:
-            id: 1
-            full_name: Josh Pascuale
-            email: josh@example.com
-            phone_number: 67876162
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse
-      x-konfig-is-used-in-successful-response: true
-    RecruitmentGetApplicantDetailsResponse_data_added_by:
-      properties:
-        id:
+        current_page:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-id
-        full_name:
-          example: Vlad Hendrik
-          type: string
-          x-konfig-original-example: Vlad Hendrik
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-full_name
-        email:
-          example: vlad@example.com
-          type: string
-          x-konfig-original-example: vlad@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentGetApplicantDetailsResponse-properties-data-properties-added_by-properties-email
-      type: object
-    RecruitmentCreateApplicantWithReferralResponse:
-      example:
-        data:
-          id: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/RecruitmentCreateApplicantWithReferralResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferralResponse
-      x-konfig-is-used-in-successful-response: true
-    RecruitmentListPositionsResponse_data_inner:
-      properties:
-        title:
-          example: CEO
-          type: string
-          x-konfig-original-example: CEO
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-title
-        id:
-          example: 2902504
-          type: number
-          x-konfig-original-example: 2902504
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-id
-        status:
-          example: published
-          type: string
-          x-konfig-original-example: published
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-status
-        visibility:
-          example: Published
-          type: string
-          x-konfig-original-example: Published
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-visibility
-        created_at:
-          example: 2019-09-01
-          type: string
-          x-konfig-original-example: 2019-09-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-created_at
-        internal_date:
-          example: 2019-10-01
-          type: string
-          x-konfig-original-example: 2019-10-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-internal_date
-        completed_at:
-          example: 2019-10-12
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-current_page
+        next_page:
           type:
           - string
           - 'null'
-          x-konfig-original-example: 2019-10-12
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-completed_at
-        link:
-          example: https://talent.sage.hr/jobs/xxx
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-next_page
+          example: null
+        previous_page:
           type:
           - string
           - 'null'
-          x-konfig-original-example: https://talent.sage.hr/jobs/xxx
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-link
-        team:
-          example: Management
-          type: string
-          x-konfig-original-example: Management
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-team
-        applicants_required:
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-applicants_required
-        applicants_count:
-          example: 3
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 30
           type: number
-          x-konfig-original-example: 3
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-applicants_count
-        employment_type:
-          example: Full-time
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: Full-time
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-employment_type
-        location:
-          example: London
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: London
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-location
-        location_id:
-          example: 9182712
-          type:
-          - number
-          - 'null'
-          x-konfig-original-example: 9182712
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-location_id
-        group:
-          example: Hiring Group
-          type: string
-          x-konfig-original-example: Hiring Group
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-group
-        group_id:
-          example: 871621
+          x-konfig-original-example: 30
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 5
           type: number
-          x-konfig-original-example: 871621
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-group_id
-        priority:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-data-items-properties-priority
-        description_blocks:
-          items:
-            $ref: '#/components/schemas/RecruitmentListPositionsResponse_data_inner_description_blocks_inner'
-          type: array
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse-properties-meta-properties-total_entries
       type: object
     RecruitmentListPositionsResponse_meta:
       properties:
@@ -1542,130 +1630,42 @@ components:
           x-konfig-original-example: 34
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListPositionsResponse-properties-meta-properties-total_entries
       type: object
-    RecruitmentListApplicantsResponse_data_inner:
+    RecruitmentCreateApplicantWithReferralResponse_data:
       properties:
-        summary:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
         id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-id
-        full_name:
-          example: Jon Vondrak
-          type: string
-          x-konfig-original-example: Jon Vondrak
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-full_name
-        first_name:
-          example: Jon
-          type: string
-          x-konfig-original-example: Jon
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-first_name
-        last_name:
-          example: Vondrak
-          type: string
-          x-konfig-original-example: Vondrak
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-last_name
-        email:
-          example: jon.vondrak@example.com
-          type: string
-          x-konfig-original-example: jon.vondrak@example.com
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-email
-        address:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
-        phone_number:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
-        source:
-          example: recruiters
-          type: string
-          x-konfig-original-example: recruiters
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-source
-        created_at:
-          example: 2020-10-15 10:58:57+00:00
-          type: string
-          x-konfig-original-example: 2020-10-15 10:58:57+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-created_at
-        disqualified_date:
-          type:
-          - string
-          - 'null'
-          x-konfig-null-placeholder: true
-        hired_date:
-          example: 2020-10-28
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: 2020-10-28
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantsResponse-properties-data-items-properties-hired_date
-        stage:
-          $ref: '#/components/schemas/RecruitmentListApplicantsResponse_data_inner_stage'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentCreateApplicantWithReferralResponse-properties-data-properties-id
       type: object
-    RecruitmentListApplicantActionsResponse:
-      example:
-        data:
-        - action: moved_between_stages
-          message: Applicant moved from "Interview" to "Reference check"
-          created_at: 2020-10-28 09:05:45+00:00
-        - action: moved_between_stages
-          message: Applicant moved from "CV review" to "Interview"
-          created_at: 2020-10-27 10:59:23+00:00
-        - action: moved_between_stages
-          message: Applicant moved from "New" to "CV review"
-          created_at: 2020-10-15 11:01:39+00:00
-        - action: document_created
-          message: Uploaded "empty-document.pdf"
-          created_at: 2020-10-15 10:59:15+00:00
-        - action: applicant_created
-          message: Applicant created
-          created_at: 2020-10-15 10:58:57+00:00
-        meta:
-          current_page: 1
-          next_page: null
-          previous_page: null
-          total_pages: 1
-          per_page: 30
-          total_entries: 5
+    RecruitmentCreateApplicantWithReferralRequest:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/RecruitmentListApplicantActionsResponse_data_inner'
-          type: array
-        meta:
-          $ref: '#/components/schemas/RecruitmentListApplicantActionsResponse_meta'
+        send_thank_you_email:
+          description: '''true'' to send thank you email to applicant'
+          type: string
+        applicant[first_name]:
+          type: string
+        applicant[last_name]:
+          type: string
+        applicant[email]:
+          type: string
+        applicant[referral]:
+          type: string
+        applicant[phone_number]:
+          type: string
+        applicant[source]:
+          type: string
+        applicant[address]:
+          type: string
+        applicant[summary]:
+          type: string
+        applicant[attachment]:
+          description: The file to upload.
+          format: binary
+          type: string
+      required:
+      - applicant[first_name]
       type: object
-      x-konfig-original-example:
-        data:
-        - action: moved_between_stages
-          message: Applicant moved from "Interview" to "Reference check"
-          created_at: 2020-10-28 09:05:45+00:00
-        - action: moved_between_stages
-          message: Applicant moved from "CV review" to "Interview"
-          created_at: 2020-10-27 10:59:23+00:00
-        - action: moved_between_stages
-          message: Applicant moved from "New" to "CV review"
-          created_at: 2020-10-15 11:01:39+00:00
-        - action: document_created
-          message: Uploaded "empty-document.pdf"
-          created_at: 2020-10-15 10:59:15+00:00
-        - action: applicant_created
-          message: Applicant created
-          created_at: 2020-10-15 10:58:57+00:00
-        meta:
-          current_page: 1
-          total_pages: 1
-          per_page: 30
-          total_entries: 5
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-RecruitmentListApplicantActionsResponse
-      x-konfig-is-used-in-successful-response: true
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

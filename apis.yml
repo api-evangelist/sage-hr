@@ -173,6 +173,8 @@ apis:
   description: The Recruitment API from Sage HR — 5 operation(s) for recruitment.
   humanURL: https://apidoc.sage.hr/
   tags:
+  - Recruiting
+  tags_raw:
   - Recruitment
   properties:
   - type: OpenAPI
@@ -235,9 +237,9 @@ tags:
 - Human Resources
 - HRIS
 - People
-- SMB
+- Small Business
 - Leave Management
-- Recruitment
+- Recruiting
 - Performance
 - Timesheets
 - Onboarding

@@ -61,6 +61,33 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    PositionsListCompanyPositionsResponse_data_inner:
+      properties:
+        title:
+          example: CFO
+          type: string
+          x-konfig-original-example: CFO
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-title
+        description:
+          example: '...'
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: '...'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-description
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-id
+        code:
+          example: X2
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: X2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-code
+      type: object
     PositionsListCompanyPositionsResponse:
       example:
         data:
@@ -137,33 +164,6 @@ components:
           type: number
           x-konfig-original-example: 75
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_entries
-      type: object
-    PositionsListCompanyPositionsResponse_data_inner:
-      properties:
-        title:
-          example: CFO
-          type: string
-          x-konfig-original-example: CFO
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-title
-        description:
-          example: '...'
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: '...'
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-description
-        id:
-          example: 19
-          type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-id
-        code:
-          example: X2
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: X2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-code
       type: object
   securitySchemes:
     api_key:

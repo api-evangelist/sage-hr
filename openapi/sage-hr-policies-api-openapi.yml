@@ -140,6 +140,18 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    LeaveManagementProcessKitDayRequest:
+      properties:
+        status:
+          description: Action to apply to the specified KIT day
+          enum:
+          - cancel
+          - approve
+          - decline
+          type: string
+      required:
+      - status
+      type: object
     LeaveManagementCreateKitDayResponse:
       example:
         data:
@@ -155,29 +167,35 @@ components:
         - id: 1
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse
       x-konfig-is-used-in-successful-response: true
-    LeaveManagementGetKitDaysResponse_data_inner:
+    LeaveManagementGetKitDaysResponse:
+      example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
       properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
-        status:
-          example: declined
-          type: string
-          x-konfig-original-example: declined
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
-        start_date:
-          example: 2021-03-09
-          type: string
-          x-konfig-original-example: 2021-03-09
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
-        end_date:
-          example: 2021-03-10
-          type: string
-          x-konfig-original-example: 2021-03-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse_data_inner'
+          type: array
       type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+          status: declined
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+        - id: 2
+          status: approved
+          start_date: 2021-03-09
+          end_date: 2021-03-10
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
+      x-konfig-is-used-in-successful-response: true
     LeaveManagementCreateKitDay422Response:
       example:
         error_code: validation_failed
@@ -214,47 +232,29 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
       type: object
-    LeaveManagementProcessKitDayRequest:
+    LeaveManagementGetKitDaysResponse_data_inner:
       properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
         status:
-          description: Action to apply to the specified KIT day
-          enum:
-          - cancel
-          - approve
-          - decline
+          example: declined
           type: string
-      required:
-      - status
+          x-konfig-original-example: declined
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
+        start_date:
+          example: 2021-03-09
+          type: string
+          x-konfig-original-example: 2021-03-09
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2021-03-10
+          type: string
+          x-konfig-original-example: 2021-03-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
       type: object
-    LeaveManagementGetKitDaysResponse:
-      example:
-        data:
-        - id: 1
-          status: declined
-          start_date: 2021-03-09
-          end_date: 2021-03-10
-        - id: 2
-          status: approved
-          start_date: 2021-03-09
-          end_date: 2021-03-10
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/LeaveManagementGetKitDaysResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - id: 1
-          status: declined
-          start_date: 2021-03-09
-          end_date: 2021-03-10
-        - id: 2
-          status: approved
-          start_date: 2021-03-09
-          end_date: 2021-03-10
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
-      x-konfig-is-used-in-successful-response: true
     LeaveManagementCreateKitDayRequest:
       properties:
         policy_id:

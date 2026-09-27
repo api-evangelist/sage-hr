@@ -62,6 +62,33 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    TeamsListInCompanyResponse_data_inner:
+      properties:
+        id:
+          example: 19
+          type: number
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-id
+        name:
+          example: Sales
+          type: string
+          x-konfig-original-example: Sales
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-name
+        manager_ids:
+          items:
+            example: 1
+            type: number
+            x-konfig-original-example: 1
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-manager_ids-items
+          type: array
+        employee_ids:
+          items:
+            example: 5
+            type: number
+            x-konfig-original-example: 5
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-employee_ids-items
+          type: array
+      type: object
     TeamsListInCompanyResponse:
       example:
         data:
@@ -142,33 +169,6 @@ components:
           type: number
           x-konfig-original-example: 75
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-total_entries
-      type: object
-    TeamsListInCompanyResponse_data_inner:
-      properties:
-        id:
-          example: 19
-          type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-id
-        name:
-          example: Sales
-          type: string
-          x-konfig-original-example: Sales
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-name
-        manager_ids:
-          items:
-            example: 1
-            type: number
-            x-konfig-original-example: 1
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-manager_ids-items
-          type: array
-        employee_ids:
-          items:
-            example: 5
-            type: number
-            x-konfig-original-example: 5
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-data-items-properties-employee_ids-items
-          type: array
       type: object
   securitySchemes:
     api_key:
