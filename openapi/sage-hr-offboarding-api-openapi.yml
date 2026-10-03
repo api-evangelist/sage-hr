@@ -67,6 +67,32 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    OffboardingCreateTaskResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/OffboardingCreateTaskResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingCreateTaskResponse
+      x-konfig-is-used-in-successful-response: true
+    OffboardingListCategoriesResponse_data_inner:
+      properties:
+        title:
+          example: General
+          type: string
+          x-konfig-original-example: General
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse-properties-data-items-properties-title
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse-properties-data-items-properties-id
+      type: object
     OffboardingListCategoriesResponse:
       example:
         data:
@@ -88,19 +114,6 @@ components:
           id: 2
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse
       x-konfig-is-used-in-successful-response: true
-    OffboardingListCategoriesResponse_data_inner:
-      properties:
-        title:
-          example: General
-          type: string
-          x-konfig-original-example: General
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse-properties-data-items-properties-title
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse-properties-data-items-properties-id
-      type: object
     OffboardingCreateTaskRequest:
       properties:
         title:
@@ -133,19 +146,6 @@ components:
       - due_in
       - title
       type: object
-    OffboardingCreateTaskResponse:
-      example:
-        data:
-          id: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/OffboardingCreateTaskResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingCreateTaskResponse
-      x-konfig-is-used-in-successful-response: true
     OffboardingCreateTaskResponse_data:
       properties:
         id:

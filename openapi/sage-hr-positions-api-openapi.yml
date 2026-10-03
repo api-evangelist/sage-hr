@@ -61,32 +61,40 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    PositionsListCompanyPositionsResponse_data_inner:
+    PositionsListCompanyPositionsResponse_meta:
       properties:
-        title:
-          example: CFO
-          type: string
-          x-konfig-original-example: CFO
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-title
-        description:
-          example: '...'
-          type:
-          - string
-          - 'null'
-          x-konfig-original-example: '...'
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-description
-        id:
-          example: 19
+        current_page:
+          example: 1
           type: number
-          x-konfig-original-example: 19
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-id
-        code:
-          example: X2
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-current_page
+        next_page:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-next_page
+        previous_page:
           type:
           - string
           - 'null'
-          x-konfig-original-example: X2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-code
+          x-konfig-null-placeholder: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-previous_page
+          example: null
+        total_pages:
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_pages
+        per_page:
+          example: 50
+          type: number
+          x-konfig-original-example: 50
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-per_page
+        total_entries:
+          example: 75
+          type: number
+          x-konfig-original-example: 75
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_entries
       type: object
     PositionsListCompanyPositionsResponse:
       example:
@@ -130,40 +138,32 @@ components:
           total_entries: 75
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse
       x-konfig-is-used-in-successful-response: true
-    PositionsListCompanyPositionsResponse_meta:
+    PositionsListCompanyPositionsResponse_data_inner:
       properties:
-        current_page:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-current_page
-        next_page:
-          example: 2
-          type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-next_page
-        previous_page:
+        title:
+          example: CFO
+          type: string
+          x-konfig-original-example: CFO
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-title
+        description:
+          example: '...'
           type:
           - string
           - 'null'
-          x-konfig-null-placeholder: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-previous_page
-          example: null
-        total_pages:
-          example: 2
+          x-konfig-original-example: '...'
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-description
+        id:
+          example: 19
           type: number
-          x-konfig-original-example: 2
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_pages
-        per_page:
-          example: 50
-          type: number
-          x-konfig-original-example: 50
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-per_page
-        total_entries:
-          example: 75
-          type: number
-          x-konfig-original-example: 75
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-meta-properties-total_entries
+          x-konfig-original-example: 19
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-id
+        code:
+          example: X2
+          type:
+          - string
+          - 'null'
+          x-konfig-original-example: X2
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PositionsListCompanyPositionsResponse-properties-data-items-properties-code
       type: object
   securitySchemes:
     api_key:

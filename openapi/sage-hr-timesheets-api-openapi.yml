@@ -48,18 +48,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner:
-      example:
-        clock_in: clock_in
-        clock_out: clock_out
-      properties:
-        clock_in:
-          description: YYYY/MM/DD HH:MM
-          type: string
-        clock_out:
-          description: YYYY/MM/DD HH:MM
-          type: string
-      type: object
     TimesheetsClockInOutRequest:
       example:
         clocked_time:
@@ -109,6 +97,18 @@ components:
           items:
             $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner'
           type: array
+      type: object
+    TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner:
+      example:
+        clock_in: clock_in
+        clock_out: clock_out
+      properties:
+        clock_in:
+          description: YYYY/MM/DD HH:MM
+          type: string
+        clock_out:
+          description: YYYY/MM/DD HH:MM
+          type: string
       type: object
     TimesheetsClockInOutRequest_clocked_time:
       example:

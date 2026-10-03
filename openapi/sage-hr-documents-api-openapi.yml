@@ -70,40 +70,13 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    DocumentsCreateNewDocumentResponse:
-      example:
-        data:
-          id: 1
+    DocumentsCreateNewDocumentResponse_data:
       properties:
-        data:
-          $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse
-      x-konfig-is-used-in-successful-response: true
-    DocumentsCreateNewDocumentRequest:
-      properties:
-        description:
-          description: Document description
-          type: string
-        file:
-          description: The file to upload.
-          format: binary
-          type: string
-        employee_id:
-          description: Employee identifier
-          type: integer
-        category_id:
-          description: Category identifier, leave empty for default category
-          type: integer
-        notify:
-          description: '''true'' to notify employee by email'
-          type: string
-      required:
-      - employee_id
-      - file
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse-properties-data-properties-id
       type: object
     DocumentsListCategoriesResponse:
       example:
@@ -148,13 +121,40 @@ components:
           x-konfig-original-example: 10
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse-properties-data-items-properties-documents_count
       type: object
-    DocumentsCreateNewDocumentResponse_data:
+    DocumentsCreateNewDocumentResponse:
+      example:
+        data:
+          id: 1
       properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse-properties-data-properties-id
+        data:
+          $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse
+      x-konfig-is-used-in-successful-response: true
+    DocumentsCreateNewDocumentRequest:
+      properties:
+        description:
+          description: Document description
+          type: string
+        file:
+          description: The file to upload.
+          format: binary
+          type: string
+        employee_id:
+          description: Employee identifier
+          type: integer
+        category_id:
+          description: Category identifier, leave empty for default category
+          type: integer
+        notify:
+          description: '''true'' to notify employee by email'
+          type: string
+      required:
+      - employee_id
+      - file
       type: object
   securitySchemes:
     api_key:

@@ -184,6 +184,134 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    LeaveManagementGetKitDaysResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
+        status:
+          example: declined
+          type: string
+          x-konfig-original-example: declined
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
+        start_date:
+          example: 2021-03-09
+          type: string
+          x-konfig-original-example: 2021-03-09
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2021-03-10
+          type: string
+          x-konfig-original-example: 2021-03-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationRequest:
+      properties:
+        kit_days_enabled:
+          description: Whether the policy allows Kit days or not
+          enum:
+          - true
+          - false
+          example: true
+          type: boolean
+          x-konfig-original-example: true
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_enabled
+        kit_days_quantity:
+          description: Maximum number of Kit days allowed in the policy
+          example: 5
+          type: integer
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_quantity
+      required:
+      - kit_days_enabled
+      - kit_days_quantity
+      type: object
+    LeaveManagementUpdateKitDaysConfigurationResponse:
+      example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      properties:
+        error_code:
+          example: invalid_policy_type
+          type: string
+          x-konfig-original-example: invalid_policy_type
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-error_code
+        errors:
+          items:
+            example: The policy specified is not an event-based policy
+            type: string
+            x-konfig-original-example: The policy specified is not an event-based policy
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: invalid_policy_type
+        errors:
+        - The policy specified is not an event-based policy
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementCreateKitDayRequest:
+      properties:
+        policy_id:
+          description: Time-off policy identifier
+          type: integer
+        employee_id:
+          description: Employee identifier
+          type: integer
+        date:
+          description: Date of single-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date
+        date_from:
+          description: Start date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_from
+        date_to:
+          description: End date of a multi-day KIT day
+          example: 2020-01-01
+          type: string
+          x-konfig-original-example: 2020-01-01
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_to
+      required:
+      - employee_id
+      - policy_id
+      type: object
+    LeaveManagementCreateKitDay422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
+        errors:
+          items:
+            example: First error
+            type: string
+            x-konfig-original-example: First error
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
     LeaveManagementProcessKitDayRequest:
       properties:
         status:
@@ -195,6 +323,14 @@ components:
           type: string
       required:
       - status
+      type: object
+    LeaveManagementCreateKitDayResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
       type: object
     LeaveManagementCreateKitDayResponse:
       example:
@@ -240,142 +376,6 @@ components:
           end_date: 2021-03-10
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
       x-konfig-is-used-in-successful-response: true
-    LeaveManagementUpdateKitDaysConfigurationRequest:
-      properties:
-        kit_days_enabled:
-          description: Whether the policy allows Kit days or not
-          enum:
-          - true
-          - false
-          example: true
-          type: boolean
-          x-konfig-original-example: true
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_enabled
-        kit_days_quantity:
-          description: Maximum number of Kit days allowed in the policy
-          example: 5
-          type: integer
-          x-konfig-original-example: 5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationRequest-properties-kit_days_quantity
-      required:
-      - kit_days_enabled
-      - kit_days_quantity
-      type: object
-    LeaveManagementCreateKitDay422Response:
-      example:
-        error_code: validation_failed
-        errors:
-        - First error
-        - Second error
-      properties:
-        error_code:
-          example: validation_failed
-          type: string
-          x-konfig-original-example: validation_failed
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
-        errors:
-          items:
-            example: First error
-            type: string
-            x-konfig-original-example: First error
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: validation_failed
-        errors:
-        - First error
-        - Second error
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
-    LeaveManagementCreateKitDayResponse_data_inner:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
-      type: object
-    LeaveManagementUpdateKitDaysConfigurationResponse:
-      example:
-        error_code: invalid_policy_type
-        errors:
-        - The policy specified is not an event-based policy
-      properties:
-        error_code:
-          example: invalid_policy_type
-          type: string
-          x-konfig-original-example: invalid_policy_type
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-error_code
-        errors:
-          items:
-            example: The policy specified is not an event-based policy
-            type: string
-            x-konfig-original-example: The policy specified is not an event-based policy
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: invalid_policy_type
-        errors:
-        - The policy specified is not an event-based policy
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementUpdateKitDaysConfigurationResponse
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
-    LeaveManagementGetKitDaysResponse_data_inner:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
-        status:
-          example: declined
-          type: string
-          x-konfig-original-example: declined
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
-        start_date:
-          example: 2021-03-09
-          type: string
-          x-konfig-original-example: 2021-03-09
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
-        end_date:
-          example: 2021-03-10
-          type: string
-          x-konfig-original-example: 2021-03-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
-      type: object
-    LeaveManagementCreateKitDayRequest:
-      properties:
-        policy_id:
-          description: Time-off policy identifier
-          type: integer
-        employee_id:
-          description: Employee identifier
-          type: integer
-        date:
-          description: Date of single-day KIT day
-          example: 2020-01-01
-          type: string
-          x-konfig-original-example: 2020-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date
-        date_from:
-          description: Start date of a multi-day KIT day
-          example: 2020-01-01
-          type: string
-          x-konfig-original-example: 2020-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_from
-        date_to:
-          description: End date of a multi-day KIT day
-          example: 2020-01-01
-          type: string
-          x-konfig-original-example: 2020-01-01
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayRequest-properties-date_to
-      required:
-      - employee_id
-      - policy_id
-      type: object
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.
