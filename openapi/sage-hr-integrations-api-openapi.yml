@@ -498,101 +498,228 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    IntegrationsTransferJobPositionFromSageToVikarinaResponse_data:
-      properties:
-        title:
-          example: Job title
-          type: string
-          x-konfig-original-example: Job title
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-title
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-id
-        status:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-status
-      type: object
-    IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse:
-      example:
-        data:
-          employee_id: 1
-          department_code: department code (custom_field)
-          department_name: department name (custom_field)
-          section_code: section code (custom_field)
-          section_title: section title (custom_field)
-          subsection_code: subsection code (custom_field)
-          subsection_title: Test Team
-          cost_center_code: cost center code (custom_field)
-          cost_center_title: cost center tile (custom_field)
-          work_address: employee address (custom_field)
-          work_city: employee city (custom_field)
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          employee_id: 1
-          department_code: department code (custom_field)
-          department_name: department name (custom_field)
-          section_code: section code (custom_field)
-          section_title: section title (custom_field)
-          subsection_code: subsection code (custom_field)
-          subsection_title: Test Team
-          cost_center_code: cost center code (custom_field)
-          cost_center_title: cost center tile (custom_field)
-          work_address: employee address (custom_field)
-          work_city: employee city (custom_field)
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferContractInformationToVikarinaResponse_data:
+    IntegrationsTransferBankAccountInfoResponse_data:
       properties:
         employee_id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employee_id
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-employee_id
         employee_number:
           example: 123
           type: number
           x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employee_number
-        work_start_date:
-          example: 2020-10-10 00:00:00+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-employee_number
+        bank_code:
+          example: bank code (custom_field)
           type: string
-          x-konfig-original-example: 2020-10-10 00:00:00+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-work_start_date
-        contract_number:
-          example: contract number (custom_field)
+          x-konfig-original-example: bank code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-bank_code
+        bank_account:
+          example: bank account (custom_field)
           type: string
-          x-konfig-original-example: contract number (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-contract_number
-        termination_date:
-          example: 2020-10-11 00:00:00+00:00
+          x-konfig-original-example: bank account (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-bank_account
+        last_change:
+          example: 2020-09-10
           type: string
-          x-konfig-original-example: 2020-10-11 00:00:00+00:00
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-termination_date
-        employment_status:
-          example: Full-time
-          type: string
-          x-konfig-original-example: Full-time
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employment_status
-        contract_type:
-          example: contract type (custom_field)
-          type: string
-          x-konfig-original-example: contract type (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-contract_type
+          x-konfig-original-example: 2020-09-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-last_change
         status:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-status
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-status
+      type: object
+    IntegrationsSendBonusesToVikarinaResponse:
+      example:
+        data:
+          compensation_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          type: Bonus
+          start_date: 2020-09-10
+          end_date: 2020-10-10
+          amount: 1000
+          status: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/IntegrationsSendBonusesToVikarinaResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          compensation_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          type: Bonus
+          start_date: 2020-09-10
+          end_date: 2020-10-10
+          amount: 1000
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsSendBonusesToVikarinaResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferBankAccountInfoResponse:
+      example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          bank_code: bank code (custom_field)
+          bank_account: bank account (custom_field)
+          last_change: 2020-09-10
+          status: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferBankAccountInfoResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          bank_code: bank code (custom_field)
+          bank_account: bank account (custom_field)
+          last_change: 2020-09-10
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferContractInformationToVikarinaResponse:
+      example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          work_start_date: 2020-10-10 00:00:00+00:00
+          contract_number: contract number (custom_field)
+          termination_date: 2020-10-11 00:00:00+00:00
+          employment_status: Full-time
+          contract_type: contract type (custom_field)
+          status: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferContractInformationToVikarinaResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          work_start_date: 2020-10-10 00:00:00+00:00
+          contract_number: contract number (custom_field)
+          termination_date: 2020-10-11 00:00:00+00:00
+          employment_status: Full-time
+          contract_type: contract type (custom_field)
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferTerminationInfoToVikarinaResponse_data:
+      properties:
+        employee_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-employee_id
+        employee_number:
+          example: 123
+          type: number
+          x-konfig-original-example: 123
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-employee_number
+        contract_number:
+          example: contract number (custom_field)
+          type: string
+          x-konfig-original-example: contract number (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-contract_number
+        termination_date:
+          example: 2020-09-10
+          type: string
+          x-konfig-original-example: 2020-09-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_date
+        termination_reason:
+          example: New job
+          type: string
+          x-konfig-original-example: New job
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_reason
+        unused_days:
+          example: 5
+          type: number
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-unused_days
+        termination_comment:
+          example: Was good employee
+          type: string
+          x-konfig-original-example: Was good employee
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_comment
+        compensation:
+          example: 1000
+          type: number
+          x-konfig-original-example: 1000
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-compensation
+        status:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-status
+      type: object
+    IntegrationsTransferJobPositionFromSageToVikarinaResponse:
+      example:
+        data:
+          title: Job title
+          id: 1
+          status: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferJobPositionFromSageToVikarinaResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          title: Job title
+          id: 1
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferTimeScheduleInformationResponse_data:
+      properties:
+        employee_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-employee_id
+        employee_number:
+          example: 123
+          type: number
+          x-konfig-original-example: 123
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-employee_number
+        date:
+          example: 2020-10-10
+          type: string
+          x-konfig-original-example: 2020-10-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-date
+        stand_by:
+          example: 8
+          type: number
+          x-konfig-original-example: 8
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-stand_by
+        hours:
+          example: 8.5
+          type: number
+          x-konfig-original-example: 8.5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-hours
+        nightours:
+          example: 0.5
+          type: number
+          x-konfig-original-example: 0.5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-nightours
+        cost_center_code:
+          example: cost center code (custom field)
+          type: string
+          x-konfig-original-example: cost center code (custom field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-cost_center_code
+        overtime_title:
+          example: 0.5
+          type: number
+          x-konfig-original-example: 0.5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-overtime_title
+        status:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-status
       type: object
     IntegrationsTransferSalaryInformationResponse_data:
       properties:
@@ -637,213 +764,127 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferSalaryInformationResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferBankAccountInfoResponse:
+    IntegrationsTransferAppointmentInfoResponse:
       example:
         data:
           employee_id: 1
           employee_number: 123
-          bank_code: bank code (custom_field)
-          bank_account: bank account (custom_field)
-          last_change: 2020-09-10
+          work_start_date: 2020-01-10
+          position_start_date: 2020-10-10
+          last_position_end_date: 2020-09-10
+          cost_center_code: cost center code (custom_field)
+          position_id: 1
+          schedule_id: scheduled id (custom_field)
+          employment_status: Full-time
+          job_type: job type (custom_field)
           status: 1
       properties:
         data:
-          $ref: '#/components/schemas/IntegrationsTransferBankAccountInfoResponse_data'
+          $ref: '#/components/schemas/IntegrationsTransferAppointmentInfoResponse_data'
       type: object
       x-konfig-original-example:
         data:
           employee_id: 1
           employee_number: 123
-          bank_code: bank code (custom_field)
-          bank_account: bank account (custom_field)
-          last_change: 2020-09-10
+          work_start_date: 2020-01-10
+          position_start_date: 2020-10-10
+          last_position_end_date: 2020-09-10
+          cost_center_code: cost center code (custom_field)
+          position_id: 1
+          schedule_id: scheduled id (custom_field)
+          employment_status: Full-time
+          job_type: job type (custom_field)
           status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse
       x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse_data:
+    IntegrationsTransferSalaryInformationResponse:
+      example:
+        data:
+          compensation_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          type: Salary
+          start_date: 2020-09-10
+          end_date: 2020-10-10
+          amount: 1000
+          status: 1
       properties:
-        employee_id:
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferSalaryInformationResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          compensation_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          type: Salary
+          start_date: 2020-09-10
+          end_date: 2020-10-10
+          amount: 1000
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferSalaryInformationResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferJobPositionFromSageToVikarinaResponse_data:
+      properties:
+        title:
+          example: Job title
+          type: string
+          x-konfig-original-example: Job title
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-title
+        id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-employee_id
-        department_code:
-          example: department code (custom_field)
-          type: string
-          x-konfig-original-example: department code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-department_code
-        department_name:
-          example: department name (custom_field)
-          type: string
-          x-konfig-original-example: department name (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-department_name
-        section_code:
-          example: section code (custom_field)
-          type: string
-          x-konfig-original-example: section code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-section_code
-        section_title:
-          example: section title (custom_field)
-          type: string
-          x-konfig-original-example: section title (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-section_title
-        subsection_code:
-          example: subsection code (custom_field)
-          type: string
-          x-konfig-original-example: subsection code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-subsection_code
-        subsection_title:
-          example: Test Team
-          type: string
-          x-konfig-original-example: Test Team
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-subsection_title
-        cost_center_code:
-          example: cost center code (custom_field)
-          type: string
-          x-konfig-original-example: cost center code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-cost_center_code
-        cost_center_title:
-          example: cost center tile (custom_field)
-          type: string
-          x-konfig-original-example: cost center tile (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-cost_center_title
-        work_address:
-          example: employee address (custom_field)
-          type: string
-          x-konfig-original-example: employee address (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-work_address
-        work_city:
-          example: employee city (custom_field)
-          type: string
-          x-konfig-original-example: employee city (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-work_city
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-id
         status:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-status
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferJobPositionFromSageToVikarinaResponse:
-      example:
-        data:
-          title: Job title
-          id: 1
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferJobPositionFromSageToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          title: Job title
-          id: 1
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferJobPositionFromSageToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferUnusedVacationDaysToVikarinaResponse:
-      example:
-        data:
-          employee_id: 1
-          employee_number: 123
-          unused_days: 5
-          date: 2020-10-10
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferUnusedVacationDaysToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          employee_id: 1
-          employee_number: 123
-          unused_days: 5
-          date: 2020-10-10
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferAppointmentInfoResponse_data:
+    IntegrationsTransferContractInformationToVikarinaResponse_data:
       properties:
         employee_id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employee_id
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employee_id
         employee_number:
           example: 123
           type: number
           x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employee_number
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employee_number
         work_start_date:
-          example: 2020-01-10
+          example: 2020-10-10 00:00:00+00:00
           type: string
-          x-konfig-original-example: 2020-01-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-work_start_date
-        position_start_date:
-          example: 2020-10-10
+          x-konfig-original-example: 2020-10-10 00:00:00+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-work_start_date
+        contract_number:
+          example: contract number (custom_field)
           type: string
-          x-konfig-original-example: 2020-10-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-position_start_date
-        last_position_end_date:
-          example: 2020-09-10
+          x-konfig-original-example: contract number (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-contract_number
+        termination_date:
+          example: 2020-10-11 00:00:00+00:00
           type: string
-          x-konfig-original-example: 2020-09-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-last_position_end_date
-        cost_center_code:
-          example: cost center code (custom_field)
-          type: string
-          x-konfig-original-example: cost center code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-cost_center_code
-        position_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-position_id
-        schedule_id:
-          example: scheduled id (custom_field)
-          type: string
-          x-konfig-original-example: scheduled id (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-schedule_id
+          x-konfig-original-example: 2020-10-11 00:00:00+00:00
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-termination_date
         employment_status:
           example: Full-time
           type: string
           x-konfig-original-example: Full-time
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employment_status
-        job_type:
-          example: job type (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-employment_status
+        contract_type:
+          example: contract type (custom_field)
           type: string
-          x-konfig-original-example: job type (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-job_type
+          x-konfig-original-example: contract type (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-contract_type
         status:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-status
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferLeaveInformationToVikarinaResponse:
-      example:
-        data:
-          calendar_event_id: 1
-          employee_number: 123
-          leave_type: Vacation
-          days: 2
-          start_date: 2020-10-10
-          end_date: 2020-10-10
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferLeaveInformationToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          calendar_event_id: 1
-          employee_number: 123
-          leave_type: Vacation
-          days: 2
-          start_date: 2020-10-10
-          end_date: 2020-10-10
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferLeaveInformationToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
     IntegrationsTransferLeaveInformationToVikarinaResponse_data:
       properties:
         calendar_event_id:
@@ -882,35 +923,88 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferLeaveInformationToVikarinaResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferTerminationInfoToVikarinaResponse:
+    IntegrationsTransferTimeScheduleInformationResponse:
       example:
         data:
           employee_id: 1
           employee_number: 123
-          contract_number: contract number (custom_field)
-          termination_date: 2020-09-10
-          termination_reason: New job
-          unused_days: 5
-          termination_comment: Was good employee
-          compensation: 1000
+          date: 2020-10-10
+          stand_by: 8
+          hours: 8.5
+          nightours: 0.5
+          cost_center_code: cost center code (custom field)
+          overtime_title: 0.5
           status: 1
       properties:
         data:
-          $ref: '#/components/schemas/IntegrationsTransferTerminationInfoToVikarinaResponse_data'
+          $ref: '#/components/schemas/IntegrationsTransferTimeScheduleInformationResponse_data'
       type: object
       x-konfig-original-example:
         data:
           employee_id: 1
           employee_number: 123
-          contract_number: contract number (custom_field)
-          termination_date: 2020-09-10
-          termination_reason: New job
-          unused_days: 5
-          termination_comment: Was good employee
-          compensation: 1000
+          date: 2020-10-10
+          stand_by: 8
+          hours: 8.5
+          nightours: 0.5
+          cost_center_code: cost center code (custom field)
+          overtime_title: 0.5
           status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse
       x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferLeaveInformationToVikarinaResponse:
+      example:
+        data:
+          calendar_event_id: 1
+          employee_number: 123
+          leave_type: Vacation
+          days: 2
+          start_date: 2020-10-10
+          end_date: 2020-10-10
+          status: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferLeaveInformationToVikarinaResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          calendar_event_id: 1
+          employee_number: 123
+          leave_type: Vacation
+          days: 2
+          start_date: 2020-10-10
+          end_date: 2020-10-10
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferLeaveInformationToVikarinaResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferUnusedVacationDaysToVikarinaResponse_data:
+      properties:
+        employee_id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-employee_id
+        employee_number:
+          example: 123
+          type: number
+          x-konfig-original-example: 123
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-employee_number
+        unused_days:
+          example: 5
+          type: number
+          x-konfig-original-example: 5
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-unused_days
+        date:
+          example: 2020-10-10
+          type: string
+          x-konfig-original-example: 2020-10-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-date
+        status:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-status
+      type: object
     IntegrationsImportNewStartersListResponse_data:
       properties:
         employee_id:
@@ -984,268 +1078,182 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsImportNewStartersListResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferSalaryInformationResponse:
-      example:
-        data:
-          compensation_id: 1
-          employee_number: 123
-          contract_number: contract number (custom_field)
-          type: Salary
-          start_date: 2020-09-10
-          end_date: 2020-10-10
-          amount: 1000
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferSalaryInformationResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          compensation_id: 1
-          employee_number: 123
-          contract_number: contract number (custom_field)
-          type: Salary
-          start_date: 2020-09-10
-          end_date: 2020-10-10
-          amount: 1000
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferSalaryInformationResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferBankAccountInfoResponse_data:
+    IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse_data:
       properties:
         employee_id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-employee_id
-        employee_number:
-          example: 123
-          type: number
-          x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-employee_number
-        bank_code:
-          example: bank code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-employee_id
+        department_code:
+          example: department code (custom_field)
           type: string
-          x-konfig-original-example: bank code (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-bank_code
-        bank_account:
-          example: bank account (custom_field)
+          x-konfig-original-example: department code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-department_code
+        department_name:
+          example: department name (custom_field)
           type: string
-          x-konfig-original-example: bank account (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-bank_account
-        last_change:
-          example: 2020-09-10
+          x-konfig-original-example: department name (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-department_name
+        section_code:
+          example: section code (custom_field)
           type: string
-          x-konfig-original-example: 2020-09-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-last_change
+          x-konfig-original-example: section code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-section_code
+        section_title:
+          example: section title (custom_field)
+          type: string
+          x-konfig-original-example: section title (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-section_title
+        subsection_code:
+          example: subsection code (custom_field)
+          type: string
+          x-konfig-original-example: subsection code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-subsection_code
+        subsection_title:
+          example: Test Team
+          type: string
+          x-konfig-original-example: Test Team
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-subsection_title
+        cost_center_code:
+          example: cost center code (custom_field)
+          type: string
+          x-konfig-original-example: cost center code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-cost_center_code
+        cost_center_title:
+          example: cost center tile (custom_field)
+          type: string
+          x-konfig-original-example: cost center tile (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-cost_center_title
+        work_address:
+          example: employee address (custom_field)
+          type: string
+          x-konfig-original-example: employee address (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-work_address
+        work_city:
+          example: employee city (custom_field)
+          type: string
+          x-konfig-original-example: employee city (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-work_city
         status:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferBankAccountInfoResponse-properties-data-properties-status
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse-properties-data-properties-status
       type: object
-    IntegrationsSendBonusesToVikarinaResponse:
-      example:
-        data:
-          compensation_id: 1
-          employee_number: 123
-          contract_number: contract number (custom_field)
-          type: Bonus
-          start_date: 2020-09-10
-          end_date: 2020-10-10
-          amount: 1000
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsSendBonusesToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          compensation_id: 1
-          employee_number: 123
-          contract_number: contract number (custom_field)
-          type: Bonus
-          start_date: 2020-09-10
-          end_date: 2020-10-10
-          amount: 1000
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsSendBonusesToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferContractInformationToVikarinaResponse:
-      example:
-        data:
-          employee_id: 1
-          employee_number: 123
-          work_start_date: 2020-10-10 00:00:00+00:00
-          contract_number: contract number (custom_field)
-          termination_date: 2020-10-11 00:00:00+00:00
-          employment_status: Full-time
-          contract_type: contract type (custom_field)
-          status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferContractInformationToVikarinaResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          employee_id: 1
-          employee_number: 123
-          work_start_date: 2020-10-10 00:00:00+00:00
-          contract_number: contract number (custom_field)
-          termination_date: 2020-10-11 00:00:00+00:00
-          employment_status: Full-time
-          contract_type: contract type (custom_field)
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferContractInformationToVikarinaResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferTimeScheduleInformationResponse_data:
+    IntegrationsTransferAppointmentInfoResponse_data:
       properties:
         employee_id:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-employee_id
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employee_id
         employee_number:
           example: 123
           type: number
           x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-employee_number
-        date:
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employee_number
+        work_start_date:
+          example: 2020-01-10
+          type: string
+          x-konfig-original-example: 2020-01-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-work_start_date
+        position_start_date:
           example: 2020-10-10
           type: string
           x-konfig-original-example: 2020-10-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-date
-        stand_by:
-          example: 8
-          type: number
-          x-konfig-original-example: 8
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-stand_by
-        hours:
-          example: 8.5
-          type: number
-          x-konfig-original-example: 8.5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-hours
-        nightours:
-          example: 0.5
-          type: number
-          x-konfig-original-example: 0.5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-nightours
-        cost_center_code:
-          example: cost center code (custom field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-position_start_date
+        last_position_end_date:
+          example: 2020-09-10
           type: string
-          x-konfig-original-example: cost center code (custom field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-cost_center_code
-        overtime_title:
-          example: 0.5
+          x-konfig-original-example: 2020-09-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-last_position_end_date
+        cost_center_code:
+          example: cost center code (custom_field)
+          type: string
+          x-konfig-original-example: cost center code (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-cost_center_code
+        position_id:
+          example: 1
           type: number
-          x-konfig-original-example: 0.5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-overtime_title
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-position_id
+        schedule_id:
+          example: scheduled id (custom_field)
+          type: string
+          x-konfig-original-example: scheduled id (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-schedule_id
+        employment_status:
+          example: Full-time
+          type: string
+          x-konfig-original-example: Full-time
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-employment_status
+        job_type:
+          example: job type (custom_field)
+          type: string
+          x-konfig-original-example: job type (custom_field)
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-job_type
         status:
           example: 1
           type: number
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse-properties-data-properties-status
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferAppointmentInfoResponse:
+    IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse:
       example:
         data:
           employee_id: 1
-          employee_number: 123
-          work_start_date: 2020-01-10
-          position_start_date: 2020-10-10
-          last_position_end_date: 2020-09-10
+          department_code: department code (custom_field)
+          department_name: department name (custom_field)
+          section_code: section code (custom_field)
+          section_title: section title (custom_field)
+          subsection_code: subsection code (custom_field)
+          subsection_title: Test Team
           cost_center_code: cost center code (custom_field)
-          position_id: 1
-          schedule_id: scheduled id (custom_field)
-          employment_status: Full-time
-          job_type: job type (custom_field)
+          cost_center_title: cost center tile (custom_field)
+          work_address: employee address (custom_field)
+          work_city: employee city (custom_field)
           status: 1
       properties:
         data:
-          $ref: '#/components/schemas/IntegrationsTransferAppointmentInfoResponse_data'
+          $ref: '#/components/schemas/IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse_data'
       type: object
       x-konfig-original-example:
         data:
           employee_id: 1
-          employee_number: 123
-          work_start_date: 2020-01-10
-          position_start_date: 2020-10-10
-          last_position_end_date: 2020-09-10
+          department_code: department code (custom_field)
+          department_name: department name (custom_field)
+          section_code: section code (custom_field)
+          section_title: section title (custom_field)
+          subsection_code: subsection code (custom_field)
+          subsection_title: Test Team
           cost_center_code: cost center code (custom_field)
-          position_id: 1
-          schedule_id: scheduled id (custom_field)
-          employment_status: Full-time
-          job_type: job type (custom_field)
+          cost_center_title: cost center tile (custom_field)
+          work_address: employee address (custom_field)
+          work_city: employee city (custom_field)
           status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferAppointmentInfoResponse
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferOrganizationalStructureFromSageToVikarinaResponse
       x-konfig-is-used-in-successful-response: true
-    IntegrationsImportNewStartersListResponse:
+    IntegrationsTransferUnusedVacationDaysToVikarinaResponse:
       example:
         data:
           employee_id: 1
           employee_number: 123
-          work_start_date: 2020-10-10 00:00:00+00:00
-          first_name: John
-          last_name: Doe
-          gender: male
-          personal_code: personal code (custom_field)
-          social_security_code: social security code (custom_field)
-          address: Street 1, City
-          home_city: employee home city (custom_field)
-          country_id: country id (GB)
-          npd: NPD
-          email: test@test.com
+          unused_days: 5
+          date: 2020-10-10
           status: 1
       properties:
         data:
-          $ref: '#/components/schemas/IntegrationsImportNewStartersListResponse_data'
+          $ref: '#/components/schemas/IntegrationsTransferUnusedVacationDaysToVikarinaResponse_data'
       type: object
       x-konfig-original-example:
         data:
           employee_id: 1
           employee_number: 123
-          work_start_date: 2020-10-10 00:00:00+00:00
-          first_name: John
-          last_name: Doe
-          gender: male
-          personal_code: personal code (custom_field)
-          social_security_code: social security code (custom_field)
-          address: Street 1, City
-          home_city: employee home city (custom_field)
-          country_id: country id (GB)
-          npd: NPD
-          email: test@test.com
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsImportNewStartersListResponse
-      x-konfig-is-used-in-successful-response: true
-    IntegrationsTransferTimeScheduleInformationResponse:
-      example:
-        data:
-          employee_id: 1
-          employee_number: 123
+          unused_days: 5
           date: 2020-10-10
-          stand_by: 8
-          hours: 8.5
-          nightours: 0.5
-          cost_center_code: cost center code (custom field)
-          overtime_title: 0.5
           status: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/IntegrationsTransferTimeScheduleInformationResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          employee_id: 1
-          employee_number: 123
-          date: 2020-10-10
-          stand_by: 8
-          hours: 8.5
-          nightours: 0.5
-          cost_center_code: cost center code (custom field)
-          overtime_title: 0.5
-          status: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTimeScheduleInformationResponse
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse
       x-konfig-is-used-in-successful-response: true
     IntegrationsSendBonusesToVikarinaResponse_data:
       properties:
@@ -1290,82 +1298,74 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsSendBonusesToVikarinaResponse-properties-data-properties-status
       type: object
-    IntegrationsTransferTerminationInfoToVikarinaResponse_data:
+    IntegrationsImportNewStartersListResponse:
+      example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          work_start_date: 2020-10-10 00:00:00+00:00
+          first_name: John
+          last_name: Doe
+          gender: male
+          personal_code: personal code (custom_field)
+          social_security_code: social security code (custom_field)
+          address: Street 1, City
+          home_city: employee home city (custom_field)
+          country_id: country id (GB)
+          npd: NPD
+          email: test@test.com
+          status: 1
       properties:
-        employee_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-employee_id
-        employee_number:
-          example: 123
-          type: number
-          x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-employee_number
-        contract_number:
-          example: contract number (custom_field)
-          type: string
-          x-konfig-original-example: contract number (custom_field)
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-contract_number
-        termination_date:
-          example: 2020-09-10
-          type: string
-          x-konfig-original-example: 2020-09-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_date
-        termination_reason:
-          example: New job
-          type: string
-          x-konfig-original-example: New job
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_reason
-        unused_days:
-          example: 5
-          type: number
-          x-konfig-original-example: 5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-unused_days
-        termination_comment:
-          example: Was good employee
-          type: string
-          x-konfig-original-example: Was good employee
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-termination_comment
-        compensation:
-          example: 1000
-          type: number
-          x-konfig-original-example: 1000
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-compensation
-        status:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse-properties-data-properties-status
+        data:
+          $ref: '#/components/schemas/IntegrationsImportNewStartersListResponse_data'
       type: object
-    IntegrationsTransferUnusedVacationDaysToVikarinaResponse_data:
+      x-konfig-original-example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          work_start_date: 2020-10-10 00:00:00+00:00
+          first_name: John
+          last_name: Doe
+          gender: male
+          personal_code: personal code (custom_field)
+          social_security_code: social security code (custom_field)
+          address: Street 1, City
+          home_city: employee home city (custom_field)
+          country_id: country id (GB)
+          npd: NPD
+          email: test@test.com
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsImportNewStartersListResponse
+      x-konfig-is-used-in-successful-response: true
+    IntegrationsTransferTerminationInfoToVikarinaResponse:
+      example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          termination_date: 2020-09-10
+          termination_reason: New job
+          unused_days: 5
+          termination_comment: Was good employee
+          compensation: 1000
+          status: 1
       properties:
-        employee_id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-employee_id
-        employee_number:
-          example: 123
-          type: number
-          x-konfig-original-example: 123
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-employee_number
-        unused_days:
-          example: 5
-          type: number
-          x-konfig-original-example: 5
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-unused_days
-        date:
-          example: 2020-10-10
-          type: string
-          x-konfig-original-example: 2020-10-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-date
-        status:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferUnusedVacationDaysToVikarinaResponse-properties-data-properties-status
+        data:
+          $ref: '#/components/schemas/IntegrationsTransferTerminationInfoToVikarinaResponse_data'
       type: object
+      x-konfig-original-example:
+        data:
+          employee_id: 1
+          employee_number: 123
+          contract_number: contract number (custom_field)
+          termination_date: 2020-09-10
+          termination_reason: New job
+          unused_days: 5
+          termination_comment: Was good employee
+          compensation: 1000
+          status: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-IntegrationsTransferTerminationInfoToVikarinaResponse
+      x-konfig-is-used-in-successful-response: true
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

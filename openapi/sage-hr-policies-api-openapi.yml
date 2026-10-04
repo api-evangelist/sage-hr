@@ -140,29 +140,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    LeaveManagementGetKitDaysResponse_data_inner:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
-        status:
-          example: declined
-          type: string
-          x-konfig-original-example: declined
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
-        start_date:
-          example: 2021-03-09
-          type: string
-          x-konfig-original-example: 2021-03-09
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
-        end_date:
-          example: 2021-03-10
-          type: string
-          x-konfig-original-example: 2021-03-10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
-      type: object
     LeaveManagementCreateKitDayRequest:
       properties:
         policy_id:
@@ -193,46 +170,6 @@ components:
       - employee_id
       - policy_id
       type: object
-    LeaveManagementCreateKitDay422Response:
-      example:
-        error_code: validation_failed
-        errors:
-        - First error
-        - Second error
-      properties:
-        error_code:
-          example: validation_failed
-          type: string
-          x-konfig-original-example: validation_failed
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
-        errors:
-          items:
-            example: First error
-            type: string
-            x-konfig-original-example: First error
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        error_code: validation_failed
-        errors:
-        - First error
-        - Second error
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
-      x-konfig-is-used-in-non-successful-response: true
-      x-do-not-generate: true
-    LeaveManagementProcessKitDayRequest:
-      properties:
-        status:
-          description: Action to apply to the specified KIT day
-          enum:
-          - cancel
-          - approve
-          - decline
-          type: string
-      required:
-      - status
-      type: object
     LeaveManagementCreateKitDayResponse_data_inner:
       properties:
         id:
@@ -241,21 +178,6 @@ components:
           x-konfig-original-example: 1
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse-properties-data-items-properties-id
       type: object
-    LeaveManagementCreateKitDayResponse:
-      example:
-        data:
-        - id: 1
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse
-      x-konfig-is-used-in-successful-response: true
     LeaveManagementGetKitDaysResponse:
       example:
         data:
@@ -284,6 +206,84 @@ components:
           start_date: 2021-03-09
           end_date: 2021-03-10
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse
+      x-konfig-is-used-in-successful-response: true
+    LeaveManagementGetKitDaysResponse_data_inner:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-id
+        status:
+          example: declined
+          type: string
+          x-konfig-original-example: declined
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-status
+        start_date:
+          example: 2021-03-09
+          type: string
+          x-konfig-original-example: 2021-03-09
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-start_date
+        end_date:
+          example: 2021-03-10
+          type: string
+          x-konfig-original-example: 2021-03-10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementGetKitDaysResponse-properties-data-items-properties-end_date
+      type: object
+    LeaveManagementProcessKitDayRequest:
+      properties:
+        status:
+          description: Action to apply to the specified KIT day
+          enum:
+          - cancel
+          - approve
+          - decline
+          type: string
+      required:
+      - status
+      type: object
+    LeaveManagementCreateKitDay422Response:
+      example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      properties:
+        error_code:
+          example: validation_failed
+          type: string
+          x-konfig-original-example: validation_failed
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-error_code
+        errors:
+          items:
+            example: First error
+            type: string
+            x-konfig-original-example: First error
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        error_code: validation_failed
+        errors:
+        - First error
+        - Second error
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDay422Response
+      x-konfig-is-used-in-non-successful-response: true
+      x-do-not-generate: true
+    LeaveManagementCreateKitDayResponse:
+      example:
+        data:
+        - id: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LeaveManagementCreateKitDayResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-LeaveManagementCreateKitDayResponse
       x-konfig-is-used-in-successful-response: true
   securitySchemes:
     api_key:

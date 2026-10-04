@@ -62,6 +62,52 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    TeamsListInCompanyResponse:
+      example:
+        data:
+        - id: 19
+          name: Sales
+          manager_ids:
+          - 1
+          - 2
+          employee_ids:
+          - 5
+          - 7
+          - 90
+        meta:
+          current_page: 1
+          next_page: 2
+          previous_page: null
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TeamsListInCompanyResponse_data_inner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/TeamsListInCompanyResponse_meta'
+      type: object
+      x-konfig-original-example:
+        data:
+        - id: 19
+          name: Sales
+          manager_ids:
+          - 1
+          - 2
+          employee_ids:
+          - 5
+          - 7
+          - 90
+        meta:
+          current_page: 1
+          next_page: 2
+          total_pages: 2
+          per_page: 50
+          total_entries: 75
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse
+      x-konfig-is-used-in-successful-response: true
     TeamsListInCompanyResponse_data_inner:
       properties:
         id:
@@ -124,52 +170,6 @@ components:
           x-konfig-original-example: 75
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse-properties-meta-properties-total_entries
       type: object
-    TeamsListInCompanyResponse:
-      example:
-        data:
-        - id: 19
-          name: Sales
-          manager_ids:
-          - 1
-          - 2
-          employee_ids:
-          - 5
-          - 7
-          - 90
-        meta:
-          current_page: 1
-          next_page: 2
-          previous_page: null
-          total_pages: 2
-          per_page: 50
-          total_entries: 75
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/TeamsListInCompanyResponse_data_inner'
-          type: array
-        meta:
-          $ref: '#/components/schemas/TeamsListInCompanyResponse_meta'
-      type: object
-      x-konfig-original-example:
-        data:
-        - id: 19
-          name: Sales
-          manager_ids:
-          - 1
-          - 2
-          employee_ids:
-          - 5
-          - 7
-          - 90
-        meta:
-          current_page: 1
-          next_page: 2
-          total_pages: 2
-          per_page: 50
-          total_entries: 75
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-TeamsListInCompanyResponse
-      x-konfig-is-used-in-successful-response: true
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

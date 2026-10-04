@@ -48,56 +48,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    TimesheetsClockInOutRequest:
-      example:
-        clocked_time:
-          YYYY/MM/DD:
-            employee_id:
-            - clock_in: clock_in
-              clock_out: clock_out
-            - clock_in: clock_in
-              clock_out: clock_out
-        override: override
-      properties:
-        override:
-          description: '''true'' if override provided days clocked entries'
-          type: string
-        clocked_time:
-          $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time'
-      type: object
-    TimesheetsClockInOutResponse:
-      example:
-        errors:
-        - error 1
-        - error 2
-      properties:
-        errors:
-          items:
-            example: error 1
-            type: string
-            x-konfig-original-example: error 1
-            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TimesheetsClockInOutResponse-properties-errors-items
-          type: array
-      type: object
-      x-konfig-original-example:
-        errors:
-        - error 1
-        - error 2
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-TimesheetsClockInOutResponse
-      x-konfig-is-used-in-successful-response: true
-    TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD:
-      example:
-        employee_id:
-        - clock_in: clock_in
-          clock_out: clock_out
-        - clock_in: clock_in
-          clock_out: clock_out
-      properties:
-        employee_id:
-          items:
-            $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner'
-          type: array
-      type: object
     TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner:
       example:
         clock_in: clock_in
@@ -121,6 +71,56 @@ components:
       properties:
         YYYY/MM/DD:
           $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD'
+      type: object
+    TimesheetsClockInOutResponse:
+      example:
+        errors:
+        - error 1
+        - error 2
+      properties:
+        errors:
+          items:
+            example: error 1
+            type: string
+            x-konfig-original-example: error 1
+            x-konfig-generated-schema: konfig-generated-schema-components-schemas-TimesheetsClockInOutResponse-properties-errors-items
+          type: array
+      type: object
+      x-konfig-original-example:
+        errors:
+        - error 1
+        - error 2
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-TimesheetsClockInOutResponse
+      x-konfig-is-used-in-successful-response: true
+    TimesheetsClockInOutRequest:
+      example:
+        clocked_time:
+          YYYY/MM/DD:
+            employee_id:
+            - clock_in: clock_in
+              clock_out: clock_out
+            - clock_in: clock_in
+              clock_out: clock_out
+        override: override
+      properties:
+        override:
+          description: '''true'' if override provided days clocked entries'
+          type: string
+        clocked_time:
+          $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time'
+      type: object
+    TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD:
+      example:
+        employee_id:
+        - clock_in: clock_in
+          clock_out: clock_out
+        - clock_in: clock_in
+          clock_out: clock_out
+      properties:
+        employee_id:
+          items:
+            $ref: '#/components/schemas/TimesheetsClockInOutRequest_clocked_time_YYYY_MM_DD_employee_id_inner'
+          type: array
       type: object
   securitySchemes:
     api_key:

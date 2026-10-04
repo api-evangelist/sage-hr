@@ -67,6 +67,40 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    OnboardingListTaskCategoriesResponse_data_inner:
+      properties:
+        title:
+          example: General
+          type: string
+          x-konfig-original-example: General
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse-properties-data-items-properties-title
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse-properties-data-items-properties-id
+      type: object
+    OnboardingListTaskCategoriesResponse:
+      example:
+        data:
+        - title: General
+          id: 1
+        - title: Platform
+          id: 2
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/OnboardingListTaskCategoriesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - title: General
+          id: 1
+        - title: Platform
+          id: 2
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse
+      x-konfig-is-used-in-successful-response: true
     OnboardingCreateNewTaskRequest:
       properties:
         title:
@@ -102,48 +136,6 @@ components:
       - due_in
       - title
       type: object
-    OnboardingCreateNewTaskResponse_data:
-      properties:
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingCreateNewTaskResponse-properties-data-properties-id
-      type: object
-    OnboardingListTaskCategoriesResponse_data_inner:
-      properties:
-        title:
-          example: General
-          type: string
-          x-konfig-original-example: General
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse-properties-data-items-properties-title
-        id:
-          example: 1
-          type: number
-          x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse-properties-data-items-properties-id
-      type: object
-    OnboardingListTaskCategoriesResponse:
-      example:
-        data:
-        - title: General
-          id: 1
-        - title: Platform
-          id: 2
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/OnboardingListTaskCategoriesResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - title: General
-          id: 1
-        - title: Platform
-          id: 2
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingListTaskCategoriesResponse
-      x-konfig-is-used-in-successful-response: true
     OnboardingCreateNewTaskResponse:
       example:
         data:
@@ -157,6 +149,14 @@ components:
           id: 1
       x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingCreateNewTaskResponse
       x-konfig-is-used-in-successful-response: true
+    OnboardingCreateNewTaskResponse_data:
+      properties:
+        id:
+          example: 1
+          type: number
+          x-konfig-original-example: 1
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-OnboardingCreateNewTaskResponse-properties-data-properties-id
+      type: object
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

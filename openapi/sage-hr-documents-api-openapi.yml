@@ -121,19 +121,6 @@ components:
           x-konfig-original-example: 10
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsListCategoriesResponse-properties-data-items-properties-documents_count
       type: object
-    DocumentsCreateNewDocumentResponse:
-      example:
-        data:
-          id: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse
-      x-konfig-is-used-in-successful-response: true
     DocumentsCreateNewDocumentRequest:
       properties:
         description:
@@ -156,6 +143,19 @@ components:
       - employee_id
       - file
       type: object
+    DocumentsCreateNewDocumentResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/DocumentsCreateNewDocumentResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-DocumentsCreateNewDocumentResponse
+      x-konfig-is-used-in-successful-response: true
   securitySchemes:
     api_key:
       description: All request are required to pass a `X-Auth-Token` header.

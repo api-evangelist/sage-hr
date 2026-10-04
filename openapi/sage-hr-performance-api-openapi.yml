@@ -140,6 +140,46 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    PerformanceGetQuarterlyIndividualGoalsResponse:
+      example:
+        data:
+        - name: John Doe
+          progress:
+            actual: 10
+            to_date: 34
+          goals:
+          - title: Optimize data storage
+            progress:
+              actual: 10
+              to_date: 34
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - name: John Doe
+          progress:
+            actual: 10
+            to_date: 34
+          goals:
+          - title: Optimize data storage
+            progress:
+              actual: 10
+              to_date: 34
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse
+      x-konfig-is-used-in-successful-response: true
+    PerformanceOverviewQuarterlyProgressResponse_data:
+      properties:
+        company:
+          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_company'
+        individual:
+          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_individual'
+        team:
+          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_team'
+      type: object
     PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner_progress:
       properties:
         actual:
@@ -153,27 +193,98 @@ components:
           x-konfig-original-example: 34
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-goals-items-properties-progress-properties-to_date
       type: object
-    PerformanceGetQuarterlyCompanyGoalsResponse:
+    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner:
+      properties:
+        name:
+          example: John Doe
+          type: string
+          x-konfig-original-example: John Doe
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-name
+        progress:
+          $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_progress'
+        goals:
+          items:
+            $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner'
+          type: array
+      type: object
+    PerformanceOverviewQuarterlyProgressResponse:
       example:
         data:
-        - title: Optimize data storage
-          progress:
-            actual: 10
-            to_date: 34
+          company:
+            adjusted: 18
+            actual: 15
+          individual:
+            adjusted: 31
+            actual: 26
+          team:
+            adjusted: 42
+            actual: 37
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/PerformanceGetQuarterlyCompanyGoalsResponse_data_inner'
-          type: array
+          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data'
       type: object
       x-konfig-original-example:
         data:
-        - title: Optimize data storage
-          progress:
-            actual: 10
-            to_date: 34
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse
+          company:
+            adjusted: 18
+            actual: 15
+          individual:
+            adjusted: 31
+            actual: 26
+          team:
+            adjusted: 42
+            actual: 37
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse
       x-konfig-is-used-in-successful-response: true
+    PerformanceOverviewQuarterlyProgressResponse_data_company:
+      properties:
+        adjusted:
+          example: 18
+          type: number
+          x-konfig-original-example: 18
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-company-properties-adjusted
+        actual:
+          example: 15
+          type: number
+          x-konfig-original-example: 15
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-company-properties-actual
+      type: object
+    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner:
+      properties:
+        title:
+          example: Optimize data storage
+          type: string
+          x-konfig-original-example: Optimize data storage
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-title
+        progress:
+          $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner_progress'
+      type: object
+    PerformanceGetQuarterlyCompanyGoalsResponse_data_inner_progress:
+      properties:
+        actual:
+          example: 10
+          type: number
+          x-konfig-original-example: 10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-progress-properties-actual
+        to_date:
+          example: 34
+          type: number
+          x-konfig-original-example: 34
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-progress-properties-to_date
+      type: object
+    PerformanceGetQuarterlyTeamGoalsResponse_data_inner_progress:
+      properties:
+        actual:
+          example: 10
+          type: number
+          x-konfig-original-example: 10
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-progress-properties-actual
+        to_date:
+          example: 34
+          type: number
+          x-konfig-original-example: 34
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-progress-properties-to_date
+      type: object
     PerformanceGetQuarterlyTeamGoalsResponse:
       example:
         data:
@@ -219,20 +330,6 @@ components:
             $ref: '#/components/schemas/PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner'
           type: array
       type: object
-    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner:
-      properties:
-        name:
-          example: John Doe
-          type: string
-          x-konfig-original-example: John Doe
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-name
-        progress:
-          $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_progress'
-        goals:
-          items:
-            $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner'
-          type: array
-      type: object
     PerformanceOverviewQuarterlyProgressResponse_data_team:
       properties:
         adjusted:
@@ -246,18 +343,49 @@ components:
           x-konfig-original-example: 37
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-team-properties-actual
       type: object
-    PerformanceGetQuarterlyTeamGoalsResponse_data_inner_progress:
+    PerformanceGetQuarterlyCompanyGoalsResponse:
+      example:
+        data:
+        - title: Optimize data storage
+          progress:
+            actual: 10
+            to_date: 34
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PerformanceGetQuarterlyCompanyGoalsResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - title: Optimize data storage
+          progress:
+            actual: 10
+            to_date: 34
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse
+      x-konfig-is-used-in-successful-response: true
+    PerformanceGetQuarterlyCompanyGoalsResponse_data_inner:
+      properties:
+        title:
+          example: Optimize data storage
+          type: string
+          x-konfig-original-example: Optimize data storage
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-title
+        progress:
+          $ref: '#/components/schemas/PerformanceGetQuarterlyCompanyGoalsResponse_data_inner_progress'
+      type: object
+    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner_progress:
       properties:
         actual:
           example: 10
           type: number
           x-konfig-original-example: 10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-progress-properties-actual
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-progress-properties-actual
         to_date:
           example: 34
           type: number
           x-konfig-original-example: 34
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-progress-properties-to_date
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-progress-properties-to_date
       type: object
     PerformanceOverviewQuarterlyProgressResponse_data_individual:
       properties:
@@ -272,26 +400,6 @@ components:
           x-konfig-original-example: 26
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-individual-properties-actual
       type: object
-    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner:
-      properties:
-        title:
-          example: Optimize data storage
-          type: string
-          x-konfig-original-example: Optimize data storage
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-title
-        progress:
-          $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner_progress'
-      type: object
-    PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner:
-      properties:
-        title:
-          example: Optimize data storage
-          type: string
-          x-konfig-original-example: Optimize data storage
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-goals-items-properties-title
-        progress:
-          $ref: '#/components/schemas/PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner_progress'
-      type: object
     PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_progress:
       properties:
         actual:
@@ -305,123 +413,15 @@ components:
           x-konfig-original-example: 34
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-progress-properties-to_date
       type: object
-    PerformanceOverviewQuarterlyProgressResponse:
-      example:
-        data:
-          company:
-            adjusted: 18
-            actual: 15
-          individual:
-            adjusted: 31
-            actual: 26
-          team:
-            adjusted: 42
-            actual: 37
-      properties:
-        data:
-          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          company:
-            adjusted: 18
-            actual: 15
-          individual:
-            adjusted: 31
-            actual: 26
-          team:
-            adjusted: 42
-            actual: 37
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse
-      x-konfig-is-used-in-successful-response: true
-    PerformanceOverviewQuarterlyProgressResponse_data:
-      properties:
-        company:
-          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_company'
-        individual:
-          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_individual'
-        team:
-          $ref: '#/components/schemas/PerformanceOverviewQuarterlyProgressResponse_data_team'
-      type: object
-    PerformanceGetQuarterlyCompanyGoalsResponse_data_inner:
+    PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner:
       properties:
         title:
           example: Optimize data storage
           type: string
           x-konfig-original-example: Optimize data storage
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-title
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyTeamGoalsResponse-properties-data-items-properties-goals-items-properties-title
         progress:
-          $ref: '#/components/schemas/PerformanceGetQuarterlyCompanyGoalsResponse_data_inner_progress'
-      type: object
-    PerformanceGetQuarterlyIndividualGoalsResponse:
-      example:
-        data:
-        - name: John Doe
-          progress:
-            actual: 10
-            to_date: 34
-          goals:
-          - title: Optimize data storage
-            progress:
-              actual: 10
-              to_date: 34
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PerformanceGetQuarterlyIndividualGoalsResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - name: John Doe
-          progress:
-            actual: 10
-            to_date: 34
-          goals:
-          - title: Optimize data storage
-            progress:
-              actual: 10
-              to_date: 34
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse
-      x-konfig-is-used-in-successful-response: true
-    PerformanceGetQuarterlyIndividualGoalsResponse_data_inner_goals_inner_progress:
-      properties:
-        actual:
-          example: 10
-          type: number
-          x-konfig-original-example: 10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-progress-properties-actual
-        to_date:
-          example: 34
-          type: number
-          x-konfig-original-example: 34
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyIndividualGoalsResponse-properties-data-items-properties-goals-items-properties-progress-properties-to_date
-      type: object
-    PerformanceGetQuarterlyCompanyGoalsResponse_data_inner_progress:
-      properties:
-        actual:
-          example: 10
-          type: number
-          x-konfig-original-example: 10
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-progress-properties-actual
-        to_date:
-          example: 34
-          type: number
-          x-konfig-original-example: 34
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceGetQuarterlyCompanyGoalsResponse-properties-data-items-properties-progress-properties-to_date
-      type: object
-    PerformanceOverviewQuarterlyProgressResponse_data_company:
-      properties:
-        adjusted:
-          example: 18
-          type: number
-          x-konfig-original-example: 18
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-company-properties-adjusted
-        actual:
-          example: 15
-          type: number
-          x-konfig-original-example: 15
-          x-konfig-generated-schema: konfig-generated-schema-components-schemas-PerformanceOverviewQuarterlyProgressResponse-properties-data-properties-company-properties-actual
+          $ref: '#/components/schemas/PerformanceGetQuarterlyTeamGoalsResponse_data_inner_goals_inner_progress'
       type: object
   securitySchemes:
     api_key:
