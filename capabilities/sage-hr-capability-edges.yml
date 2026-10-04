@@ -1,0 +1,109 @@
+slug: sage-hr
+provider: Sage HR
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 10
+edges:
+- tag: Recruitment
+  spec_file: sage-hr-recruitment-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.95
+  evidence: GET /recruitment/positions/{id}/applicants  Recruitment_listApplicants  List applicants; RecruitmentGetPositionDetailsResponse_data_hiring_team_inner
+  reason: Applicant tracking against open hiring positions is Talent Acquisition Management.
+- tag: Employee
+  spec_file: sage-hr-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.9
+  evidence: POST /employees  Employee_createNewEmployee; POST /employees/{id}/terminations  Employee_terminateEmployee;
+    GET /employees/{id}/compensations
+  reason: Core employee master record CRUD, custom fields, terminations and compensation retrieval in
+    an HRIS — classic HR Operations / employee records management.
+- tag: Performance
+  spec_file: sage-hr-performance-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.82
+  evidence: GET /performance/goals/quarterly-progress/individual-goals  Performance_getQuarterlyIndividualGoals
+  reason: Employee/team/company goal progress tracking within an HRIS performance module maps to Talent
+    Management (performance, development), not enterprise OKR strategy tooling.
+- tag: Leave Management
+  spec_file: sage-hr-leave-management-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: GET /leave-management/policies  List time off policies; POST /leave-management/requests  Create
+    new time off request; Employee time off balances
+  reason: Time-off policy, request, balance and absence reporting administration is HR service delivery/employee
+    absence administration within Human Capital Management.
+- tag: Onboarding
+  spec_file: sage-hr-onboarding-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /onboarding/tasks  Onboarding_createNewTask  Create new onboarding task; GET /onboarding/categories
+    List onboarding task categories
+  reason: Operations create and categorise employee onboarding tasks in an HRIS, which is the onboarding
+    portion of Talent Acquisition Management.
+- tag: Integrations
+  spec_file: sage-hr-integrations-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /vikarina/salaries  Integrations_transferSalaryInformation; POST /vikarina/terminated-employees  Transfer
+    termination information; POST /vikarina/bonuses
+  reason: Despite the generic 'Integrations' tag, the operations transfer employee, salary, contract,
+    leave and termination data to a payroll partner — HR operations/payroll administration data exchange.
+- tag: KIT days
+  spec_file: sage-hr-kit-days-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /leave-management/kit-days  LeaveManagement_createKitDay  Create a KIT day in a leave;
+    PATCH ... Approve, decline or cancel a KIT day
+  reason: Keeping-In-Touch days during maternity leave are administered under time-off policies — HR operations/leave
+    administration. Sub-capability choice is somewhat ambiguous between HR Operations and benefits.
+- tag: Offboarding
+  spec_file: sage-hr-offboarding-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /offboarding/tasks  Offboarding_createTask  Create new offboarding task
+  reason: Employee offboarding task workflow is part of the employee lifecycle administration handled
+    by HR operations; no dedicated offboarding sub-capability exists in the list.
+- tag: Timesheets
+  spec_file: sage-hr-timesheets-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /timesheets/clock-in  Timesheets_clockInOut  Clock in & out employees on specific days
+  reason: Employee time capture in an HRIS is HR operations (time and attendance feeding payroll administration).
+- tag: Policies
+  spec_file: sage-hr-policies-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: GET /leave-management/kit-days  LeaveManagement_getKitDays  View all the KIT days of an employee
+    in a policy
+  reason: Despite the 'Policies' tag, the operations manage leave (keep-in-touch days) for employees under
+    leave policies — HR operations/administration, not corporate policy management.
