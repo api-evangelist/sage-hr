@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-25 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-25'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -150,3 +155,60 @@ notes:
     sage.hr/pricing at the time of procurement.
   - Modules are additive; the API itself is included with every Sage HR subscription tier.
   - The Recruitment add-on is priced per open position rather than per employee, which is unusual for HRIS pricing.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  - subscription
+  units:
+  - seat
+  plans:
+  - name: Core HR + Leave Management
+    access: other
+    model: seat
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Performance Management (Add-on)
+    access: addon
+    model: seat
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Recruitment (Add-on)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Shift Scheduling (Add-on)
+    access: addon
+    model: seat
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Timesheets (Add-on)
+    access: addon
+    model: seat
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Expenses (Add-on)
+    access: addon
+    model: seat
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
