@@ -67,40 +67,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    OffboardingCreateTaskResponse:
-      example:
-        data:
-          id: 1
-      properties:
-        data:
-          $ref: '#/components/schemas/OffboardingCreateTaskResponse_data'
-      type: object
-      x-konfig-original-example:
-        data:
-          id: 1
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingCreateTaskResponse
-      x-konfig-is-used-in-successful-response: true
-    OffboardingListCategoriesResponse:
-      example:
-        data:
-        - title: General
-          id: 1
-        - title: Platform
-          id: 2
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/OffboardingListCategoriesResponse_data_inner'
-          type: array
-      type: object
-      x-konfig-original-example:
-        data:
-        - title: General
-          id: 1
-        - title: Platform
-          id: 2
-      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse
-      x-konfig-is-used-in-successful-response: true
     OffboardingCreateTaskResponse_data:
       properties:
         id:
@@ -141,6 +107,40 @@ components:
       - due_in
       - title
       type: object
+    OffboardingCreateTaskResponse:
+      example:
+        data:
+          id: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/OffboardingCreateTaskResponse_data'
+      type: object
+      x-konfig-original-example:
+        data:
+          id: 1
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingCreateTaskResponse
+      x-konfig-is-used-in-successful-response: true
+    OffboardingListCategoriesResponse:
+      example:
+        data:
+        - title: General
+          id: 1
+        - title: Platform
+          id: 2
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/OffboardingListCategoriesResponse_data_inner'
+          type: array
+      type: object
+      x-konfig-original-example:
+        data:
+        - title: General
+          id: 1
+        - title: Platform
+          id: 2
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-OffboardingListCategoriesResponse
+      x-konfig-is-used-in-successful-response: true
     OffboardingListCategoriesResponse_data_inner:
       properties:
         title:
