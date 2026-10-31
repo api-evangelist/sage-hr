@@ -1,4 +1,4 @@
-# Sage HR (sage-hr)
+# Sage HR
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,227 +66,161 @@
 
 Sage HR (formerly CakeHR) is a cloud HRIS for small and mid-sized businesses, owned by Sage Group plc. It bundles core HR records, leave management, performance, recruitment (ATS), timesheets, shift scheduling, expenses, and onboarding/offboarding into a modular per-employee SaaS. The Sage HR REST API at apidoc.sage.hr exposes 53 operations across employees, leave, recruitment, performance, timesheets, documents, onboarding, offboarding, organization, and a Vikarina payroll integration bridge. Authentication is a tenant-scoped X-Auth-Token API key against the customer's own subdomain (https://{subdomain}.sage.hr/api).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sage-hr/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sage-hr/refs/heads/main/apis.yml)
+**Areas:** Human Resources · HRIS · People · Small Business · Leave Management · Recruiting · Performance · Timesheets · Onboarding
 
-## Scope
+## Sage HR on APIs.io
 
-- **Access:** 3rd-Party
+Everything profiled for Sage HR is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sage-hr/](https://apis.io/providers/sage-hr/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (14)
 
-- HR
-- HRIS
-- People
-- SMB
-- Leave Management
-- Recruitment
-- Performance
-- Timesheets
-- Onboarding
+- [Sage HR Documents API](https://apis.io/apis/sage-hr/sage-hr-documents-api/) — The Documents API from Sage HR — 2 operation(s) for documents.
+- [Sage HR Employee API](https://apis.io/apis/sage-hr/sage-hr-employee-api/) — The Employee API from Sage HR — 9 operation(s) for employee.
+- [Sage HR Integrations API](https://apis.io/apis/sage-hr/sage-hr-integrations-api/) — The Integrations API from Sage HR — 12 operation(s) for integrations.
+- [Sage HR KIT days API](https://apis.io/apis/sage-hr/sage-hr-kit-days-api/) — The KIT days API from Sage HR — 3 operation(s) for kit days.
+- [Sage HR Leave management API](https://apis.io/apis/sage-hr/sage-hr-leave-management-api/) — The Leave management API from Sage HR — 8 operation(s) for leave management.
+- [Sage HR Offboarding API](https://apis.io/apis/sage-hr/sage-hr-offboarding-api/) — The Offboarding API from Sage HR — 2 operation(s) for offboarding.
+- [Sage HR Onboarding API](https://apis.io/apis/sage-hr/sage-hr-onboarding-api/) — The Onboarding API from Sage HR — 2 operation(s) for onboarding.
+- [Sage HR Performance API](https://apis.io/apis/sage-hr/sage-hr-performance-api/) — The Performance API from Sage HR — 4 operation(s) for performance.
+- [Sage HR Policies API](https://apis.io/apis/sage-hr/sage-hr-policies-api/) — The Policies API from Sage HR — 2 operation(s) for policies.
+- [Sage HR Positions API](https://apis.io/apis/sage-hr/sage-hr-positions-api/) — The Positions API from Sage HR — 1 operation(s) for positions.
+- [Sage HR Recruitment API](https://apis.io/apis/sage-hr/sage-hr-recruitment-api/) — The Recruitment API from Sage HR — 5 operation(s) for recruitment.
+- [Sage HR Teams API](https://apis.io/apis/sage-hr/sage-hr-teams-api/) — The Teams API from Sage HR — 1 operation(s) for teams.
+- [Sage HR Terminations reasons API](https://apis.io/apis/sage-hr/sage-hr-terminations-reasons-api/) — The Terminations reasons API from Sage HR — 1 operation(s) for terminations reasons.
+- [Sage HR Timesheets API](https://apis.io/apis/sage-hr/sage-hr-timesheets-api/) — The Timesheets API from Sage HR — 1 operation(s) for timesheets.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Sage HR Employee API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Manage the employee directory in Sage HR — list active and terminated employees, fetch an employee by ID, create new employees, update employee records and custom fields, retrieve compensation history, and process terminations. Backed by the /employees and /terminated-employees resource trees.
+- [Sage Hr Agentic Access](https://apis.io/agentic-access/sage-hr/sage-hr-agentic-access/)
 
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- HR
-- HRIS
-- Employees
-- People
+- [Sage HR Employee](https://apis.io/schemas/sage-hr/sage-hr-employee/)
 
-#### Properties
+#### JSON-LD (1)
 
+Linked-data contexts for the provider's vocabulary.
+
+- [Sage Hr Context](https://apis.io/jsonld/sage-hr/sage-hr-context/)
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [Sage HR API](https://apis.io/collections/sage-hr/open-sage-hr/)
+- [Sage HR Documents API](https://apis.io/collections/sage-hr/open-sage-hr-documents-api/)
+- [Sage HR Documents Employee API](https://apis.io/collections/sage-hr/open-sage-hr-employee-api/)
+- [Sage HR Documents Integrations API](https://apis.io/collections/sage-hr/open-sage-hr-integrations-api/)
+- [Sage HR Documents KIT days API](https://apis.io/collections/sage-hr/open-sage-hr-kit-days-api/)
+- [Sage HR Documents Leave management API](https://apis.io/collections/sage-hr/open-sage-hr-leave-management-api/)
+- [Sage HR Documents Offboarding API](https://apis.io/collections/sage-hr/open-sage-hr-offboarding-api/)
+- [Sage HR Documents Onboarding API](https://apis.io/collections/sage-hr/open-sage-hr-onboarding-api/)
+- [Sage HR Documents Performance API](https://apis.io/collections/sage-hr/open-sage-hr-performance-api/)
+- [Sage HR Documents Policies API](https://apis.io/collections/sage-hr/open-sage-hr-policies-api/)
+- [Sage HR Documents Positions API](https://apis.io/collections/sage-hr/open-sage-hr-positions-api/)
+- [Sage HR Documents Recruitment API](https://apis.io/collections/sage-hr/open-sage-hr-recruitment-api/)
+- [Sage HR Documents Teams API](https://apis.io/collections/sage-hr/open-sage-hr-teams-api/)
+- [Sage HR Documents Terminations reasons API](https://apis.io/collections/sage-hr/open-sage-hr-terminations-reasons-api/)
+- [Sage HR Documents Timesheets API](https://apis.io/collections/sage-hr/open-sage-hr-timesheets-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Sage HR — jsonschema rules](https://apis.io/rules/sage-hr/sage-hr-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sage Hr Authentication](https://apis.io/security/sage-hr/sage-hr-authentication/)
+- [Sage Hr Domain Security](https://apis.io/security/sage-hr/sage-hr-domain-security/)
+- [Sage Hr Vulnerability Disclosure](https://apis.io/security/sage-hr/sage-hr-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Sage Hr Plans Pricing](https://apis.io/plans/sage-hr/sage-hr-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Sage Hr Rate Limits](https://apis.io/rate-limits/sage-hr/sage-hr-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Sage Hr Finops](https://apis.io/finops/sage-hr/sage-hr-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://sage.hr)
 - [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/sage-hr-employee-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/sage-hr-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-### Sage HR Leave Management API
-
-Manage employee leave in Sage HR — list and inspect time-off policies, manage KIT (Keeping In Touch) days, query individual allowances and per-employee balances, list and create time-off requests, and retrieve the list of employees out of office today.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Leave
-- Time Off
-- PTO
-- Policies
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Recruitment API
-
-Sage HR's applicant tracking surface — list open recruitment positions, fetch position details, list and create applicants (including referrals), pull applicant detail records, and list pipeline actions against an applicant.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Recruitment
-- ATS
-- Applicants
-- Hiring
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Performance API
-
-Quarterly performance and goal reporting — overall quarterly progress overview plus drill-down endpoints for company-wide goals, team goals, and individual employee goals.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Performance
-- Goals
-- OKRs
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Timesheets API
-
-Programmatic clock-in / clock-out for Sage HR Timesheets via /timesheets/clock-in. Lets integrations capture punch events for time-tracked employees.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Timesheets
-- Time Tracking
-- Clock In
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Onboarding and Offboarding API
-
-List task categories and create onboarding and offboarding tasks for an employee lifecycle workflow. Backs /onboarding/categories, /onboarding/tasks, /offboarding/categories, and /offboarding/tasks.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Onboarding
-- Offboarding
-- Tasks
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Documents API
-
-List document categories and upload new employee or company documents to Sage HR. Multipart form-data upload via /documents.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Documents
-- Files
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Organization API
-
-Inspect the org structure — list company positions, list teams, and list available termination reasons. Read-only endpoints used to drive directory and dropdown surfaces in client apps.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Positions
-- Teams
-- Organization
-- Terminations
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Sage HR Vikarina Integrations API
-
-Sage HR → Vikarina payroll bridge. Transfer job positions, organizational structure, new-starter lists, contract information, appointments, salaries, bank accounts, terminations, unused vacation days, leave types, timesheets, and bonuses from Sage HR into Vikarina.
-
-- **Human URL:** [https://apidoc.sage.hr/](https://apidoc.sage.hr/)
-
-#### Tags
-
-- HR
-- Integrations
-- Vikarina
-- Payroll
-
-#### Properties
-
-- [Documentation](https://apidoc.sage.hr/)
-- [OpenAPI](openapi/sage-hr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-hr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-hr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://sage.hr/)
-- [Portal](https://www.sage.com/en-gb/sage-business-cloud/hr/)
-- [Documentation](https://apidoc.sage.hr/)
-- [Documentation](https://support.sage.hr/en/articles/3246469-how-does-cakehr-api-work)
-- [Support](https://support.sage.hr/)
 - [Pricing](https://sage.hr/pricing/)
-- [Integrations](https://sage.hr/integrations/)
-- [LinkedIn](https://www.linkedin.com/company/sage-hr/)
-- [Twitter](https://twitter.com/sagehr)
-- [Git Hub](https://github.com/Sage)
-- [Plans](plans/sage-hr-plans-pricing.yml)
-- [Rate Limits](rate-limits/sage-hr-rate-limits.yml)
-- [Fin Ops](finops/sage-hr-finops.yml)
+- [Support](https://support.sage.hr/)
+
+## API Evangelist rating
+
+**Kin Score 34.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 51.8 |
+| Contract quality | 52.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 26.3 |
+
+**Agent readiness 24.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sage-hr/](https://apis.io/providers/sage-hr/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sage HR: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sage-hr/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
